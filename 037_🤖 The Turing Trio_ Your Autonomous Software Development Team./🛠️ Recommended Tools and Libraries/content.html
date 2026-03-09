@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Content</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    max-width: 860px; margin: 0 auto; padding: 24px 20px;
+    color: #222; line-height: 1.6; background: #fff;
+  }
+  document { display: block; }
+  paragraph { display: block; margin: 0.6em 0; }
+  heading { display: block; font-weight: 700; margin: 1.2em 0 0.4em; }
+  heading[level="1"] { font-size: 1.6em; }
+  heading[level="2"] { font-size: 1.3em; }
+  heading[level="3"] { font-size: 1.1em; }
+  list { display: block; padding-left: 1.6em; margin: 0.5em 0; }
+  list[style="bullet"] { list-style-type: disc; }
+  list[style="number"] { list-style-type: decimal; }
+  list-item { display: list-item; margin: 0.25em 0; }
+  code { background: #f3f3f3; padding: 1px 5px; border-radius: 3px;
+          font-family: 'SF Mono', Menlo, monospace; font-size: .9em; }
+  pre, snippet { display: block; background: #1e1e1e; color: #d4d4d4;
+                  padding: 14px; border-radius: 6px; overflow-x: auto;
+                  font-family: 'SF Mono', Menlo, monospace; font-size: .85em;
+                  white-space: pre; margin: 0.8em 0; }
+  figure { display: block; margin: 1em 0; text-align: center; }
+  image { display: inline-block; max-width: 100%; }
+  image:before { content: ""; }
+  callout { display: block; background: #f0f4ff; border-left: 4px solid #6c47ff;
+             padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 0.8em 0; }
+  math { display: block; font-style: italic; margin: 0.5em 0; color: #444; }
+  table { border-collapse: collapse; width: 100%; margin: 0.8em 0; }
+  table-row { display: table-row; }
+  table-cell { display: table-cell; border: 1px solid #ddd; padding: 8px 10px; }
+  bold { font-weight: 700; }
+  italic { font-style: italic; }
+  underline { text-decoration: underline; }
+  link { color: #6c47ff; text-decoration: underline; cursor: pointer; }
+  hr { border: none; border-top: 1px solid #eee; margin: 1.2em 0; }
+</style>
+</head>
+<body>
+<document version="2.0"><heading level="3"><bold>1. Code Generation APIs (The Coder Agent)</bold></heading><paragraph>Your Coder Agent needs a powerful "brain." These APIs provide state-of-the-art models specifically trained for generating high-quality code.</paragraph><list style="unordered"><list-item><paragraph><bold><link href="https://platform.openai.com/docs/overview">OpenAI API (GPT-4o, GPT-3.5-Turbo)</link></bold></paragraph><list style="unordered"><list-item><paragraph><bold>Why it's great:</bold> Industry standard. GPT-4o offers exceptional reasoning and code generation capabilities. It's a reliable and powerful choice for your Coder and Tester agents.</paragraph></list-item></list></list-item><list-item><paragraph><bold><link href="https://ai.google.dev/">Google AI Platform (Gemini API)</link></bold></paragraph><list style="unordered"><list-item><paragraph><bold>Why it's great:</bold> Gemini models are highly capable at understanding complex instructions and generating accurate code. It's a fantastic, top-tier alternative to OpenAI.</paragraph></list-item></list></list-item><list-item><paragraph><bold><link href="https://www.google.com/search?q=https://docs.anthropic.com/claude/reference/messages_post&amp;authuser=1">Anthropic API (Claude 3 Family)</link></bold></paragraph><list style="unordered"><list-item><paragraph><bold>Why it's great:</bold> The Claude 3 models (especially Opus) are known for their excellent performance on coding benchmarks and large context windows, making them perfect for understanding complex programming tasks.</paragraph></list-item></list></list-item><list-item><paragraph><bold><link href="https://huggingface.co/codellama">Code Llama (via Hugging Face Inference API)</link></bold></paragraph><list style="unordered"><list-item><paragraph><bold>Why it's great:</bold> This is a family of open-source models specifically fine-tuned for code generation. Using it via the Hugging Face API is a fast way to integrate a specialized, open-source coding model.</paragraph></list-item></list></list-item><list-item><paragraph><bold><link href="https://replit.com/ghostwriter">Replit Ghostwriter API</link></bold></paragraph><list style="unordered"><list-item><paragraph><bold>Why it's great:</bold> While often used inside the Replit IDE, its underlying models are fine-tuned for the entire software development lifecycle, from generation to explanation. Check their docs for API availability.</paragraph></list-item></list></list-item></list><paragraph/><heading level="3"><bold>2. Testing &amp; Review Libraries (The Tester &amp; Reviewer Agents)</bold></heading><paragraph>This is the toolkit for your Reviewer Agent. These libraries will help it test for correctness, check for style, and provide actionable feedback.</paragraph><heading level="4"><bold>For Correctness &amp; Execution</bold></heading><list style="unordered"><list-item><paragraph><bold><link href="https://docs.python.org/3/library/unittest.html">unittest</link></bold></paragraph><list style="unordered"><list-item><paragraph><bold>Why it's great:</bold> It's built into Python! No installation is needed. It provides a solid framework for creating and running tests, making it a reliable and easy choice for the hackathon.</paragraph></list-item></list></list-item><list-item><paragraph><bold><link href="https://docs.pytest.org/">pytest</link></bold></paragraph><list style="unordered"><list-item><paragraph><bold>Why it's great:</bold> A powerful, popular alternative to <code>unittest</code>. Its syntax is often more concise and easier to read. While it requires an install (<code>pip install pytest</code>), many developers prefer it for its simplicity and powerful features.</paragraph></list-item></list></list-item></list><heading level="4"><bold>For Code Quality &amp; Style (Linting)</bold></heading><list style="unordered"><list-item><paragraph><bold><link href="https://docs.astral.sh/ruff/">Ruff</link></bold></paragraph><list style="unordered"><list-item><paragraph><bold>Why it's great:</bold> <bold>(Highly Recommended)</bold> Ruff is an extremely fast, modern Python linter written in Rust. It can replace <code>flake8</code>, <code>pylint</code>, <code>isort</code>, and many other tools with a single, blazing-fast binary. Perfect for a time-crunched hackathon.</paragraph></list-item></list></list-item><list-item><paragraph><bold><link href="https://flake8.pycqa.org/en/latest/">flake8</link></bold></paragraph><list style="unordered"><list-item><paragraph><bold>Why it's great:</bold> A trusted and widely-used linter that combines several tools to check for logical errors (PyFlakes) and style violations (pycodestyle). It's a solid, classic choice.</paragraph></list-item></list></list-item><list-item><paragraph><bold><link href="https://pylint.pycqa.org/en/latest/">pylint</link></bold></paragraph><list style="unordered"><list-item><paragraph><bold>Why it's great:</bold> Pylint is extremely thorough. It provides more in-depth analysis than flake8, including code complexity metrics, but can be slower and more "opinionated."</paragraph></list-item></list></list-item></list><heading level="4"><bold>For Formatting &amp; Comparison</bold></heading><list style="unordered"><list-item><paragraph><bold><link href="https://black.readthedocs.io/en/stable/">Black</link></bold></paragraph><list style="unordered"><list-item><paragraph><bold>Why it's great:</bold> An "uncompromising" code formatter. You can have your Reviewer Agent not only find style issues but also <italic>automatically fix</italic> them by running Black on the generated code.</paragraph></list-item></list></list-item><list-item><paragraph><bold><link href="https://docs.python.org/3/library/difflib.html">difflib</link></bold></paragraph><list style="unordered"><list-item><paragraph><bold>Why it's great:</bold> Built into Python. If your Coder Agent attempts to "fix" code, you can use <code>difflib</code> to generate a "diff" view, clearly showing the changes between the original and revised versions.</paragraph></list-item></list></list-item></list><paragraph/><heading level="3"><bold>3. User Interface (The Demo Stage)</bold></heading><paragraph>You need a quick and easy way to show off your project. These libraries let you build an interactive web UI with just a few lines of Python.</paragraph><list style="unordered"><list-item><paragraph><bold><link href="https://www.gradio.app/docs">Gradio</link></bold></paragraph><list style="unordered"><list-item><paragraph><bold>Why it's great:</bold> Incredibly fast for building simple UIs. Its component-based system is perfect for creating a "form-style" app where a user enters a prompt and sees the code, tests, and review.</paragraph></list-item></list></list-item><list-item><paragraph><bold><link href="https://docs.streamlit.io/">Streamlit</link></bold></paragraph><list style="unordered"><list-item><paragraph><bold>Why it's great:</bold> Another fantastic choice that turns Python scripts into shareable web apps. It excels at creating more data-centric or "dashboard-style" applications and is very easy to learn.</paragraph></list-item></list></list-item></list></document>
+</body>
+</html>

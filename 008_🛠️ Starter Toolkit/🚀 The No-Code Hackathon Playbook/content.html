@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Content</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    max-width: 860px; margin: 0 auto; padding: 24px 20px;
+    color: #222; line-height: 1.6; background: #fff;
+  }
+  document { display: block; }
+  paragraph { display: block; margin: 0.6em 0; }
+  heading { display: block; font-weight: 700; margin: 1.2em 0 0.4em; }
+  heading[level="1"] { font-size: 1.6em; }
+  heading[level="2"] { font-size: 1.3em; }
+  heading[level="3"] { font-size: 1.1em; }
+  list { display: block; padding-left: 1.6em; margin: 0.5em 0; }
+  list[style="bullet"] { list-style-type: disc; }
+  list[style="number"] { list-style-type: decimal; }
+  list-item { display: list-item; margin: 0.25em 0; }
+  code { background: #f3f3f3; padding: 1px 5px; border-radius: 3px;
+          font-family: 'SF Mono', Menlo, monospace; font-size: .9em; }
+  pre, snippet { display: block; background: #1e1e1e; color: #d4d4d4;
+                  padding: 14px; border-radius: 6px; overflow-x: auto;
+                  font-family: 'SF Mono', Menlo, monospace; font-size: .85em;
+                  white-space: pre; margin: 0.8em 0; }
+  figure { display: block; margin: 1em 0; text-align: center; }
+  image { display: inline-block; max-width: 100%; }
+  image:before { content: ""; }
+  callout { display: block; background: #f0f4ff; border-left: 4px solid #6c47ff;
+             padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 0.8em 0; }
+  math { display: block; font-style: italic; margin: 0.5em 0; color: #444; }
+  table { border-collapse: collapse; width: 100%; margin: 0.8em 0; }
+  table-row { display: table-row; }
+  table-cell { display: table-cell; border: 1px solid #ddd; padding: 8px 10px; }
+  bold { font-weight: 700; }
+  italic { font-style: italic; }
+  underline { text-decoration: underline; }
+  link { color: #6c47ff; text-decoration: underline; cursor: pointer; }
+  hr { border: none; border-top: 1px solid #eee; margin: 1.2em 0; }
+</style>
+</head>
+<body>
+<document version="2.0"><paragraph>Welcome to the fast track! This playbook is for every team that wants to go from a brilliant idea to a working demo in record time. No-code and low-code platforms are your secret weapon in a 3-hour sprint. They let you focus on what truly matters: your creative idea, clever prompt engineering, and the logic of your AI application, not on boilerplate code or complex server setups.</paragraph><paragraph/><heading level="3"><bold>Spotlight on <code>bolt.new</code>: Your Hackathon Superpower</bold></heading><paragraph>⭐ <bold><link href="https://bolt.new/">Bolt.new!</link></bold> ⭐</paragraph><paragraph>What is it?</paragraph><paragraph>Think of Bolt as a visual canvas for building AI workflows. You can drag and drop "blocks" that represent different AI models (like GPT-4o, Claude, or Stable Diffusion), connect them to other web services, and orchestrate complex logic without writing extensive code. It's the perfect tool to build the powerful "backend" for your hackathon project.</paragraph><paragraph><bold>A Simple Recipe for Success with Bolt:</bold></paragraph><list style="ordered"><list-item><paragraph><bold>Build a simple UI</bold> using Gradio or even just Bolt's built-in input forms.</paragraph></list-item><list-item><paragraph><bold>Create a Bolt workflow</bold> that takes the user's input from the UI.</paragraph></list-item><list-item><paragraph><bold>Send the input to an LLM</bold> block (like OpenAI's GPT-4o) with a creative prompt.</paragraph></list-item><list-item><paragraph><bold>Process the output</bold> and send it back to your UI to display to the user.</paragraph></list-item></list><paragraph>This simple pattern is the foundation for almost any AI app you can imagine. </paragraph><paragraph/><heading level="3"><bold>Other Powerful No-Code Tools</bold></heading><paragraph>While Bolt is our featured tool, the no-code universe is vast! Here are a few other excellent platforms you can use:</paragraph><list style="unordered"><list-item><paragraph><bold><link href="https://n8n.io/">n8n</link></bold>: A powerful, open-source workflow automation tool. It's fantastic for connecting hundreds of different apps and APIs in a visual, node-based editor.</paragraph></list-item><list-item><paragraph><bold><link href="https://bubble.io/">Bubble</link></bold>: The go-to platform if you want to build a full-stack web application with user accounts, databases, and complex front-end interactions, all without code.</paragraph></list-item><list-item><paragraph><bold><link href="https://www.voiceflow.com/">Voiceflow</link></bold>: The undisputed champion for building advanced AI chatbots and voice assistants. If your idea is conversational, start here.</paragraph></list-item></list><paragraph/><heading level="3"><bold>Remember: It's All About the LLM!</bold></heading><paragraph>Whichever platform you choose, remember the core of this hackathon is the creative and intelligent application of <bold>Large Language Models (LLMs)</bold>. Your no-code workflow must connect to an LLM (like GPT, Gemini, or Claude) to perform the central task of your project.</paragraph><paragraph/><heading level="3"><bold>Fun &amp; Creative No-Code Project Ideas</bold></heading><paragraph>Need a spark of inspiration? Here are a few ideas that are perfect for a no-code build:</paragraph><list style="ordered"><list-item><paragraph><bold>The AI Trip Planner:</bold> A simple form asks for a destination, number of days, and travel style (e.g., "adventure," "relaxing," "foodie"). The workflow sends this to an LLM to generate a detailed, day-by-day travel itinerary.</paragraph></list-item><list-item><paragraph><bold>The Automated Content Summarizer:</bold> Create a workflow that watches a specific RSS feed or website. When a new article is published, it uses an LLM to summarize it and then posts that summary to a Discord or Slack channel.</paragraph></list-item><list-item><paragraph><bold>The "Explain It To Me" Engine:</bold> A UI with a textbox and a dropdown menu (e.g., "Explain to a 5-year-old," "Explain to a CEO"). The workflow takes the user's complex topic and the target audience, and has an LLM generate a tailored explanation.</paragraph></list-item><list-item><paragraph><bold>The Personalized Workout Generator:</bold> A form asks for your fitness goals, available equipment, and time. The workflow sends this to an LLM with a prompt to act as a personal trainer and create a custom workout plan.</paragraph></list-item></list></document>
+</body>
+</html>

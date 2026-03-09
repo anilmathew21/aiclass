@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Content</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    max-width: 860px; margin: 0 auto; padding: 24px 20px;
+    color: #222; line-height: 1.6; background: #fff;
+  }
+  document { display: block; }
+  paragraph { display: block; margin: 0.6em 0; }
+  heading { display: block; font-weight: 700; margin: 1.2em 0 0.4em; }
+  heading[level="1"] { font-size: 1.6em; }
+  heading[level="2"] { font-size: 1.3em; }
+  heading[level="3"] { font-size: 1.1em; }
+  list { display: block; padding-left: 1.6em; margin: 0.5em 0; }
+  list[style="bullet"] { list-style-type: disc; }
+  list[style="number"] { list-style-type: decimal; }
+  list-item { display: list-item; margin: 0.25em 0; }
+  code { background: #f3f3f3; padding: 1px 5px; border-radius: 3px;
+          font-family: 'SF Mono', Menlo, monospace; font-size: .9em; }
+  pre, snippet { display: block; background: #1e1e1e; color: #d4d4d4;
+                  padding: 14px; border-radius: 6px; overflow-x: auto;
+                  font-family: 'SF Mono', Menlo, monospace; font-size: .85em;
+                  white-space: pre; margin: 0.8em 0; }
+  figure { display: block; margin: 1em 0; text-align: center; }
+  image { display: inline-block; max-width: 100%; }
+  image:before { content: ""; }
+  callout { display: block; background: #f0f4ff; border-left: 4px solid #6c47ff;
+             padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 0.8em 0; }
+  math { display: block; font-style: italic; margin: 0.5em 0; color: #444; }
+  table { border-collapse: collapse; width: 100%; margin: 0.8em 0; }
+  table-row { display: table-row; }
+  table-cell { display: table-cell; border: 1px solid #ddd; padding: 8px 10px; }
+  bold { font-weight: 700; }
+  italic { font-style: italic; }
+  underline { text-decoration: underline; }
+  link { color: #6c47ff; text-decoration: underline; cursor: pointer; }
+  hr { border: none; border-top: 1px solid #eee; margin: 1.2em 0; }
+</style>
+</head>
+<body>
+<document version="2.0"><paragraph>Welcome, hackers! Get ready to launch your project in our official development environment: <bold>Google Colab</bold>. This playbook is your ultimate guide to getting started, mastering the pro-tips, and choosing the perfect path for your hackathon adventure. Let's get building!</paragraph><paragraph/><heading level="3"><bold>🤔 What is Google Colab?</bold></heading><paragraph>Think of Google Colab as your personal, super-powered coding lab in the cloud. It's the perfect tool for a fast-paced hackathon because it’s built for speed and creativity:</paragraph><list style="unordered"><list-item><paragraph>☁️ <bold>Zero Setup Required:</bold> Everything runs in your browser. No installs, no fuss. Just pure coding.</paragraph></list-item><list-item><paragraph>⚡ <bold>FREE GPU Power:</bold> Get access to powerful GPUs that will make your AI models run incredibly fast, completely free.</paragraph></list-item><list-item><paragraph>🤝 <bold>Effortless Teamwork:</bold> Share your notebook with your team just like a Google Doc for seamless collaboration.</paragraph></list-item></list><paragraph/><heading level="3"><bold>🏆 Pro-Tips for a Winning Hackathon</bold></heading><paragraph>Master these essential tips to make your Colab experience smooth, secure, and successful.</paragraph><heading level="4"><bold>1. 🔑 Managing API Keys Securely (The Right Way!)</bold></heading><paragraph>Never, ever paste secret API keys directly into your code! Use Colab's built-in "Secrets" manager to keep them safe.</paragraph><list style="unordered"><list-item><paragraph><bold>How to do it:</bold></paragraph><list style="ordered"><list-item><paragraph>Click the <bold>key icon (🔑)</bold> in the left sidebar.</paragraph></list-item><list-item><paragraph>Click <bold>"+ Add a new secret"</bold>.</paragraph></list-item><list-item><paragraph>Give your secret a <bold>Name</bold> (e.g., <code>OPENAI_API_KEY</code>).</paragraph></list-item><list-item><paragraph>Paste your key into the <bold>Value</bold> field.</paragraph></list-item><list-item><paragraph><bold>Toggle the switch</bold> to give your notebook access.</paragraph></list-item><list-item><paragraph>Use this simple code to access it:</paragraph><paragraph/><pre>from google.colab import userdata
+my_api_key = userdata.get('OPENAI_API_KEY')
+</pre></list-item></list></list-item></list><heading level="4"><bold>2. 🛠️ Installing Your Tools in a Snap</bold></heading><paragraph>Install any Python library you need with a single command. It's best practice to put all your installations in the very first code cell.</paragraph><pre># In your first code cell:
+!pip install gradio openai llama-index "unstructured[pdf]"
+</pre><heading level="4"><bold>3. ⚡ Unlocking Super Speeds with a GPU</bold></heading><paragraph>For AI tasks, a GPU is your best friend. It can make your project run up to 10x faster!</paragraph><list style="unordered"><list-item><paragraph><bold>How to enable it:</bold></paragraph><list style="ordered"><list-item><paragraph>Go to the menu: <bold>Runtime → Change runtime type</bold>.</paragraph></list-item><list-item><paragraph>From the "Hardware accelerator" dropdown, select <bold>T4 GPU</bold>.</paragraph></list-item><list-item><paragraph>Click <bold>Save</bold>. The notebook will restart with its new superpowers!</paragraph></list-item></list></list-item></list><heading level="4"><bold>4. 📁 Working with Files (Without Losing Them!)</bold></heading><paragraph>Need to upload a document or dataset? Here are your two best options:</paragraph><list style="unordered"><list-item><paragraph><bold>Temporary Upload:</bold> Click the <bold>folder icon (📁)</bold> on the left and drag your files in.</paragraph><blockquote><bold>⚠️ Warning:</bold> These files will be deleted when your Colab session ends! This is best for quick tests.</blockquote></list-item><list-item><paragraph><bold>Google Drive (Recommended):</bold> For files you need to keep, connect your Google Drive.</paragraph><paragraph/><pre>from google.colab import drive
+drive.mount('/content/drive')
+</pre></list-item></list><heading level="4"><bold>5. ✍️ Tell Your Project's Story</bold></heading><paragraph>Your final submission is the notebook itself, so make it shine! Use <bold>Text Cells</bold> with Markdown to explain your ideas, describe your code, and document your results. A well-told story in your notebook makes it easy for judges to see your brilliance.</paragraph><paragraph/><heading level="3"><bold>🗺️ Choose Your Hackathon Adventure!</bold></heading><paragraph>Now that you're a Colab pro, it's time to pick your quest. You have two exciting paths:</paragraph><heading level="4"><bold>Path 1: The Guided Quests 🧭</bold></heading><paragraph>Ready for a challenge with a clear roadmap? Choose one of our three official guided projects. Each one is a launchpad for innovation.</paragraph><list style="unordered"><list-item><paragraph><bold>The Argus Engine:</bold> A multi-document investigator that synthesizes information and finds hidden connections.</paragraph></list-item><list-item><paragraph><bold>🎵🎨 The Multimedia Art Studio:</bold> An AI creative partner that generates music, poetry, and visual art from a single prompt.</paragraph></list-item><list-item><paragraph><bold>The Turing Trio:</bold> A multi-agent system where AIs collaborate to code, test, and review software.</paragraph></list-item></list><heading level="4"><bold>Path 2: The Open World 🌍</bold></heading><paragraph>Have a brilliant, unique idea of your own? This is your path! Use the <bold>Ultimate AI Hackathon Toolkit</bold> as your arsenal. Mix and match tools, APIs, and frameworks to build something the world has never seen before. We can't wait to see what you invent!</paragraph><paragraph>No matter which path you choose, the goal is to learn, create, and have a blast.</paragraph><paragraph><bold>Happy hacking! 🎉</bold></paragraph></document>
+</body>
+</html>

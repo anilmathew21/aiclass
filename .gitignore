@@ -1,0 +1,7 @@
+# Large media files — kept on GCS, not GitHub
+*.mp4
+*.mkv
+*.webm
+*.mov
+*.webp
+*.info.json

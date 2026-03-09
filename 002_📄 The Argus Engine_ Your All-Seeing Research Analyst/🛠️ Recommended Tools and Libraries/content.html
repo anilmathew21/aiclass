@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Content</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    max-width: 860px; margin: 0 auto; padding: 24px 20px;
+    color: #222; line-height: 1.6; background: #fff;
+  }
+  document { display: block; }
+  paragraph { display: block; margin: 0.6em 0; }
+  heading { display: block; font-weight: 700; margin: 1.2em 0 0.4em; }
+  heading[level="1"] { font-size: 1.6em; }
+  heading[level="2"] { font-size: 1.3em; }
+  heading[level="3"] { font-size: 1.1em; }
+  list { display: block; padding-left: 1.6em; margin: 0.5em 0; }
+  list[style="bullet"] { list-style-type: disc; }
+  list[style="number"] { list-style-type: decimal; }
+  list-item { display: list-item; margin: 0.25em 0; }
+  code { background: #f3f3f3; padding: 1px 5px; border-radius: 3px;
+          font-family: 'SF Mono', Menlo, monospace; font-size: .9em; }
+  pre, snippet { display: block; background: #1e1e1e; color: #d4d4d4;
+                  padding: 14px; border-radius: 6px; overflow-x: auto;
+                  font-family: 'SF Mono', Menlo, monospace; font-size: .85em;
+                  white-space: pre; margin: 0.8em 0; }
+  figure { display: block; margin: 1em 0; text-align: center; }
+  image { display: inline-block; max-width: 100%; }
+  image:before { content: ""; }
+  callout { display: block; background: #f0f4ff; border-left: 4px solid #6c47ff;
+             padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 0.8em 0; }
+  math { display: block; font-style: italic; margin: 0.5em 0; color: #444; }
+  table { border-collapse: collapse; width: 100%; margin: 0.8em 0; }
+  table-row { display: table-row; }
+  table-cell { display: table-cell; border: 1px solid #ddd; padding: 8px 10px; }
+  bold { font-weight: 700; }
+  italic { font-style: italic; }
+  underline { text-decoration: underline; }
+  link { color: #6c47ff; text-decoration: underline; cursor: pointer; }
+  hr { border: none; border-top: 1px solid #eee; margin: 1.2em 0; }
+</style>
+</head>
+<body>
+<document version="2.0"><paragraph>This list provides the best tools to build your multi-document investigation engine. We've focused on libraries that excel at parsing, creating sophisticated RAG pipelines, and managing the metadata needed for citations.</paragraph><paragraph/><heading level="3"><bold>1. RAG Frameworks &amp; Vector Stores (The Core Engine)</bold></heading><paragraph>These are the most critical tools. They will help you build the unified knowledge base and manage the retrieval of information with citations.</paragraph><list style="unordered"><list-item><paragraph><bold><link href="https://www.llamaindex.ai/">LlamaIndex</link></bold></paragraph><list style="unordered"><list-item><paragraph><bold>Why it's great:</bold> <bold>(Highly Recommended)</bold> LlamaIndex is a data framework specifically designed for building advanced RAG applications. It has excellent built-in features for ingesting documents from multiple sources and, most importantly, for managing metadata to track the origin of each text chunk—which is essential for your citation feature.</paragraph></list-item></list></list-item><list-item><paragraph><bold><link href="https://www.langchain.com/">LangChain</link></bold></paragraph><list style="unordered"><list-item><paragraph><bold>Why it's great:</bold> LangChain is another comprehensive framework for building LLM applications. It provides all the building blocks you need to create a custom RAG pipeline, from document loaders to vector stores to orchestrating LLM calls.</paragraph></list-item></list></list-item><list-item><paragraph><bold><link href="https://www.trychroma.com/">ChromaDB</link></bold></paragraph><list style="unordered"><list-item><paragraph><bold>Why it's great:</bold> A developer-friendly, open-source vector store. It's incredibly easy to set up and has robust support for storing and filtering by metadata, making it a perfect choice for tracking your document sources.</paragraph></list-item></list></list-item><list-item><paragraph><bold><link href="https://faiss.ai/">FAISS</link></bold></paragraph><list style="unordered"><list-item><paragraph><bold>Why it's great:</bold> Developed by Meta, FAISS is a library for highly efficient similarity search. If you are processing a very large number of documents and need maximum performance, FAISS is a powerful option.</paragraph></list-item></list></list-item></list><paragraph/><heading level="3"><bold>2. Document Parsing (Ingesting the "Case File")</bold></heading><paragraph>Your system needs to reliably extract text and data from the uploaded files.</paragraph><list style="unordered"><list-item><paragraph><bold><link href="https://unstructured.io/">Unstructured.io</link></bold></paragraph><list style="unordered"><list-item><paragraph><bold>Why it's great:</bold> <bold>(Highly Recommended)</bold> This is a powerful, all-in-one toolkit for parsing complex, unstructured documents like PDFs and Word files. It's particularly good at understanding document layouts (like titles, tables, and lists) and can automatically chunk the content for you.</paragraph></list-item></list></list-item><list-item><paragraph><bold><link href="https://pymupdf.readthedocs.io/en/latest/">PyMuPDF</link></bold></paragraph><list style="unordered"><list-item><paragraph><bold>Why it's great:</bold> A lightweight and very fast Python library for extracting text, images, and metadata from PDF files. An excellent choice if you are primarily focusing on PDFs.</paragraph></list-item></list></list-item><list-item><paragraph><bold><link href="https://pypi.org/project/docx2txt/">python-docx2txt</link></bold></paragraph><list style="unordered"><list-item><paragraph><bold>Why it's great:</bold> A simple, no-fuss library for cleanly extracting text content from Microsoft Word (<code>.docx</code>) files.</paragraph></list-item></list></list-item></list><paragraph/><heading level="3"><bold>3. LLM APIs for Synthesis (The Analyst)</bold></heading><paragraph>You need an LLM that is excellent at following complex instructions for comparing, contrasting, and synthesizing information from multiple sources.</paragraph><list style="unordered"><list-item><paragraph><bold><link href="https://platform.openai.com/docs/overview">OpenAI API (GPT-4o)</link></bold></paragraph><list style="unordered"><list-item><paragraph><bold>Why it's great:</bold> GPT-4o has state-of-the-art reasoning capabilities, making it exceptionally good at understanding nuanced, multi-part prompts and generating high-quality, synthesized answers with citations.</paragraph></list-item></list></list-item><list-item><paragraph><bold><link href="https://www.google.com/search?q=https://docs.anthropic.com/claude/reference/messages_post&amp;authuser=1">Anthropic API (Claude 3 Family)</link></bold></paragraph><list style="unordered"><list-item><paragraph><bold>Why it's great:</bold> The Claude 3 models, especially Opus, are known for their massive context windows and strong analytical abilities, making them ideal for tasks that require reasoning over large amounts of retrieved text.</paragraph></list-item></list></list-item><list-item><paragraph><bold><link href="https://ai.google.dev/">Google AI Platform (Gemini API)</link></bold></paragraph><list style="unordered"><list-item><paragraph><bold>Why it's great:</bold> The Gemini family of models offers powerful synthesis and long-context capabilities, providing another top-tier option for the "brain" of your Argus Engine.</paragraph></list-item></list></list-item></list><paragraph/><heading level="3"><bold>4. User Interface (The Investigator's Dashboard)</bold></heading><paragraph>You need a framework that can easily handle multi-file uploads and display the results clearly.</paragraph><list style="unordered"><list-item><paragraph><bold><link href="https://www.gradio.app/docs">Gradio</link></bold></paragraph><list style="unordered"><list-item><paragraph><bold>Why it's great:</bold> Gradio's file upload component can be configured to accept multiple files at once, making it perfect for ingesting the "case file." Its simple layout components are ideal for building a clean dashboard.</paragraph></list-item></list></list-item><list-item><paragraph><bold><link href="https://docs.streamlit.io/">Streamlit</link></bold></paragraph><list style="unordered"><list-item><paragraph><bold>Why it's great:</bold> Streamlit also has a robust multi-file uploader and gives you a bit more flexibility in creating custom layouts, which can be great for designing a more sophisticated "investigator's dashboard."</paragraph></list-item></list></list-item></list></document>
+</body>
+</html>

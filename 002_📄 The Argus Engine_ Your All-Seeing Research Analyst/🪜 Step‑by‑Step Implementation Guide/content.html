@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Content</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    max-width: 860px; margin: 0 auto; padding: 24px 20px;
+    color: #222; line-height: 1.6; background: #fff;
+  }
+  document { display: block; }
+  paragraph { display: block; margin: 0.6em 0; }
+  heading { display: block; font-weight: 700; margin: 1.2em 0 0.4em; }
+  heading[level="1"] { font-size: 1.6em; }
+  heading[level="2"] { font-size: 1.3em; }
+  heading[level="3"] { font-size: 1.1em; }
+  list { display: block; padding-left: 1.6em; margin: 0.5em 0; }
+  list[style="bullet"] { list-style-type: disc; }
+  list[style="number"] { list-style-type: decimal; }
+  list-item { display: list-item; margin: 0.25em 0; }
+  code { background: #f3f3f3; padding: 1px 5px; border-radius: 3px;
+          font-family: 'SF Mono', Menlo, monospace; font-size: .9em; }
+  pre, snippet { display: block; background: #1e1e1e; color: #d4d4d4;
+                  padding: 14px; border-radius: 6px; overflow-x: auto;
+                  font-family: 'SF Mono', Menlo, monospace; font-size: .85em;
+                  white-space: pre; margin: 0.8em 0; }
+  figure { display: block; margin: 1em 0; text-align: center; }
+  image { display: inline-block; max-width: 100%; }
+  image:before { content: ""; }
+  callout { display: block; background: #f0f4ff; border-left: 4px solid #6c47ff;
+             padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 0.8em 0; }
+  math { display: block; font-style: italic; margin: 0.5em 0; color: #444; }
+  table { border-collapse: collapse; width: 100%; margin: 0.8em 0; }
+  table-row { display: table-row; }
+  table-cell { display: table-cell; border: 1px solid #ddd; padding: 8px 10px; }
+  bold { font-weight: 700; }
+  italic { font-style: italic; }
+  underline { text-decoration: underline; }
+  link { color: #6c47ff; text-decoration: underline; cursor: pointer; }
+  hr { border: none; border-top: 1px solid #eee; margin: 1.2em 0; }
+</style>
+</head>
+<body>
+<document version="2.0"><paragraph>This guide will walk you through creating an advanced AI research assistant. You will build an application that ingests a collection of documents and allows a user to ask complex, comparative questions, receiving synthesized answers with direct citations, all from scratch in a Google Colab notebook.</paragraph><heading level="4"><bold>1. Set Up Your Environment</bold></heading><paragraph>First, prepare your Colab notebook. A clean setup is essential for a project with multiple moving parts. We recommend using a RAG framework like LlamaIndex, which simplifies handling multiple documents and metadata.</paragraph><paragraph><bold>Pro-Tip:</bold> Use Colab's "Secrets" feature (key icon on the left) to securely store your API keys.</paragraph><pre># Use a single cell to install all your dependencies
+!pip install llama-index unstructured pypdf gradio
+
+# It's good practice to install a specific LLM library
+!pip install openai
+</pre><pre># Import all your libraries in the next cell
+import gradio as gr
+from llama_index.core import Document, VectorStoreIndex, SimpleDirectoryReader
+import os
+# ... add other imports here
+</pre><heading level="4"><bold>2. Ingest the "Case File" and Create the Knowledge Base</bold></heading><paragraph>Your first step is to process the user's collection of documents and build a unified, searchable knowledge base.</paragraph><list style="unordered"><list-item><paragraph><bold>Handle Multiple Documents:</bold> The system must accept a collection of files (e.g., multiple PDFs). A simple way to manage this in Colab is to have the user upload all their files to a temporary directory.</paragraph></list-item><list-item><paragraph><bold>Load and Parse with Metadata:</bold> Use a loader like <code>SimpleDirectoryReader</code> from LlamaIndex. When it loads documents, it automatically creates metadata for each one (like the file name), which is crucial for citations later. The framework will handle the parsing and chunking for you.</paragraph></list-item><list-item><paragraph><bold>Create the Vector Index:</bold> Once the documents are loaded, create a single <code>VectorStoreIndex</code> from them. This process automatically converts all text chunks into vector embeddings and stores them in a searchable index. This unified index is your AI's "brain."</paragraph></list-item></list><heading level="4"><bold>3. Implement the Cross-Examination Logic (RAG)</bold></heading><paragraph>This is where your system becomes an investigator. You will configure the RAG pipeline to synthesize answers from all available sources.</paragraph><list style="unordered"><list-item><paragraph><bold>Configure the Query Engine:</bold> Create a query engine from your index. LlamaIndex's default query engine is already designed to retrieve relevant context from across all the documents in the index.</paragraph></list-item><list-item><paragraph><bold>Engineer a Synthesis Prompt:</bold> The magic is in the prompt. You need to instruct the LLM to act as a research analyst, comparing and contrasting information and, most importantly, citing its sources. You can customize the prompt used by the query engine.</paragraph><paragraph><bold>Example Prompt:</bold></paragraph><paragraph/><pre>"You are an expert research analyst. Based *only* on the provided context from multiple sources, answer the user's question. Your answer must synthesize information from the different sources. When you use information from a source, you MUST cite it using its filename (e.g., ).
+
+Context:
+[Context from multiple documents will be inserted here by the RAG pipeline]
+
+Question:
+[User's question here]"
+</pre></list-item><list-item><paragraph><bold>Query and Get a Cited Response:</bold> When the user asks a question, the query engine will find the most relevant chunks from all documents, insert them into your prompt, and send it to the LLM to get a synthesized, cited answer.</paragraph></list-item></list><heading level="4"><bold>4. Build the Investigator's Dashboard</bold></heading><paragraph>Create a user interface with Gradio or Streamlit that is intuitive for a research task.</paragraph><list style="unordered"><list-item><paragraph><bold>Multi-File Upload:</bold> Use a file component that allows users to upload their entire "case file" at once.</paragraph></list-item><list-item><paragraph><bold>Clear Q&amp;A:</bold> Include a text input for the user to ask their complex, comparative questions.</paragraph></list-item><list-item><paragraph><bold>Display Synthesized, Cited Answers:</bold> The output should be a clean <code>Markdown</code> or <code>Textbox</code> component that presents the synthesized answer and clearly shows the citations, so the user can trust and verify the information.</paragraph></list-item></list><heading level="4"><bold>5. Iterate and Document</bold></heading><paragraph>Turn a good project into a great one with refinement and clear documentation.</paragraph><list style="unordered"><list-item><paragraph><bold>Experiment with Prompts:</bold> Tweak your synthesis prompt to get better, more detailed answers. Can you ask it to identify conflicts between sources?</paragraph></list-item><list-item><paragraph><bold>Refine Retrieval:</bold> Experiment with changing the number of retrieved chunks to see how it affects the quality of the synthesis.</paragraph></list-item><list-item><paragraph><bold>Document Your Architecture:</bold> In your Colab notebook, use text cells to explain your RAG pipeline. Detail how you managed citations and showcase the prompts you engineered. This documentation is a critical part of your submission.</paragraph></list-item></list></document>
+</body>
+</html>

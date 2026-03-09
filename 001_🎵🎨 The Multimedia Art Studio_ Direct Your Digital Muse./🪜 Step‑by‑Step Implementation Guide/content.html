@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Content</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    max-width: 860px; margin: 0 auto; padding: 24px 20px;
+    color: #222; line-height: 1.6; background: #fff;
+  }
+  document { display: block; }
+  paragraph { display: block; margin: 0.6em 0; }
+  heading { display: block; font-weight: 700; margin: 1.2em 0 0.4em; }
+  heading[level="1"] { font-size: 1.6em; }
+  heading[level="2"] { font-size: 1.3em; }
+  heading[level="3"] { font-size: 1.1em; }
+  list { display: block; padding-left: 1.6em; margin: 0.5em 0; }
+  list[style="bullet"] { list-style-type: disc; }
+  list[style="number"] { list-style-type: decimal; }
+  list-item { display: list-item; margin: 0.25em 0; }
+  code { background: #f3f3f3; padding: 1px 5px; border-radius: 3px;
+          font-family: 'SF Mono', Menlo, monospace; font-size: .9em; }
+  pre, snippet { display: block; background: #1e1e1e; color: #d4d4d4;
+                  padding: 14px; border-radius: 6px; overflow-x: auto;
+                  font-family: 'SF Mono', Menlo, monospace; font-size: .85em;
+                  white-space: pre; margin: 0.8em 0; }
+  figure { display: block; margin: 1em 0; text-align: center; }
+  image { display: inline-block; max-width: 100%; }
+  image:before { content: ""; }
+  callout { display: block; background: #f0f4ff; border-left: 4px solid #6c47ff;
+             padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 0.8em 0; }
+  math { display: block; font-style: italic; margin: 0.5em 0; color: #444; }
+  table { border-collapse: collapse; width: 100%; margin: 0.8em 0; }
+  table-row { display: table-row; }
+  table-cell { display: table-cell; border: 1px solid #ddd; padding: 8px 10px; }
+  bold { font-weight: 700; }
+  italic { font-style: italic; }
+  underline { text-decoration: underline; }
+  link { color: #6c47ff; text-decoration: underline; cursor: pointer; }
+  hr { border: none; border-top: 1px solid #eee; margin: 1.2em 0; }
+</style>
+</head>
+<body>
+<document version="2.0"><paragraph>This guide will walk you through creating a multi-modal art tool. You will build an application that takes a user's prompt for a scene and generates a complete artistic experience—with a musical soundtrack, a written narrative, and a stunning piece of visual art—all from scratch in a Google Colab notebook.</paragraph><heading level="4"><bold>1. Set Up Your Environment</bold></heading><paragraph>Begin by preparing your Colab notebook. A clean setup is the first step. Remember to use Colab's "Secrets" feature (key icon) to securely store your API keys for the various services you'll use.</paragraph><pre># Install all your required libraries in the first code cell
+!pip install gradio openai # openai library is great for both GPT and DALL-E
+
+# For audio manipulation
+!pip install pydub
+
+# If you choose to generate music locally
+!pip install pretty_midi
+</pre><pre># Import your libraries in the next cell
+import gradio as gr
+import openai
+import os
+from pydub import AudioSegment
+# ... add other imports for your chosen music/image APIs
+</pre><heading level="4"><bold>2. Define the User's Creative Vision</bold></heading><paragraph>The heart of your application is the user's prompt. This single, rich description will guide all three of your AI artists.</paragraph><list style="unordered"><list-item><paragraph><bold>Create the Input:</bold> In your UI, use a <code>Textbox</code> for the user to describe their scene.</paragraph></list-item><list-item><paragraph><bold>Encourage Rich Prompts:</bold> This is key! Guide the user to provide evocative, detailed phrases that set a scene. For example: <italic>"a lone astronaut watching a supernova from their cockpit,"</italic> or <italic>"a hidden, bioluminescent forest at midnight."</italic></paragraph></list-item></list><heading level="4"><bold>3. Compose the Soundtrack</bold></heading><paragraph>This is the first creative step: generating the audio that sets the emotional tone.</paragraph><list style="unordered"><list-item><paragraph><bold>API-Based Music Generation (Recommended):</bold></paragraph><list style="unordered"><list-item><paragraph><bold>Find an API:</bold> Use AI music services like <bold>Soundraw</bold>, <bold>Beatoven.ai</bold>, or <bold>Suno</bold>. These services are designed to take a text prompt and return a high-quality audio file.</paragraph></list-item><list-item><paragraph><bold>API Call:</bold> Write a Python function that sends your user's prompt to the service's API and saves the resulting MP3 or WAV file.</paragraph></list-item></list></list-item></list><heading level="4"><bold>4. Write the Narrative</bold></heading><paragraph>Next, use a Large Language Model (LLM) to write the story or poem that inhabits your scene.</paragraph><list style="unordered"><list-item><paragraph><bold>Use a Powerful LLM:</bold> Call a model like <bold>Gemini</bold>, <bold>GPT-4o</bold>, or <bold>Claude 3</bold> via their API.</paragraph></list-item><list-item><paragraph><bold>Craft a "Director's" Prompt:</bold> Your prompt should instruct the model on what kind of text to write for the scene.</paragraph><paragraph><bold>Example Prompt:</bold></paragraph><paragraph/><pre>"You are a master storyteller. Your task is to write a short, evocative piece of narrative prose (around 150 words) that captures the feeling of the following scene. Focus on sensory details and internal thoughts.
+
+Scene:
+{user's prompt here}"
+</pre></list-item></list><heading level="4"><bold>5. Design the Visual Art</bold></heading><paragraph>This is the step that completes the triptych. Generate a stunning image to be the visual centerpiece of your scene.</paragraph><list style="unordered"><list-item><paragraph><bold>Use an Image Generation API:</bold> Call a model like <bold>DALL-E 3</bold> (via the OpenAI API) or <bold>Stable Diffusion</bold> (via the Stability AI API).</paragraph></list-item><list-item><paragraph><bold>Create a Visual Prompt:</bold> Often, your user's prompt is already a great start, but you can refine it to get more artistic results.</paragraph><paragraph><bold>Example Prompt (for DALL-E 3):</bold></paragraph><paragraph/><pre>"An atmospheric, cinematic digital painting of: {user's prompt here}. The style should be moody and evocative, with a focus on light and shadow."
+</pre></list-item><list-item><paragraph><bold>API Call:</bold> Write a function that sends this prompt to the image API and saves the returned image file.</paragraph></list-item></list><heading level="4"><bold>6. Present the Final Artboard</bold></heading><paragraph>Build an interactive and beautiful interface in your notebook using <bold>Gradio</bold>.</paragraph><list style="unordered"><list-item><paragraph><bold>Essential Components:</bold></paragraph><list style="unordered"><list-item><paragraph>A <code>Textbox</code> for the user's scene description.</paragraph></list-item><list-item><paragraph>A "Generate Scene" <code>Button</code>.</paragraph></list-item><list-item><paragraph>An <code>Image</code> component to display the stunning visual art.</paragraph></list-item><list-item><paragraph>An <code>Audio</code> player component to play the generated soundtrack.</paragraph></list-item><list-item><paragraph>A <code>Textbox</code> or <code>Markdown</code> component to display the narrative.</paragraph></list-item></list></list-item></list><heading level="4"><bold>7. Iterate and Refine</bold></heading><paragraph>A great artistic tool allows for experimentation.</paragraph><list style="unordered"><list-item><paragraph><bold>"Remix" the Scene:</bold> Add a button that allows the user to regenerate one of the three elements (e.g., "New Music," "New Image") while keeping the other two. This encourages creative exploration.</paragraph></list-item><list-item><paragraph><bold>Document Your Process:</bold> In your notebook's text cells, describe your journey. What prompts created the most cohesive results? What was the biggest challenge in making the three parts feel like they belong together? This narrative is a crucial part of your submission.</paragraph></list-item></list></document>
+</body>
+</html>

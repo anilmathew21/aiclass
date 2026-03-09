@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Content</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    max-width: 860px; margin: 0 auto; padding: 24px 20px;
+    color: #222; line-height: 1.6; background: #fff;
+  }
+  document { display: block; }
+  paragraph { display: block; margin: 0.6em 0; }
+  heading { display: block; font-weight: 700; margin: 1.2em 0 0.4em; }
+  heading[level="1"] { font-size: 1.6em; }
+  heading[level="2"] { font-size: 1.3em; }
+  heading[level="3"] { font-size: 1.1em; }
+  list { display: block; padding-left: 1.6em; margin: 0.5em 0; }
+  list[style="bullet"] { list-style-type: disc; }
+  list[style="number"] { list-style-type: decimal; }
+  list-item { display: list-item; margin: 0.25em 0; }
+  code { background: #f3f3f3; padding: 1px 5px; border-radius: 3px;
+          font-family: 'SF Mono', Menlo, monospace; font-size: .9em; }
+  pre, snippet { display: block; background: #1e1e1e; color: #d4d4d4;
+                  padding: 14px; border-radius: 6px; overflow-x: auto;
+                  font-family: 'SF Mono', Menlo, monospace; font-size: .85em;
+                  white-space: pre; margin: 0.8em 0; }
+  figure { display: block; margin: 1em 0; text-align: center; }
+  image { display: inline-block; max-width: 100%; }
+  image:before { content: ""; }
+  callout { display: block; background: #f0f4ff; border-left: 4px solid #6c47ff;
+             padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 0.8em 0; }
+  math { display: block; font-style: italic; margin: 0.5em 0; color: #444; }
+  table { border-collapse: collapse; width: 100%; margin: 0.8em 0; }
+  table-row { display: table-row; }
+  table-cell { display: table-cell; border: 1px solid #ddd; padding: 8px 10px; }
+  bold { font-weight: 700; }
+  italic { font-style: italic; }
+  underline { text-decoration: underline; }
+  link { color: #6c47ff; text-decoration: underline; cursor: pointer; }
+  hr { border: none; border-top: 1px solid #eee; margin: 1.2em 0; }
+</style>
+</head>
+<body>
+<document version="2.0"><paragraph>The goal here is to use the <code>sklearn</code> package to fit a <bold>Linear Regression</bold> on the previously used <code>Advertising.csv</code> and produce a plot like the one given below.</paragraph><figure><img src="https://static.us.edusercontent.com/files/nGmjHh72CoJBcJwn4H5rHEZn" width="490" height="358" style="max-width:100%" /></figure><heading level="2">Instructions:</heading><paragraph>[V] - Instruction to read the dataset.</paragraph><list style="number"><list-item><paragraph>Use <code>train_test_split()</code> function to split the dataset into training and testing sets.</paragraph></list-item><list-item><paragraph>Use the <code>LinearRegression</code> function to make a model.</paragraph></list-item><list-item><paragraph>Fit the model on the training set.</paragraph></list-item><list-item><paragraph>Predict on the testing set using the fit model.</paragraph></list-item><list-item><paragraph>Estimate the fit of the model using <code>mean_squared_error</code> function.</paragraph></list-item><list-item><paragraph>Plot the dataset along with the predictions to visualize the fit.</paragraph></list-item></list><paragraph/><heading level="2">Hints:</heading><pre><bold><link href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html">pd.read_csv(<italic>filename</italic>)</link></bold>
+</pre><paragraph> Returns a pandas dataframe containing the data and labels from the file data</paragraph><pre><bold><link href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html">sklearn.train_test_split()</link></bold></pre><paragraph>Splits the data into random train and test subsets</paragraph><pre><bold><link href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html">sklearn.LinearRegression()</link></bold></pre><paragraph>LinearRegression fits a linear model</paragraph><pre><bold><link href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html#sklearn.linear_model.LinearRegression.fit">sklearn.fit()</link></bold></pre><paragraph>Fits the linear model to the training data</paragraph><pre><bold><link href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html#sklearn.linear_model.LinearRegression.predict">sklearn.predict()</link></bold></pre><paragraph>Predict using the linear model.</paragraph><pre><link href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html"><bold>mean_squared_error()</bold></link></pre><paragraph>Mean squared error regression loss.</paragraph><paragraph><bold>Note: This exercise is auto-graded and you can try multiple attempts</bold></paragraph></document>
+</body>
+</html>

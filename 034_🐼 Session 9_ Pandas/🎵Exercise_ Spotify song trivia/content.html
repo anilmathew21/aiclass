@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Content</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    max-width: 860px; margin: 0 auto; padding: 24px 20px;
+    color: #222; line-height: 1.6; background: #fff;
+  }
+  document { display: block; }
+  paragraph { display: block; margin: 0.6em 0; }
+  heading { display: block; font-weight: 700; margin: 1.2em 0 0.4em; }
+  heading[level="1"] { font-size: 1.6em; }
+  heading[level="2"] { font-size: 1.3em; }
+  heading[level="3"] { font-size: 1.1em; }
+  list { display: block; padding-left: 1.6em; margin: 0.5em 0; }
+  list[style="bullet"] { list-style-type: disc; }
+  list[style="number"] { list-style-type: decimal; }
+  list-item { display: list-item; margin: 0.25em 0; }
+  code { background: #f3f3f3; padding: 1px 5px; border-radius: 3px;
+          font-family: 'SF Mono', Menlo, monospace; font-size: .9em; }
+  pre, snippet { display: block; background: #1e1e1e; color: #d4d4d4;
+                  padding: 14px; border-radius: 6px; overflow-x: auto;
+                  font-family: 'SF Mono', Menlo, monospace; font-size: .85em;
+                  white-space: pre; margin: 0.8em 0; }
+  figure { display: block; margin: 1em 0; text-align: center; }
+  image { display: inline-block; max-width: 100%; }
+  image:before { content: ""; }
+  callout { display: block; background: #f0f4ff; border-left: 4px solid #6c47ff;
+             padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 0.8em 0; }
+  math { display: block; font-style: italic; margin: 0.5em 0; color: #444; }
+  table { border-collapse: collapse; width: 100%; margin: 0.8em 0; }
+  table-row { display: table-row; }
+  table-cell { display: table-cell; border: 1px solid #ddd; padding: 8px 10px; }
+  bold { font-weight: 700; }
+  italic { font-style: italic; }
+  underline { text-decoration: underline; }
+  link { color: #6c47ff; text-decoration: underline; cursor: pointer; }
+  hr { border: none; border-top: 1px solid #eee; margin: 1.2em 0; }
+</style>
+</head>
+<body>
+<document version="2.0"><paragraph>The goal of this segment is to use <code>pandas</code> to answer several quiz questions from a dataset curated from the music platform spotify.</paragraph><figure><img src="https://static.us.edusercontent.com/files/92FVyRQXC8HwbyxHGy72gFml" width="434" height="294" style="max-width:100%" /></figure><paragraph/><heading level="2">Instructions</heading><list style="bullet"><list-item><paragraph>Import the <code>pandas</code> library.</paragraph></list-item><list-item><paragraph>Load the <code>spotify_artists.csv</code> dataset into a <code>pandas.DataFrame</code> with an appropriate variable name.</paragraph></list-item><list-item><paragraph>For each question, assign the appropriate variable (e.g. <code>answer1</code> ) with an answer based on your analysis.</paragraph></list-item><list-item><paragraph>The bonus question is <bold>optional</bold>, and can be attempted by replacing the variable <code>answer_bonus</code> with the appropriate response.</paragraph></list-item></list><heading level="2">Hints</heading><pre><bold><link href="https://pandas.pydata.org/pandas-docs/version/0.23/generated/pandas.DataFrame.shape.html">df.shape</link></bold>
+</pre><paragraph>A tuple with the rows and columns </paragraph><pre><bold><link href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.head.html">df.head()</link></bold>
+</pre><paragraph>List the top few values of a dataframe.</paragraph><pre><bold><link href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.columns.html">df.columns</link></bold>
+</pre><paragraph>Returns pandas index type with a list of column names</paragraph><pre><bold><link href="https://pandas.pydata.org/docs/reference/api/pandas.Series.notna.html">series.notna()</link></bold>
+</pre><paragraph>Returns a boolean series accordingly if values are defined or undefined (NaN type)</paragraph><pre><bold><link href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.loc.html">df.loc</link></bold>
+</pre><paragraph>Dataframe locator with options for row and column names </paragraph><pre><bold><link href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html">df.iloc</link></bold>
+</pre><paragraph>Dataframe index locator with options for row and column indexes.</paragraph><pre><link href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sort_values.html"><bold>df.sort_values()</bold></link></pre><paragraph>Sort by the values along either axis.</paragraph><pre><link href="https://pandas.pydata.org/docs/reference/api/pandas.Series.unique.html"><bold>pd.Series.unique()</bold></link></pre><paragraph>Return unique values of Series object.</paragraph><pre><link href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html"><bold>df.groupby()</bold></link></pre><paragraph>Group DataFrame using a mapper or by a Series of columns.</paragraph><heading level="2">Acknowledgements</heading><paragraph>The spotify dataset has been adapted from Kaggle. You can read more about it <link href="https://www.kaggle.com/mrmorj/dataset-of-songs-in-spotify">here</link> to understand the various columns.</paragraph></document>
+</body>
+</html>

@@ -1,0 +1,1902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ed STEM Course Index</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f5;color:#222;display:flex}
+  #sidebar{width:280px;min-height:100vh;background:#2d2d2d;color:#eee;position:sticky;top:0;height:100vh;overflow-y:auto;flex-shrink:0}
+  #sidebar h1{font-size:1rem;padding:20px 16px 12px;color:#fff;border-bottom:1px solid #444}
+  #sidebar ul{list-style:none;padding:8px 0}
+  #sidebar li a{display:block;padding:6px 16px;color:#ccc;text-decoration:none;font-size:.82rem;line-height:1.4}
+  #sidebar li a:hover{background:#444;color:#fff}
+  #main{flex:1;padding:32px 40px;max-width:900px}
+  .lesson{margin-bottom:40px;border-radius:8px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.08);padding:24px 28px}
+  .lesson h2{font-size:1.15rem;color:#1a1a2e;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #e0e0e0}
+  .module-tag{font-size:.7rem;background:#6c47ff22;color:#6c47ff;padding:2px 8px;border-radius:12px;margin-left:8px;vertical-align:middle}
+  .slide{margin-bottom:14px;padding:12px 14px;border-left:3px solid #6c47ff33;background:#fafafa;border-radius:0 6px 6px 0}
+  .slide-title{font-weight:600;font-size:.9rem;margin-bottom:8px;color:#333}
+  .type-badge{font-size:.65rem;background:#eee;color:#888;padding:1px 6px;border-radius:10px;margin-left:6px;font-weight:400;vertical-align:middle}
+  .asset-list{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+  .asset-list li a{display:inline-block;padding:4px 10px;border-radius:4px;font-size:.78rem;text-decoration:none;transition:opacity .15s}
+  .asset-pdf{background:#ffe0e0;color:#b00020}
+  .asset-pdf:hover{opacity:.8}
+  .asset-video{background:#e0f0ff;color:#0055b3}
+  .asset-video:hover{opacity:.8}
+  .asset-nb{background:#fff3cd;color:#7a5200}
+  .asset-nb:hover{opacity:.8}
+  .asset-zoom{background:#e8f5e9;color:#1b5e20}
+  .asset-zoom:hover{opacity:.8}
+  .asset-other{background:#f3e5f5;color:#4a148c}
+  .asset-other:hover{opacity:.8}
+  .asset-content{background:#e3f2fd;color:#0d47a1}
+  .asset-content:hover{opacity:.8}
+  .empty{color:#aaa;font-size:.85rem;font-style:italic}
+  .toc-phase{padding:10px 16px 4px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#6c47ff;border-top:1px solid #444;margin-top:6px}
+  .phase-header{margin:32px 0 12px;padding:10px 16px;background:linear-gradient(135deg,#6c47ff22,#6c47ff11);border-left:4px solid #6c47ff;border-radius:0 6px 6px 0;font-size:.95rem;font-weight:700;color:#6c47ff;letter-spacing:.02em}
+</style>
+</head>
+<body>
+<nav id="sidebar">
+  <h1>📚 Course Index</h1>
+  <ul><li class="toc-phase">Phase 1: Course Orientation</li><li><a href="#lesson-0">ℹ️ Course Information </a></li><li><a href="#lesson-1">💡 Course Information and Syllabus </a></li><li><a href="#lesson-2">📂 Resources &amp; Policy Documents</a></li><li><a href="#lesson-3">🛠️ Starter Toolkit</a></li><li class="toc-phase">Phase 2: Python Foundations</li><li><a href="#lesson-4">🐍 Introduction to Python Programming</a></li><li><a href="#lesson-5">🐍 Session 1: Introduction to Python Programming</a></li><li><a href="#lesson-6">📖 Python Lists, Loops and Data Structures</a></li><li><a href="#lesson-7">📖 Session 2: Python Lists, Loops, and Data Structures</a></li><li><a href="#lesson-8">🦾 Python Functions</a></li><li><a href="#lesson-9">ƛ Session 3: Python Functions</a></li><li><a href="#lesson-10">🏛️ Python Classes</a></li><li><a href="#lesson-11">🏗Session 4: Python Classes</a></li><li><a href="#lesson-12">📂 Files and Strings</a></li><li><a href="#lesson-13">📂 Session 5: Files, Strings, Regular Expressions</a></li><li class="toc-phase">Phase 3: Math &amp; Numerical Computing</li><li><a href="#lesson-14">🔢 Numerical Python</a></li><li><a href="#lesson-15">🔢 Session 6: Numerical Python</a></li><li><a href="#lesson-16">↗️ Session 7: Linear Algebra</a></li><li><a href="#lesson-17">🎲 Session 8: Probability &amp; Statistics</a></li><li><a href="#lesson-18">👨🏻‍🏫 Session 10: Linear Regression</a></li><li class="toc-phase">Phase 4: Data Tools</li><li><a href="#lesson-19">🐼 Pandas</a></li><li><a href="#lesson-20">🐼 Session 9: Pandas</a></li><li class="toc-phase">Phase 5: Language Model Foundations</li><li><a href="#lesson-21">[Pre-Program] 📝 P1:  Introduction to Language models: Preprocessing, Modeling, and NLP</a></li><li><a href="#lesson-22">[Pre-Program] 🦾 P2: Transformers</a></li><li class="toc-phase">Phase 6: Core LLM Sessions</li><li><a href="#lesson-23">🤖 Session 1: BERT, GPT </a></li><li><a href="#lesson-24">👀 Session 2: ChatGPT</a></li><li class="toc-phase">Phase 7: Retrieval-Augmented Generation (RAG)</li><li><a href="#lesson-25">🏔️Session 3: Introduction to RAGs</a></li><li><a href="#lesson-26">🧵 Session 4: RAG II - Advanced RAG</a></li><li class="toc-phase">Phase 8: Agents, Fine-Tuning &amp; SOTA</li><li><a href="#lesson-27">💪Draft:  Session 5:  Agents</a></li><li><a href="#lesson-28">🔎 Session 6: Fine-Tuning LLMs</a></li><li><a href="#lesson-29">🖊️ Session 7:  SOTA</a></li><li class="toc-phase">Phase 9: Projects &amp; Creative Applications</li><li><a href="#lesson-30">The Hackathon Project Blueprint</a></li><li><a href="#lesson-31">🎵🎨 The Multimedia Art Studio: Direct Your Digital Muse.</a></li><li><a href="#lesson-32">📄 The Argus Engine: Your All-Seeing Research Analyst</a></li><li><a href="#lesson-33">🤖 The Turing Trio: Your Autonomous Software Development Team.</a></li><li class="toc-phase">Reference &amp; Extras</li><li><a href="#lesson-34">📣 Invited Speakers</a></li><li><a href="#lesson-35">🎥 Zoom Link 🎥</a></li><li><a href="#lesson-36">😱 Deleted Scenes</a></li></ul>
+</nav>
+<main id="main">
+  <h1 style="font-size:1.4rem;margin-bottom:28px;color:#1a1a2e">Ed STEM — ELELEM Large Language Models</h1>
+  <div class="phase-header">Phase 1: Course Orientation</div>
+        <section id="lesson-0" class="lesson">
+          <h2>ℹ️ Course Information  </h2>
+          
+            <div class="slide">
+              <div class="slide-title">Overview of the Course
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="018_%E2%84%B9%EF%B8%8F%20Course%20Information/Overview%20of%20the%20Course/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+        </section>
+        <section id="lesson-1" class="lesson">
+          <h2>💡 Course Information and Syllabus  </h2>
+          
+            <div class="slide">
+              <div class="slide-title">Course Schedule
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="026_%F0%9F%92%A1%20Course%20Information%20and%20Syllabus/Course%20Schedule/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">General Course Information
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="026_%F0%9F%92%A1%20Course%20Information%20and%20Syllabus/General%20Course%20Information/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Syllabus
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="026_%F0%9F%92%A1%20Course%20Information%20and%20Syllabus/Syllabus/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+        </section>
+        <section id="lesson-2" class="lesson">
+          <h2>📂 Resources &amp; Policy Documents </h2>
+          
+            <div class="slide">
+              <div class="slide-title">Essential Foundations for LLM course: A Pre-Assignment Series
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="019_%F0%9F%93%82%20Resources%20%26%20Policy%20Documents/Essential%20Foundations%20for%20LLM%20course_%20A%20Pre-Assignment%20Series/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Participant course roster
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="019_%F0%9F%93%82%20Resources%20%26%20Policy%20Documents/Participant%20course%20roster/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">SEAS Classroom Community Expectations Policy
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="019_%F0%9F%93%82%20Resources%20%26%20Policy%20Documents/SEAS%20Classroom%20Community%20Expectations%20Policy/Hpk01hwTg4YqrylJhbB2iypO" class="asset-other">📎 Hpk01hwTg4YqrylJhbB2iypO</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">SEAS Media Release Policy
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="019_%F0%9F%93%82%20Resources%20%26%20Policy%20Documents/SEAS%20Media%20Release%20Policy/RAMoblBpYZWNy34zGOSOVKGG" class="asset-other">📎 RAMoblBpYZWNy34zGOSOVKGG</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Workshop Roster
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="019_%F0%9F%93%82%20Resources%20%26%20Policy%20Documents/Workshop%20Roster/WUaE9bY2y96fcbVK85RttWGT" class="asset-other">📎 WUaE9bY2y96fcbVK85RttWGT</a></li></ul>
+            </div>
+        </section>
+        <section id="lesson-3" class="lesson">
+          <h2>🛠️ Starter Toolkit </h2>
+          
+            <div class="slide">
+              <div class="slide-title">🎩  Ultimate AI Hackathon Toolkit 
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="008_%F0%9F%9B%A0%EF%B8%8F%20Starter%20Toolkit/%F0%9F%8E%A9%20Ultimate%20AI%20Hackathon%20Toolkit/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📒 The Colab Hackathon Playbook
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="008_%F0%9F%9B%A0%EF%B8%8F%20Starter%20Toolkit/%F0%9F%93%92%20The%20Colab%20Hackathon%20Playbook/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🚀 The No-Code Hackathon Playbook
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="008_%F0%9F%9B%A0%EF%B8%8F%20Starter%20Toolkit/%F0%9F%9A%80%20The%20No-Code%20Hackathon%20Playbook/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+        </section><div class="phase-header">Phase 2: Python Foundations</div>
+        <section id="lesson-4" class="lesson">
+          <h2>🐍 Introduction to Python Programming </h2>
+          
+            <div class="slide">
+              <div class="slide-title">🐍 Codecast - Conditional Statements
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="015_%F0%9F%90%8D%20Introduction%20to%20Python%20Programming/%F0%9F%90%8D%20Codecast%20-%20Conditional%20Statements/videos/4%20-%20Conditional%20Statements.mp4" class="asset-video">🎬 4 - Conditional Statements.mp4</a></li><li><a href="015_%F0%9F%90%8D%20Introduction%20to%20Python%20Programming/%F0%9F%90%8D%20Codecast%20-%20Conditional%20Statements/videos/4%20-%20Conditional%20Statements.info.json" class="asset-other">📎 4 - Conditional Statements.info.json</a></li><li><a href="015_%F0%9F%90%8D%20Introduction%20to%20Python%20Programming/%F0%9F%90%8D%20Codecast%20-%20Conditional%20Statements/videos/4%20-%20Conditional%20Statements.webp" class="asset-other">📎 4 - Conditional Statements.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🐍 Codecast - Other Operators
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="015_%F0%9F%90%8D%20Introduction%20to%20Python%20Programming/%F0%9F%90%8D%20Codecast%20-%20Other%20Operators/videos/3%20-%20Other%20Operators.mp4" class="asset-video">🎬 3 - Other Operators.mp4</a></li><li><a href="015_%F0%9F%90%8D%20Introduction%20to%20Python%20Programming/%F0%9F%90%8D%20Codecast%20-%20Other%20Operators/videos/3%20-%20Other%20Operators.info.json" class="asset-other">📎 3 - Other Operators.info.json</a></li><li><a href="015_%F0%9F%90%8D%20Introduction%20to%20Python%20Programming/%F0%9F%90%8D%20Codecast%20-%20Other%20Operators/videos/3%20-%20Other%20Operators.webp" class="asset-other">📎 3 - Other Operators.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🐍 Codecast - Variables
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="015_%F0%9F%90%8D%20Introduction%20to%20Python%20Programming/%F0%9F%90%8D%20Codecast%20-%20Variables/videos/2%20-%20Variables.mp4" class="asset-video">🎬 2 - Variables.mp4</a></li><li><a href="015_%F0%9F%90%8D%20Introduction%20to%20Python%20Programming/%F0%9F%90%8D%20Codecast%20-%20Variables/videos/2%20-%20Variables.info.json" class="asset-other">📎 2 - Variables.info.json</a></li><li><a href="015_%F0%9F%90%8D%20Introduction%20to%20Python%20Programming/%F0%9F%90%8D%20Codecast%20-%20Variables/videos/2%20-%20Variables.webp" class="asset-other">📎 2 - Variables.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🐍 Codecast - print and Arithmetic Operators
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="015_%F0%9F%90%8D%20Introduction%20to%20Python%20Programming/%F0%9F%90%8D%20Codecast%20-%20print%20and%20Arithmetic%20Operators/videos/1%20-%20Print%20and%20Arithmetic%20Operators.mp4" class="asset-video">🎬 1 - Print and Arithmetic Operators.mp4</a></li><li><a href="015_%F0%9F%90%8D%20Introduction%20to%20Python%20Programming/%F0%9F%90%8D%20Codecast%20-%20print%20and%20Arithmetic%20Operators/videos/1%20-%20Print%20and%20Arithmetic%20Operators.info.json" class="asset-other">📎 1 - Print and Arithmetic Operators.info.json</a></li><li><a href="015_%F0%9F%90%8D%20Introduction%20to%20Python%20Programming/%F0%9F%90%8D%20Codecast%20-%20print%20and%20Arithmetic%20Operators/videos/1%20-%20Print%20and%20Arithmetic%20Operators.webp" class="asset-other">📎 1 - Print and Arithmetic Operators.webp</a></li></ul>
+            </div>
+        </section>
+        <section id="lesson-5" class="lesson">
+          <h2>🐍 Session 1: Introduction to Python Programming </h2>
+          
+            <div class="slide">
+              <div class="slide-title">Ed Exercises Intro
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="027_%F0%9F%90%8D%20Session%201_%20Introduction%20to%20Python%20Programming/Ed%20Exercises%20Intro/videos/BRDS%201%203%20exercise.mp4" class="asset-video">🎬 BRDS 1 3 exercise.mp4</a></li><li><a href="027_%F0%9F%90%8D%20Session%201_%20Introduction%20to%20Python%20Programming/Ed%20Exercises%20Intro/videos/BRDS%201%203%20exercise.info.json" class="asset-other">📎 BRDS 1 3 exercise.info.json</a></li><li><a href="027_%F0%9F%90%8D%20Session%201_%20Introduction%20to%20Python%20Programming/Ed%20Exercises%20Intro/videos/BRDS%201%203%20exercise.webp" class="asset-other">📎 BRDS 1 3 exercise.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Exercise 2 Walkthrough
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="027_%F0%9F%90%8D%20Session%201_%20Introduction%20to%20Python%20Programming/Exercise%202%20Walkthrough/videos/BRDS%201%207%20exercise%20walkthrough.mp4" class="asset-video">🎬 BRDS 1 7 exercise walkthrough.mp4</a></li><li><a href="027_%F0%9F%90%8D%20Session%201_%20Introduction%20to%20Python%20Programming/Exercise%202%20Walkthrough/videos/BRDS%201%207%20exercise%20walkthrough.info.json" class="asset-other">📎 BRDS 1 7 exercise walkthrough.info.json</a></li><li><a href="027_%F0%9F%90%8D%20Session%201_%20Introduction%20to%20Python%20Programming/Exercise%202%20Walkthrough/videos/BRDS%201%207%20exercise%20walkthrough.webp" class="asset-other">📎 BRDS 1 7 exercise walkthrough.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Exercise: Python Savings Calculator
+                <span class='type-badge'>jupyter</span>
+              </div>
+              <ul class="asset-list"><li><a href="027_%F0%9F%90%8D%20Session%201_%20Introduction%20to%20Python%20Programming/Exercise_%20Python%20Savings%20Calculator/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Flow Control
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="027_%F0%9F%90%8D%20Session%201_%20Introduction%20to%20Python%20Programming/Flow%20Control/videos/BRDS%201%205%20flow%20control.mp4" class="asset-video">🎬 BRDS 1 5 flow control.mp4</a></li><li><a href="027_%F0%9F%90%8D%20Session%201_%20Introduction%20to%20Python%20Programming/Flow%20Control/videos/BRDS%201%205%20flow%20control.info.json" class="asset-other">📎 BRDS 1 5 flow control.info.json</a></li><li><a href="027_%F0%9F%90%8D%20Session%201_%20Introduction%20to%20Python%20Programming/Flow%20Control/videos/BRDS%201%205%20flow%20control.webp" class="asset-other">📎 BRDS 1 5 flow control.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">IPython
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="027_%F0%9F%90%8D%20Session%201_%20Introduction%20to%20Python%20Programming/IPython/videos/BRDS%201%202%20ipython.mp4" class="asset-video">🎬 BRDS 1 2 ipython.mp4</a></li><li><a href="027_%F0%9F%90%8D%20Session%201_%20Introduction%20to%20Python%20Programming/IPython/videos/BRDS%201%202%20ipython.info.json" class="asset-other">📎 BRDS 1 2 ipython.info.json</a></li><li><a href="027_%F0%9F%90%8D%20Session%201_%20Introduction%20to%20Python%20Programming/IPython/videos/BRDS%201%202%20ipython.webp" class="asset-other">📎 BRDS 1 2 ipython.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Logical Operators
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="027_%F0%9F%90%8D%20Session%201_%20Introduction%20to%20Python%20Programming/Logical%20Operators/videos/BRDS%201%206%20logical%20operators.mp4" class="asset-video">🎬 BRDS 1 6 logical operators.mp4</a></li><li><a href="027_%F0%9F%90%8D%20Session%201_%20Introduction%20to%20Python%20Programming/Logical%20Operators/videos/BRDS%201%206%20logical%20operators.info.json" class="asset-other">📎 BRDS 1 6 logical operators.info.json</a></li><li><a href="027_%F0%9F%90%8D%20Session%201_%20Introduction%20to%20Python%20Programming/Logical%20Operators/videos/BRDS%201%206%20logical%20operators.webp" class="asset-other">📎 BRDS 1 6 logical operators.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Pre-Class Reading Assignment
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="027_%F0%9F%90%8D%20Session%201_%20Introduction%20to%20Python%20Programming/Pre-Class%20Reading%20Assignment/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Python Intro
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="027_%F0%9F%90%8D%20Session%201_%20Introduction%20to%20Python%20Programming/Python%20Intro/videos/BRDS%201%201%20python%20intro.mp4" class="asset-video">🎬 BRDS 1 1 python intro.mp4</a></li><li><a href="027_%F0%9F%90%8D%20Session%201_%20Introduction%20to%20Python%20Programming/Python%20Intro/videos/BRDS%201%201%20python%20intro.info.json" class="asset-other">📎 BRDS 1 1 python intro.info.json</a></li><li><a href="027_%F0%9F%90%8D%20Session%201_%20Introduction%20to%20Python%20Programming/Python%20Intro/videos/BRDS%201%201%20python%20intro.webp" class="asset-other">📎 BRDS 1 1 python intro.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Slides: Introduction
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="027_%F0%9F%90%8D%20Session%201_%20Introduction%20to%20Python%20Programming/Slides_%20Introduction/VAT0uf3CgxgZJuUGEOgNyuao" class="asset-other">📎 VAT0uf3CgxgZJuUGEOgNyuao</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Slides: Python Basics
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="027_%F0%9F%90%8D%20Session%201_%20Introduction%20to%20Python%20Programming/Slides_%20Python%20Basics/ARNf8CVahaKGChlRBeUwS2HD" class="asset-other">📎 ARNf8CVahaKGChlRBeUwS2HD</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Variables
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="027_%F0%9F%90%8D%20Session%201_%20Introduction%20to%20Python%20Programming/Variables/videos/BRDS%201%204%20variables.mp4" class="asset-video">🎬 BRDS 1 4 variables.mp4</a></li><li><a href="027_%F0%9F%90%8D%20Session%201_%20Introduction%20to%20Python%20Programming/Variables/videos/BRDS%201%204%20variables.info.json" class="asset-other">📎 BRDS 1 4 variables.info.json</a></li><li><a href="027_%F0%9F%90%8D%20Session%201_%20Introduction%20to%20Python%20Programming/Variables/videos/BRDS%201%204%20variables.webp" class="asset-other">📎 BRDS 1 4 variables.webp</a></li></ul>
+            </div>
+        </section>
+        <section id="lesson-6" class="lesson">
+          <h2>📖 Python Lists, Loops and Data Structures </h2>
+          
+            <div class="slide">
+              <div class="slide-title">📃 Codecast - Creation of Lists
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%93%83%20Codecast%20-%20Creation%20of%20Lists/videos/1%20-%20Creation%20of%20Lists.mp4" class="asset-video">🎬 1 - Creation of Lists.mp4</a></li><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%93%83%20Codecast%20-%20Creation%20of%20Lists/videos/1%20-%20Creation%20of%20Lists.info.json" class="asset-other">📎 1 - Creation of Lists.info.json</a></li><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%93%83%20Codecast%20-%20Creation%20of%20Lists/videos/1%20-%20Creation%20of%20Lists.webp" class="asset-other">📎 1 - Creation of Lists.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📃 Codecast - Indexing, Slicing, Operations
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%93%83%20Codecast%20-%20Indexing%2C%20Slicing%2C%20Operations/videos/2%20-%20Indexing%2C%20Slicing%2C%20Operations.mp4" class="asset-video">🎬 2 - Indexing, Slicing, Operations.mp4</a></li><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%93%83%20Codecast%20-%20Indexing%2C%20Slicing%2C%20Operations/videos/2%20-%20Indexing%2C%20Slicing%2C%20Operations.info.json" class="asset-other">📎 2 - Indexing, Slicing, Operations.info.json</a></li><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%93%83%20Codecast%20-%20Indexing%2C%20Slicing%2C%20Operations/videos/2%20-%20Indexing%2C%20Slicing%2C%20Operations.webp" class="asset-other">📎 2 - Indexing, Slicing, Operations.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📃 Codecast - ListMethods-1
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%93%83%20Codecast%20-%20ListMethods-1/videos/3%20-%20ListMethods-1.mp4" class="asset-video">🎬 3 - ListMethods-1.mp4</a></li><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%93%83%20Codecast%20-%20ListMethods-1/videos/3%20-%20ListMethods-1.info.json" class="asset-other">📎 3 - ListMethods-1.info.json</a></li><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%93%83%20Codecast%20-%20ListMethods-1/videos/3%20-%20ListMethods-1.webp" class="asset-other">📎 3 - ListMethods-1.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📃 Codecast - ListMethods-2
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%93%83%20Codecast%20-%20ListMethods-2/videos/4%20-%20ListMethods-2.mp4" class="asset-video">🎬 4 - ListMethods-2.mp4</a></li><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%93%83%20Codecast%20-%20ListMethods-2/videos/4%20-%20ListMethods-2.info.json" class="asset-other">📎 4 - ListMethods-2.info.json</a></li><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%93%83%20Codecast%20-%20ListMethods-2/videos/4%20-%20ListMethods-2.webp" class="asset-other">📎 4 - ListMethods-2.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📚 Codecast - Dictionary
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%93%9A%20Codecast%20-%20Dictionary/videos/11%20-%20Dictionary.mp4" class="asset-video">🎬 11 - Dictionary.mp4</a></li><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%93%9A%20Codecast%20-%20Dictionary/videos/11%20-%20Dictionary.info.json" class="asset-other">📎 11 - Dictionary.info.json</a></li><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%93%9A%20Codecast%20-%20Dictionary/videos/11%20-%20Dictionary.webp" class="asset-other">📎 11 - Dictionary.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📚 Codecast - Tuples
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%93%9A%20Codecast%20-%20Tuples/videos/12%20%20-%20Tuples.mp4" class="asset-video">🎬 12  - Tuples.mp4</a></li><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%93%9A%20Codecast%20-%20Tuples/videos/12%20%20-%20Tuples.info.json" class="asset-other">📎 12  - Tuples.info.json</a></li><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%93%9A%20Codecast%20-%20Tuples/videos/12%20%20-%20Tuples.webp" class="asset-other">📎 12  - Tuples.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🔁 Codecast - break and continue
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%94%81%20Codecast%20-%20break%20and%20continue/videos/6%20-break%20and%20continue.mp4" class="asset-video">🎬 6 -break and continue.mp4</a></li><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%94%81%20Codecast%20-%20break%20and%20continue/videos/6%20-break%20and%20continue.info.json" class="asset-other">📎 6 -break and continue.info.json</a></li><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%94%81%20Codecast%20-%20break%20and%20continue/videos/6%20-break%20and%20continue.webp" class="asset-other">📎 6 -break and continue.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🔁 Codecast - for loop
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%94%81%20Codecast%20-%20for%20loop/videos/5%20-%20for%20loop.mp4" class="asset-video">🎬 5 - for loop.mp4</a></li><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%94%81%20Codecast%20-%20for%20loop/videos/5%20-%20for%20loop.info.json" class="asset-other">📎 5 - for loop.info.json</a></li><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%94%81%20Codecast%20-%20for%20loop/videos/5%20-%20for%20loop.webp" class="asset-other">📎 5 - for loop.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🔁 Codecast - while loop
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%94%81%20Codecast%20-%20while%20loop/videos/7%20%20-%20while.mp4" class="asset-video">🎬 7  - while.mp4</a></li><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%94%81%20Codecast%20-%20while%20loop/videos/7%20%20-%20while.info.json" class="asset-other">📎 7  - while.info.json</a></li><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%94%81%20Codecast%20-%20while%20loop/videos/7%20%20-%20while.webp" class="asset-other">📎 7  - while.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🤖 Codecast - List Comprehension
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%A4%96%20Codecast%20-%20List%20Comprehension/videos/13%20-%20List%20Comprehension.mp4" class="asset-video">🎬 13 - List Comprehension.mp4</a></li><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%A4%96%20Codecast%20-%20List%20Comprehension/videos/13%20-%20List%20Comprehension.info.json" class="asset-other">📎 13 - List Comprehension.info.json</a></li><li><a href="011_%F0%9F%93%96%20Python%20Lists%2C%20Loops%20and%20Data%20Structures/%F0%9F%A4%96%20Codecast%20-%20List%20Comprehension/videos/13%20-%20List%20Comprehension.webp" class="asset-other">📎 13 - List Comprehension.webp</a></li></ul>
+            </div>
+        </section>
+        <section id="lesson-7" class="lesson">
+          <h2>📖 Session 2: Python Lists, Loops, and Data Structures </h2>
+          
+            <div class="slide">
+              <div class="slide-title">Dictionaries
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Dictionaries/videos/BRDS%202%206%20dictionaries.mp4" class="asset-video">🎬 BRDS 2 6 dictionaries.mp4</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Dictionaries/videos/BRDS%202%206%20dictionaries.info.json" class="asset-other">📎 BRDS 2 6 dictionaries.info.json</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Dictionaries/videos/BRDS%202%206%20dictionaries.webp" class="asset-other">📎 BRDS 2 6 dictionaries.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Dictionary Comprehensions
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Dictionary%20Comprehensions/videos/BRDS%203%203%20dictionary%20comprehensions.mp4" class="asset-video">🎬 BRDS 3 3 dictionary comprehensions.mp4</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Dictionary%20Comprehensions/videos/BRDS%203%203%20dictionary%20comprehensions.info.json" class="asset-other">📎 BRDS 3 3 dictionary comprehensions.info.json</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Dictionary%20Comprehensions/videos/BRDS%203%203%20dictionary%20comprehensions.webp" class="asset-other">📎 BRDS 3 3 dictionary comprehensions.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Enumerate
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Enumerate/videos/BRDS%203%209%20enumerate.mp4" class="asset-video">🎬 BRDS 3 9 enumerate.mp4</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Enumerate/videos/BRDS%203%209%20enumerate.info.json" class="asset-other">📎 BRDS 3 9 enumerate.info.json</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Enumerate/videos/BRDS%203%209%20enumerate.webp" class="asset-other">📎 BRDS 3 9 enumerate.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Exercise Info
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Exercise%20Info/videos/BRDS%203%205%20exercise%20intro.mp4" class="asset-video">🎬 BRDS 3 5 exercise intro.mp4</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Exercise%20Info/videos/BRDS%203%205%20exercise%20intro.info.json" class="asset-other">📎 BRDS 3 5 exercise intro.info.json</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Exercise%20Info/videos/BRDS%203%205%20exercise%20intro.webp" class="asset-other">📎 BRDS 3 5 exercise intro.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Exercise Walkthrough
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Exercise%20Walkthrough/videos/BRDS%202%208%20exercise%20walkthrough.mp4" class="asset-video">🎬 BRDS 2 8 exercise walkthrough.mp4</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Exercise%20Walkthrough/videos/BRDS%203%206%20exercise%20walkthrough.mp4" class="asset-video">🎬 BRDS 3 6 exercise walkthrough.mp4</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Exercise%20Walkthrough/videos/BRDS%202%208%20exercise%20walkthrough.info.json" class="asset-other">📎 BRDS 2 8 exercise walkthrough.info.json</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Exercise%20Walkthrough/videos/BRDS%202%208%20exercise%20walkthrough.webp" class="asset-other">📎 BRDS 2 8 exercise walkthrough.webp</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Exercise%20Walkthrough/videos/BRDS%203%206%20exercise%20walkthrough.info.json" class="asset-other">📎 BRDS 3 6 exercise walkthrough.info.json</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Exercise%20Walkthrough/videos/BRDS%203%206%20exercise%20walkthrough.webp" class="asset-other">📎 BRDS 3 6 exercise walkthrough.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Exercise: Lists
+                <span class='type-badge'>jupyter</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Exercise_%20Lists/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Exercise: Loops
+                <span class='type-badge'>jupyter</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Exercise_%20Loops/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Game Show
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Game%20Show/videos/BRDS%203%2011%20gameshow.mp4" class="asset-video">🎬 BRDS 3 11 gameshow.mp4</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Game%20Show/videos/BRDS%203%2011%20gameshow.info.json" class="asset-other">📎 BRDS 3 11 gameshow.info.json</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Game%20Show/videos/BRDS%203%2011%20gameshow.webp" class="asset-other">📎 BRDS 3 11 gameshow.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Generator Expressions
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Generator%20Expressions/videos/BRDS%203%204%20generator%20expressions.mp4" class="asset-video">🎬 BRDS 3 4 generator expressions.mp4</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Generator%20Expressions/videos/BRDS%203%204%20generator%20expressions.info.json" class="asset-other">📎 BRDS 3 4 generator expressions.info.json</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Generator%20Expressions/videos/BRDS%203%204%20generator%20expressions.webp" class="asset-other">📎 BRDS 3 4 generator expressions.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Iterables
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Iterables/videos/BRDS%202%202%20iterables.mp4" class="asset-video">🎬 BRDS 2 2 iterables.mp4</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Iterables/videos/BRDS%202%202%20iterables.info.json" class="asset-other">📎 BRDS 2 2 iterables.info.json</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Iterables/videos/BRDS%202%202%20iterables.webp" class="asset-other">📎 BRDS 2 2 iterables.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">LCs - Conditionals
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/LCs%20-%20Conditionals/videos/BRDS%203%202%20LCs%20Conditions.mp4" class="asset-video">🎬 BRDS 3 2 LCs Conditions.mp4</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/LCs%20-%20Conditionals/videos/BRDS%203%202%20LCs%20Conditions.info.json" class="asset-other">📎 BRDS 3 2 LCs Conditions.info.json</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/LCs%20-%20Conditionals/videos/BRDS%203%202%20LCs%20Conditions.webp" class="asset-other">📎 BRDS 3 2 LCs Conditions.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">List Comprehensions
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/List%20Comprehensions/videos/BRDS%203%201%20List%20Comprehensions.mp4" class="asset-video">🎬 BRDS 3 1 List Comprehensions.mp4</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/List%20Comprehensions/videos/BRDS%203%201%20List%20Comprehensions.info.json" class="asset-other">📎 BRDS 3 1 List Comprehensions.info.json</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/List%20Comprehensions/videos/BRDS%203%201%20List%20Comprehensions.webp" class="asset-other">📎 BRDS 3 1 List Comprehensions.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Lists
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Lists/videos/BRDS%201%208%20lists.mp4" class="asset-video">🎬 BRDS 1 8 lists.mp4</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Lists/videos/BRDS%201%208%20lists.info.json" class="asset-other">📎 BRDS 1 8 lists.info.json</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Lists/videos/BRDS%201%208%20lists.webp" class="asset-other">📎 BRDS 1 8 lists.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Lists (continued)
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Lists%20%28continued%29/videos/BRDS%202%201%20lists1.mp4" class="asset-video">🎬 BRDS 2 1 lists1.mp4</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Lists%20%28continued%29/videos/BRDS%202%201%20lists1.info.json" class="asset-other">📎 BRDS 2 1 lists1.info.json</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Lists%20%28continued%29/videos/BRDS%202%201%20lists1.webp" class="asset-other">📎 BRDS 2 1 lists1.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Loop Indentation Comments
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Loop%20Indentation%20Comments/videos/BRDS%202%205%20loop%20indentation.mp4" class="asset-video">🎬 BRDS 2 5 loop indentation.mp4</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Loop%20Indentation%20Comments/videos/BRDS%202%205%20loop%20indentation.info.json" class="asset-other">📎 BRDS 2 5 loop indentation.info.json</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Loop%20Indentation%20Comments/videos/BRDS%202%205%20loop%20indentation.webp" class="asset-other">📎 BRDS 2 5 loop indentation.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Loops
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Loops/videos/BRDS%202%204%20loops.mp4" class="asset-video">🎬 BRDS 2 4 loops.mp4</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Loops/videos/BRDS%202%204%20loops.info.json" class="asset-other">📎 BRDS 2 4 loops.info.json</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Loops/videos/BRDS%202%204%20loops.webp" class="asset-other">📎 BRDS 2 4 loops.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Mutability
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Mutability/videos/BRDS%201%209%20mutability.mp4" class="asset-video">🎬 BRDS 1 9 mutability.mp4</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Mutability/videos/BRDS%201%209%20mutability.info.json" class="asset-other">📎 BRDS 1 9 mutability.info.json</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Mutability/videos/BRDS%201%209%20mutability.webp" class="asset-other">📎 BRDS 1 9 mutability.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Pre-Class Reading Assignment
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Pre-Class%20Reading%20Assignment/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Roadmap
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Roadmap/videos/BRDS%203%2010%20roadmap.mp4" class="asset-video">🎬 BRDS 3 10 roadmap.mp4</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Roadmap/videos/BRDS%203%2010%20roadmap.info.json" class="asset-other">📎 BRDS 3 10 roadmap.info.json</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Roadmap/videos/BRDS%203%2010%20roadmap.webp" class="asset-other">📎 BRDS 3 10 roadmap.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Slides: Data Structures
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Slides_%20Data%20Structures/tvWYsuOtlpV5TbfnqAlVMuWi" class="asset-other">📎 tvWYsuOtlpV5TbfnqAlVMuWi</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Slides: Lists
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Slides_%20Lists/gQTdfzNylGZ87DFviHh4SwS5" class="asset-other">📎 gQTdfzNylGZ87DFviHh4SwS5</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Slides: Loops
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Slides_%20Loops/yR1uyiBPHiAcwrYUqdc33QEG" class="asset-other">📎 yR1uyiBPHiAcwrYUqdc33QEG</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Slides: Pythonic Syntax
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Slides_%20Pythonic%20Syntax/y8TihxlYFPFROorxbpfugTjC" class="asset-other">📎 y8TihxlYFPFROorxbpfugTjC</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Slides: Zip * and Enumerate
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Slides_%20Zip%20_%20and%20Enumerate/s0SVQKQOLyFHmkrL2064fYXG" class="asset-other">📎 s0SVQKQOLyFHmkrL2064fYXG</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">The Unpacking (Splat) Operator
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/The%20Unpacking%20%28Splat%29%20Operator/videos/BRDS%203%208%20splat.mp4" class="asset-video">🎬 BRDS 3 8 splat.mp4</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/The%20Unpacking%20%28Splat%29%20Operator/videos/BRDS%203%208%20splat.info.json" class="asset-other">📎 BRDS 3 8 splat.info.json</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/The%20Unpacking%20%28Splat%29%20Operator/videos/BRDS%203%208%20splat.webp" class="asset-other">📎 BRDS 3 8 splat.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Tuples
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Tuples/videos/BRDS%202%207%20tuples.mp4" class="asset-video">🎬 BRDS 2 7 tuples.mp4</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Tuples/videos/BRDS%202%207%20tuples.info.json" class="asset-other">📎 BRDS 2 7 tuples.info.json</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Tuples/videos/BRDS%202%207%20tuples.webp" class="asset-other">📎 BRDS 2 7 tuples.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Who Wants to be a Data Scientist?
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Who%20Wants%20to%20be%20a%20Data%20Scientist_/videos/BRDS%202%203%20game%20show.mp4" class="asset-video">🎬 BRDS 2 3 game show.mp4</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Who%20Wants%20to%20be%20a%20Data%20Scientist_/videos/BRDS%202%203%20game%20show.info.json" class="asset-other">📎 BRDS 2 3 game show.info.json</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Who%20Wants%20to%20be%20a%20Data%20Scientist_/videos/BRDS%202%203%20game%20show.webp" class="asset-other">📎 BRDS 2 3 game show.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Zip
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Zip/videos/BRDS%203%207%20zip.mp4" class="asset-video">🎬 BRDS 3 7 zip.mp4</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Zip/videos/BRDS%203%207%20zip.info.json" class="asset-other">📎 BRDS 3 7 zip.info.json</a></li><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/Zip/videos/BRDS%203%207%20zip.webp" class="asset-other">📎 BRDS 3 7 zip.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🏋🏽‍♀️ Exercise: The Book Keeper's Apprentice - Dicts &amp; List
+                <span class='type-badge'>jupyter</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/%F0%9F%8F%8B%F0%9F%8F%BD%E2%80%8D%E2%99%80%EF%B8%8F%20Exercise_%20The%20Book%20Keeper%27s%20Apprentice%20-%20Dicts%20%26%20List/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🏋🏽‍♀️ Exercise: The Book Keeper's Apprentice - List &amp; Dict Comprehensions
+                <span class='type-badge'>jupyter</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/%F0%9F%8F%8B%F0%9F%8F%BD%E2%80%8D%E2%99%80%EF%B8%8F%20Exercise_%20The%20Book%20Keeper%27s%20Apprentice%20-%20List%20%26%20Dict%20Comprehensions/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🏋🏽‍♀️ Exercise: The Booker Keeper's Apprentice - Zip, *, enumerate
+                <span class='type-badge'>jupyter</span>
+              </div>
+              <ul class="asset-list"><li><a href="028_%F0%9F%93%96%20Session%202_%20Python%20Lists%2C%20Loops%2C%20and%20Data%20Structures/%F0%9F%8F%8B%F0%9F%8F%BD%E2%80%8D%E2%99%80%EF%B8%8F%20Exercise_%20The%20Booker%20Keeper%27s%20Apprentice%20-%20Zip%2C%20_%2C%20enumerate/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+        </section>
+        <section id="lesson-8" class="lesson">
+          <h2>🦾 Python Functions </h2>
+          
+            <div class="slide">
+              <div class="slide-title">🤐 Codecast - enumerate function
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="035_%F0%9F%A6%BE%20Python%20Functions/%F0%9F%A4%90%20Codecast%20-%20enumerate%20function/videos/4%20-%20%20enumerate%20function.mp4" class="asset-video">🎬 4 -  enumerate function.mp4</a></li><li><a href="035_%F0%9F%A6%BE%20Python%20Functions/%F0%9F%A4%90%20Codecast%20-%20enumerate%20function/videos/4%20-%20%20enumerate%20function.info.json" class="asset-other">📎 4 -  enumerate function.info.json</a></li><li><a href="035_%F0%9F%A6%BE%20Python%20Functions/%F0%9F%A4%90%20Codecast%20-%20enumerate%20function/videos/4%20-%20%20enumerate%20function.webp" class="asset-other">📎 4 -  enumerate function.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🤐 Codecast - zip function
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="035_%F0%9F%A6%BE%20Python%20Functions/%F0%9F%A4%90%20Codecast%20-%20zip%20function/videos/3%20-%20zip%20function.mp4" class="asset-video">🎬 3 - zip function.mp4</a></li><li><a href="035_%F0%9F%A6%BE%20Python%20Functions/%F0%9F%A4%90%20Codecast%20-%20zip%20function/videos/3%20-%20zip%20function.info.json" class="asset-other">📎 3 - zip function.info.json</a></li><li><a href="035_%F0%9F%A6%BE%20Python%20Functions/%F0%9F%A4%90%20Codecast%20-%20zip%20function/videos/3%20-%20zip%20function.webp" class="asset-other">📎 3 - zip function.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🦾 Codecast - Functions-1
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="035_%F0%9F%A6%BE%20Python%20Functions/%F0%9F%A6%BE%20Codecast%20-%20Functions-1/videos/1%20-%20Functions-1.mp4" class="asset-video">🎬 1 - Functions-1.mp4</a></li><li><a href="035_%F0%9F%A6%BE%20Python%20Functions/%F0%9F%A6%BE%20Codecast%20-%20Functions-1/videos/1%20-%20Functions-1.info.json" class="asset-other">📎 1 - Functions-1.info.json</a></li><li><a href="035_%F0%9F%A6%BE%20Python%20Functions/%F0%9F%A6%BE%20Codecast%20-%20Functions-1/videos/1%20-%20Functions-1.webp" class="asset-other">📎 1 - Functions-1.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🦾 Codecast - Functions-2
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="035_%F0%9F%A6%BE%20Python%20Functions/%F0%9F%A6%BE%20Codecast%20-%20Functions-2/videos/2%20-%20%20Functions-2.mp4" class="asset-video">🎬 2 -  Functions-2.mp4</a></li><li><a href="035_%F0%9F%A6%BE%20Python%20Functions/%F0%9F%A6%BE%20Codecast%20-%20Functions-2/videos/2%20-%20%20Functions-2.info.json" class="asset-other">📎 2 -  Functions-2.info.json</a></li><li><a href="035_%F0%9F%A6%BE%20Python%20Functions/%F0%9F%A6%BE%20Codecast%20-%20Functions-2/videos/2%20-%20%20Functions-2.webp" class="asset-other">📎 2 -  Functions-2.webp</a></li></ul>
+            </div>
+        </section>
+        <section id="lesson-9" class="lesson">
+          <h2>ƛ Session 3: Python Functions </h2>
+          
+            <div class="slide">
+              <div class="slide-title">Defining a Function
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Defining%20a%20Function/videos/BRDS%204%202%20defining%20functions.mp4" class="asset-video">🎬 BRDS 4 2 defining functions.mp4</a></li><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Defining%20a%20Function/videos/BRDS%204%202%20defining%20functions.info.json" class="asset-other">📎 BRDS 4 2 defining functions.info.json</a></li><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Defining%20a%20Function/videos/BRDS%204%202%20defining%20functions.webp" class="asset-other">📎 BRDS 4 2 defining functions.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Exercise Introduction
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Exercise%20Introduction/videos/BRDS%204%207%20exercise%20intro.mp4" class="asset-video">🎬 BRDS 4 7 exercise intro.mp4</a></li><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Exercise%20Introduction/videos/BRDS%204%207%20exercise%20intro.info.json" class="asset-other">📎 BRDS 4 7 exercise intro.info.json</a></li><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Exercise%20Introduction/videos/BRDS%204%207%20exercise%20intro.webp" class="asset-other">📎 BRDS 4 7 exercise intro.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Input Arguments
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Input%20Arguments/videos/BRDS%204%204%20input%20arguments.mp4" class="asset-video">🎬 BRDS 4 4 input arguments.mp4</a></li><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Input%20Arguments/videos/BRDS%204%204%20input%20arguments.info.json" class="asset-other">📎 BRDS 4 4 input arguments.info.json</a></li><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Input%20Arguments/videos/BRDS%204%204%20input%20arguments.webp" class="asset-other">📎 BRDS 4 4 input arguments.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Intro to Functions
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Intro%20to%20Functions/videos/BRDS%204%201%20functions%20intro.mp4" class="asset-video">🎬 BRDS 4 1 functions intro.mp4</a></li><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Intro%20to%20Functions/videos/BRDS%204%201%20functions%20intro.info.json" class="asset-other">📎 BRDS 4 1 functions intro.info.json</a></li><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Intro%20to%20Functions/videos/BRDS%204%201%20functions%20intro.webp" class="asset-other">📎 BRDS 4 1 functions intro.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Lambda Function Review
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Lambda%20Function%20Review/videos/BRDS%205%202%20lambda%20review.mp4" class="asset-video">🎬 BRDS 5 2 lambda review.mp4</a></li><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Lambda%20Function%20Review/videos/BRDS%205%202%20lambda%20review.info.json" class="asset-other">📎 BRDS 5 2 lambda review.info.json</a></li><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Lambda%20Function%20Review/videos/BRDS%205%202%20lambda%20review.webp" class="asset-other">📎 BRDS 5 2 lambda review.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Lambda Functions
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Lambda%20Functions/videos/BRDS%204%208%20lambda%20functions.mp4" class="asset-video">🎬 BRDS 4 8 lambda functions.mp4</a></li><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Lambda%20Functions/videos/BRDS%204%208%20lambda%20functions.info.json" class="asset-other">📎 BRDS 4 8 lambda functions.info.json</a></li><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Lambda%20Functions/videos/BRDS%204%208%20lambda%20functions.jpg" class="asset-other">📎 BRDS 4 8 lambda functions.jpg</a></li><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Lambda%20Functions/videos/BRDS%204%208%20lambda%20functions.webp" class="asset-other">📎 BRDS 4 8 lambda functions.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Map &amp; Filter
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Map%20%26%20Filter/videos/BRDS%205%203%20map%20filter.mp4" class="asset-video">🎬 BRDS 5 3 map filter.mp4</a></li><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Map%20%26%20Filter/videos/BRDS%205%203%20map%20filter.info.json" class="asset-other">📎 BRDS 5 3 map filter.info.json</a></li><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Map%20%26%20Filter/videos/BRDS%205%203%20map%20filter.webp" class="asset-other">📎 BRDS 5 3 map filter.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Pre-class Reading
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Pre-class%20Reading/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Scope
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Scope/videos/BRDS%204%206%20scope.mp4" class="asset-video">🎬 BRDS 4 6 scope.mp4</a></li><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Scope/videos/BRDS%204%206%20scope.info.json" class="asset-other">📎 BRDS 4 6 scope.info.json</a></li><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Scope/videos/BRDS%204%206%20scope.webp" class="asset-other">📎 BRDS 4 6 scope.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Slides: Functions advanced
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Slides_%20Functions%20advanced/8qKmYLIlbn9f0cWl318Re01V" class="asset-other">📎 8qKmYLIlbn9f0cWl318Re01V</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Slides: Functions basics
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Slides_%20Functions%20basics/m3VZQkd07cXYRpL6GhfoktI6" class="asset-other">📎 m3VZQkd07cXYRpL6GhfoktI6</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Summary &amp; Examples
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Summary%20%26%20Examples/videos/BRDS%204%205%20summary%20examples.mp4" class="asset-video">🎬 BRDS 4 5 summary examples.mp4</a></li><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Summary%20%26%20Examples/videos/BRDS%204%205%20summary%20examples.info.json" class="asset-other">📎 BRDS 4 5 summary examples.info.json</a></li><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Summary%20%26%20Examples/videos/BRDS%204%205%20summary%20examples.webp" class="asset-other">📎 BRDS 4 5 summary examples.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Why use functions?
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Why%20use%20functions_/videos/BRDS%204%203%20why%20use%20functions.mp4" class="asset-video">🎬 BRDS 4 3 why use functions.mp4</a></li><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Why%20use%20functions_/videos/BRDS%204%203%20why%20use%20functions.info.json" class="asset-other">📎 BRDS 4 3 why use functions.info.json</a></li><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/Why%20use%20functions_/videos/BRDS%204%203%20why%20use%20functions.webp" class="asset-other">📎 BRDS 4 3 why use functions.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🏋🏽‍♀️ Exercise: Basics of functions
+                <span class='type-badge'>jupyter</span>
+              </div>
+              <ul class="asset-list"><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/%F0%9F%8F%8B%F0%9F%8F%BD%E2%80%8D%E2%99%80%EF%B8%8F%20Exercise_%20Basics%20of%20functions/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🏋🏽‍♀️ Exercise: The lambda function
+                <span class='type-badge'>jupyter</span>
+              </div>
+              <ul class="asset-list"><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/%F0%9F%8F%8B%F0%9F%8F%BD%E2%80%8D%E2%99%80%EF%B8%8F%20Exercise_%20The%20lambda%20function/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🏋🏽‍♀️ The best all-round footballer
+                <span class='type-badge'>jupyter</span>
+              </div>
+              <ul class="asset-list"><li><a href="029_%C6%9B%20Session%203_%20Python%20Functions/%F0%9F%8F%8B%F0%9F%8F%BD%E2%80%8D%E2%99%80%EF%B8%8F%20The%20best%20all-round%20footballer/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+        </section>
+        <section id="lesson-10" class="lesson">
+          <h2>🏛️ Python Classes </h2>
+          
+            <div class="slide">
+              <div class="slide-title">🏛️ Codecast - Classes-1
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="016_%F0%9F%8F%9B%EF%B8%8F%20Python%20Classes/%F0%9F%8F%9B%EF%B8%8F%20Codecast%20-%20Classes-1/videos/1%20-%20Classes-1.mp4" class="asset-video">🎬 1 - Classes-1.mp4</a></li><li><a href="016_%F0%9F%8F%9B%EF%B8%8F%20Python%20Classes/%F0%9F%8F%9B%EF%B8%8F%20Codecast%20-%20Classes-1/videos/1%20-%20Classes-1.info.json" class="asset-other">📎 1 - Classes-1.info.json</a></li><li><a href="016_%F0%9F%8F%9B%EF%B8%8F%20Python%20Classes/%F0%9F%8F%9B%EF%B8%8F%20Codecast%20-%20Classes-1/videos/1%20-%20Classes-1.webp" class="asset-other">📎 1 - Classes-1.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🏛️ Codecast - Classes-2
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="016_%F0%9F%8F%9B%EF%B8%8F%20Python%20Classes/%F0%9F%8F%9B%EF%B8%8F%20Codecast%20-%20Classes-2/videos/2%20-%20Classes-2.mp4" class="asset-video">🎬 2 - Classes-2.mp4</a></li><li><a href="016_%F0%9F%8F%9B%EF%B8%8F%20Python%20Classes/%F0%9F%8F%9B%EF%B8%8F%20Codecast%20-%20Classes-2/videos/2%20-%20Classes-2.info.json" class="asset-other">📎 2 - Classes-2.info.json</a></li><li><a href="016_%F0%9F%8F%9B%EF%B8%8F%20Python%20Classes/%F0%9F%8F%9B%EF%B8%8F%20Codecast%20-%20Classes-2/videos/2%20-%20Classes-2.webp" class="asset-other">📎 2 - Classes-2.webp</a></li></ul>
+            </div>
+        </section>
+        <section id="lesson-11" class="lesson">
+          <h2>🏗Session 4: Python Classes </h2>
+          
+            <div class="slide">
+              <div class="slide-title">Aside about dictionaries
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Aside%20about%20dictionaries/videos/BRDS%206%2010%20dict%20implementation.mp4" class="asset-video">🎬 BRDS 6 10 dict implementation.mp4</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Aside%20about%20dictionaries/videos/BRDS%206%2010%20dict%20implementation.info.json" class="asset-other">📎 BRDS 6 10 dict implementation.info.json</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Aside%20about%20dictionaries/videos/BRDS%206%2010%20dict%20implementation.webp" class="asset-other">📎 BRDS 6 10 dict implementation.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Attributes &amp; Methods
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Attributes%20%26%20Methods/videos/BRDS%205%205%20attributes%20methods.mp4" class="asset-video">🎬 BRDS 5 5 attributes methods.mp4</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Attributes%20%26%20Methods/videos/BRDS%205%205%20attributes%20methods.info.json" class="asset-other">📎 BRDS 5 5 attributes methods.info.json</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Attributes%20%26%20Methods/videos/BRDS%205%205%20attributes%20methods.webp" class="asset-other">📎 BRDS 5 5 attributes methods.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Duner Methods: Q&amp;A
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Duner%20Methods_%20Q%26A/videos/BRDS%206%208%20dunder%20Q%26A.mp4" class="asset-video">🎬 BRDS 6 8 dunder Q&amp;A.mp4</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Duner%20Methods_%20Q%26A/videos/BRDS%206%208%20dunder%20Q%26A.info.json" class="asset-other">📎 BRDS 6 8 dunder Q&amp;A.info.json</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Duner%20Methods_%20Q%26A/videos/BRDS%206%208%20dunder%20Q%26A.webp" class="asset-other">📎 BRDS 6 8 dunder Q&amp;A.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Encapsulation
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Encapsulation/videos/BRDS%205%209%20encapsulation.mp4" class="asset-video">🎬 BRDS 5 9 encapsulation.mp4</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Encapsulation/videos/BRDS%205%209%20encapsulation.info.json" class="asset-other">📎 BRDS 5 9 encapsulation.info.json</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Encapsulation/videos/BRDS%205%209%20encapsulation.webp" class="asset-other">📎 BRDS 5 9 encapsulation.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Game Show Review
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Game%20Show%20Review/videos/BRDS%205%201%20gameshow%20review.mp4" class="asset-video">🎬 BRDS 5 1 gameshow review.mp4</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Game%20Show%20Review/videos/BRDS%205%201%20gameshow%20review.info.json" class="asset-other">📎 BRDS 5 1 gameshow review.info.json</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Game%20Show%20Review/videos/BRDS%205%201%20gameshow%20review.webp" class="asset-other">📎 BRDS 5 1 gameshow review.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Inheritance
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Inheritance/videos/BRDS%206%204%20inheritance.mp4" class="asset-video">🎬 BRDS 6 4 inheritance.mp4</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Inheritance/videos/BRDS%206%204%20inheritance.info.json" class="asset-other">📎 BRDS 6 4 inheritance.info.json</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Inheritance/videos/BRDS%206%204%20inheritance.webp" class="asset-other">📎 BRDS 6 4 inheritance.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Intro to Classes &amp; OOP
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Intro%20to%20Classes%20%26%20OOP/videos/BRDS%205%204%20classes%20intro.mp4" class="asset-video">🎬 BRDS 5 4 classes intro.mp4</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Intro%20to%20Classes%20%26%20OOP/videos/BRDS%205%204%20classes%20intro.info.json" class="asset-other">📎 BRDS 5 4 classes intro.info.json</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Intro%20to%20Classes%20%26%20OOP/videos/BRDS%205%204%20classes%20intro.webp" class="asset-other">📎 BRDS 5 4 classes intro.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">OOP Summary &amp; super()
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/OOP%20Summary%20%26%20super%28%29/videos/BRDS%206%209%20OOP%20summary%20super.mp4" class="asset-video">🎬 BRDS 6 9 OOP summary super.mp4</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/OOP%20Summary%20%26%20super%28%29/videos/BRDS%206%209%20OOP%20summary%20super.info.json" class="asset-other">📎 BRDS 6 9 OOP summary super.info.json</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/OOP%20Summary%20%26%20super%28%29/videos/BRDS%206%209%20OOP%20summary%20super.webp" class="asset-other">📎 BRDS 6 9 OOP summary super.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Pre-Class Reading Assignment
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Pre-Class%20Reading%20Assignment/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Python Classes
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Python%20Classes/o0oyGFbQm3HTFnah0FWwDGNm" class="asset-other">📎 o0oyGFbQm3HTFnah0FWwDGNm</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Q&amp;A: Attributes vs Methods
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Q%26A_%20Attributes%20vs%20Methods/videos/BRDS%205%207%20attribute%20vs%20method%20question.mp4" class="asset-video">🎬 BRDS 5 7 attribute vs method question.mp4</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Q%26A_%20Attributes%20vs%20Methods/videos/BRDS%205%207%20attribute%20vs%20method%20question.info.json" class="asset-other">📎 BRDS 5 7 attribute vs method question.info.json</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Q%26A_%20Attributes%20vs%20Methods/videos/BRDS%205%207%20attribute%20vs%20method%20question.webp" class="asset-other">📎 BRDS 5 7 attribute vs method question.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Q&amp;A: Setting Attributes
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Q%26A_%20Setting%20Attributes/videos/BRDS%205%208%20Q%20setting%20attributes.mp4" class="asset-video">🎬 BRDS 5 8 Q setting attributes.mp4</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Q%26A_%20Setting%20Attributes/videos/BRDS%205%208%20Q%20setting%20attributes.info.json" class="asset-other">📎 BRDS 5 8 Q setting attributes.info.json</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Q%26A_%20Setting%20Attributes/videos/BRDS%205%208%20Q%20setting%20attributes.webp" class="asset-other">📎 BRDS 5 8 Q setting attributes.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Q&amp;A: Underscores &amp; Docstrings
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Q%26A_%20Underscores%20%26%20Docstrings/videos/BRDS%205%208%20Q%20underscores%20docstrings.mp4" class="asset-video">🎬 BRDS 5 8 Q underscores docstrings.mp4</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Q%26A_%20Underscores%20%26%20Docstrings/videos/BRDS%205%208%20Q%20underscores%20docstrings.info.json" class="asset-other">📎 BRDS 5 8 Q underscores docstrings.info.json</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/Q%26A_%20Underscores%20%26%20Docstrings/videos/BRDS%205%208%20Q%20underscores%20docstrings.webp" class="asset-other">📎 BRDS 5 8 Q underscores docstrings.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">The Power of Classes: An Example
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/The%20Power%20of%20Classes_%20An%20Example/videos/BRDS%205%2010%20power%20of%20classes.mp4" class="asset-video">🎬 BRDS 5 10 power of classes.mp4</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/The%20Power%20of%20Classes_%20An%20Example/videos/BRDS%205%2010%20power%20of%20classes.info.json" class="asset-other">📎 BRDS 5 10 power of classes.info.json</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/The%20Power%20of%20Classes_%20An%20Example/videos/BRDS%205%2010%20power%20of%20classes.webp" class="asset-other">📎 BRDS 5 10 power of classes.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">__call__
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/__call__/videos/BRDS%206%202%20dunder%20call.mp4" class="asset-video">🎬 BRDS 6 2 dunder call.mp4</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/__call__/videos/BRDS%206%202%20dunder%20call.info.json" class="asset-other">📎 BRDS 6 2 dunder call.info.json</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/__call__/videos/BRDS%206%202%20dunder%20call.webp" class="asset-other">📎 BRDS 6 2 dunder call.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">__getitem__
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/__getitem__/videos/BRDS%206%203%20indexing%20custom%20list.mp4" class="asset-video">🎬 BRDS 6 3 indexing custom list.mp4</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/__getitem__/videos/BRDS%206%203%20indexing%20custom%20list.info.json" class="asset-other">📎 BRDS 6 3 indexing custom list.info.json</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/__getitem__/videos/BRDS%206%203%20indexing%20custom%20list.webp" class="asset-other">📎 BRDS 6 3 indexing custom list.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">__init__
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/__init__/videos/BRDS%206%201%20dunder%20init.mp4" class="asset-video">🎬 BRDS 6 1 dunder init.mp4</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/__init__/videos/BRDS%206%201%20dunder%20init.info.json" class="asset-other">📎 BRDS 6 1 dunder init.info.json</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/__init__/videos/BRDS%206%201%20dunder%20init.webp" class="asset-other">📎 BRDS 6 1 dunder init.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">__len__
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/__len__/videos/BRDS%206%206%20dunder%20len.mp4" class="asset-video">🎬 BRDS 6 6 dunder len.mp4</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/__len__/videos/BRDS%206%206%20dunder%20len.info.json" class="asset-other">📎 BRDS 6 6 dunder len.info.json</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/__len__/videos/BRDS%206%206%20dunder%20len.webp" class="asset-other">📎 BRDS 6 6 dunder len.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">__setitem__
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/__setitem__/videos/BRDS%206%205%20setitem.mp4" class="asset-video">🎬 BRDS 6 5 setitem.mp4</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/__setitem__/videos/BRDS%206%205%20setitem.info.json" class="asset-other">📎 BRDS 6 5 setitem.info.json</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/__setitem__/videos/BRDS%206%205%20setitem.webp" class="asset-other">📎 BRDS 6 5 setitem.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">__str__ &amp; __repr__
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/__str__%20%26%20__repr__/videos/BRDS%206%207%20str%20repr.mp4" class="asset-video">🎬 BRDS 6 7 str repr.mp4</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/__str__%20%26%20__repr__/videos/BRDS%206%207%20str%20repr.info.json" class="asset-other">📎 BRDS 6 7 str repr.info.json</a></li><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/__str__%20%26%20__repr__/videos/BRDS%206%207%20str%20repr.webp" class="asset-other">📎 BRDS 6 7 str repr.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🏋🏽‍♀️ Exercise: Basic Class
+                <span class='type-badge'>jupyter</span>
+              </div>
+              <ul class="asset-list"><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/%F0%9F%8F%8B%F0%9F%8F%BD%E2%80%8D%E2%99%80%EF%B8%8F%20Exercise_%20Basic%20Class/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🏋🏽‍♀️ Exercise: MyDict
+                <span class='type-badge'>jupyter</span>
+              </div>
+              <ul class="asset-list"><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/%F0%9F%8F%8B%F0%9F%8F%BD%E2%80%8D%E2%99%80%EF%B8%8F%20Exercise_%20MyDict/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🏋🏽‍♀️ Exercise: Normal Scaler
+                <span class='type-badge'>jupyter</span>
+              </div>
+              <ul class="asset-list"><li><a href="030_%F0%9F%8F%97Session%204_%20Python%20Classes/%F0%9F%8F%8B%F0%9F%8F%BD%E2%80%8D%E2%99%80%EF%B8%8F%20Exercise_%20Normal%20Scaler/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+        </section>
+        <section id="lesson-12" class="lesson">
+          <h2>📂 Files and Strings </h2>
+          
+            <div class="slide">
+              <div class="slide-title">📂 Codecast - Files
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="012_%F0%9F%93%82%20Files%20and%20Strings/%F0%9F%93%82%20Codecast%20-%20Files/videos/1%20-%20Files%20-%20RW.mp4" class="asset-video">🎬 1 - Files - RW.mp4</a></li><li><a href="012_%F0%9F%93%82%20Files%20and%20Strings/%F0%9F%93%82%20Codecast%20-%20Files/videos/1%20-%20Files%20-%20RW.info.json" class="asset-other">📎 1 - Files - RW.info.json</a></li><li><a href="012_%F0%9F%93%82%20Files%20and%20Strings/%F0%9F%93%82%20Codecast%20-%20Files/videos/1%20-%20Files%20-%20RW.webp" class="asset-other">📎 1 - Files - RW.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🔠 Codecast - Strings-1
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="012_%F0%9F%93%82%20Files%20and%20Strings/%F0%9F%94%A0%20Codecast%20-%20Strings-1/videos/1%20-%20Strings-1.mp4" class="asset-video">🎬 1 - Strings-1.mp4</a></li><li><a href="012_%F0%9F%93%82%20Files%20and%20Strings/%F0%9F%94%A0%20Codecast%20-%20Strings-1/videos/1%20-%20Strings-1.info.json" class="asset-other">📎 1 - Strings-1.info.json</a></li><li><a href="012_%F0%9F%93%82%20Files%20and%20Strings/%F0%9F%94%A0%20Codecast%20-%20Strings-1/videos/1%20-%20Strings-1.webp" class="asset-other">📎 1 - Strings-1.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🔠 Codecast - Strings-2
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="012_%F0%9F%93%82%20Files%20and%20Strings/%F0%9F%94%A0%20Codecast%20-%20Strings-2/videos/2%20-%20Strings-2.mp4" class="asset-video">🎬 2 - Strings-2.mp4</a></li><li><a href="012_%F0%9F%93%82%20Files%20and%20Strings/%F0%9F%94%A0%20Codecast%20-%20Strings-2/videos/2%20-%20Strings-2.info.json" class="asset-other">📎 2 - Strings-2.info.json</a></li><li><a href="012_%F0%9F%93%82%20Files%20and%20Strings/%F0%9F%94%A0%20Codecast%20-%20Strings-2/videos/2%20-%20Strings-2.webp" class="asset-other">📎 2 - Strings-2.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🔠 Codecast - Strings-3
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="012_%F0%9F%93%82%20Files%20and%20Strings/%F0%9F%94%A0%20Codecast%20-%20Strings-3/videos/3%20-%20Strings-3.mp4" class="asset-video">🎬 3 - Strings-3.mp4</a></li><li><a href="012_%F0%9F%93%82%20Files%20and%20Strings/%F0%9F%94%A0%20Codecast%20-%20Strings-3/videos/3%20-%20Strings-3.info.json" class="asset-other">📎 3 - Strings-3.info.json</a></li><li><a href="012_%F0%9F%93%82%20Files%20and%20Strings/%F0%9F%94%A0%20Codecast%20-%20Strings-3/videos/3%20-%20Strings-3.webp" class="asset-other">📎 3 - Strings-3.webp</a></li></ul>
+            </div>
+        </section>
+        <section id="lesson-13" class="lesson">
+          <h2>📂 Session 5: Files, Strings, Regular Expressions </h2>
+          
+            <div class="slide">
+              <div class="slide-title">Exercise Intro
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="031_%F0%9F%93%82%20Session%205_%20Files%2C%20Strings%2C%20Regular%20Expressions/Exercise%20Intro/videos/BRDS%206%2013%20exercise%20intro.mp4" class="asset-video">🎬 BRDS 6 13 exercise intro.mp4</a></li><li><a href="031_%F0%9F%93%82%20Session%205_%20Files%2C%20Strings%2C%20Regular%20Expressions/Exercise%20Intro/videos/BRDS%206%2013%20exercise%20intro.info.json" class="asset-other">📎 BRDS 6 13 exercise intro.info.json</a></li><li><a href="031_%F0%9F%93%82%20Session%205_%20Files%2C%20Strings%2C%20Regular%20Expressions/Exercise%20Intro/videos/BRDS%206%2013%20exercise%20intro.webp" class="asset-other">📎 BRDS 6 13 exercise intro.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Files
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="031_%F0%9F%93%82%20Session%205_%20Files%2C%20Strings%2C%20Regular%20Expressions/Files/videos/BRDS%206%2014%20files.mp4" class="asset-video">🎬 BRDS 6 14 files.mp4</a></li><li><a href="031_%F0%9F%93%82%20Session%205_%20Files%2C%20Strings%2C%20Regular%20Expressions/Files/videos/BRDS%206%2014%20files.info.json" class="asset-other">📎 BRDS 6 14 files.info.json</a></li><li><a href="031_%F0%9F%93%82%20Session%205_%20Files%2C%20Strings%2C%20Regular%20Expressions/Files/videos/BRDS%206%2014%20files.webp" class="asset-other">📎 BRDS 6 14 files.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Imports
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="031_%F0%9F%93%82%20Session%205_%20Files%2C%20Strings%2C%20Regular%20Expressions/Imports/videos/BRDS%206%2015%20imports.mp4" class="asset-video">🎬 BRDS 6 15 imports.mp4</a></li><li><a href="031_%F0%9F%93%82%20Session%205_%20Files%2C%20Strings%2C%20Regular%20Expressions/Imports/videos/BRDS%206%2015%20imports.info.json" class="asset-other">📎 BRDS 6 15 imports.info.json</a></li><li><a href="031_%F0%9F%93%82%20Session%205_%20Files%2C%20Strings%2C%20Regular%20Expressions/Imports/videos/BRDS%206%2015%20imports.webp" class="asset-other">📎 BRDS 6 15 imports.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Intro to Regular Expressions
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="031_%F0%9F%93%82%20Session%205_%20Files%2C%20Strings%2C%20Regular%20Expressions/Intro%20to%20Regular%20Expressions/videos/BRDS%206%2016%20regex%20intro.mp4" class="asset-video">🎬 BRDS 6 16 regex intro.mp4</a></li><li><a href="031_%F0%9F%93%82%20Session%205_%20Files%2C%20Strings%2C%20Regular%20Expressions/Intro%20to%20Regular%20Expressions/videos/BRDS%206%2016%20regex%20intro.info.json" class="asset-other">📎 BRDS 6 16 regex intro.info.json</a></li><li><a href="031_%F0%9F%93%82%20Session%205_%20Files%2C%20Strings%2C%20Regular%20Expressions/Intro%20to%20Regular%20Expressions/videos/BRDS%206%2016%20regex%20intro.webp" class="asset-other">📎 BRDS 6 16 regex intro.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Intro to Strings
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="031_%F0%9F%93%82%20Session%205_%20Files%2C%20Strings%2C%20Regular%20Expressions/Intro%20to%20Strings/videos/BRDS%206%2011%20str%20intro.mp4" class="asset-video">🎬 BRDS 6 11 str intro.mp4</a></li><li><a href="031_%F0%9F%93%82%20Session%205_%20Files%2C%20Strings%2C%20Regular%20Expressions/Intro%20to%20Strings/videos/BRDS%206%2011%20str%20intro.info.json" class="asset-other">📎 BRDS 6 11 str intro.info.json</a></li><li><a href="031_%F0%9F%93%82%20Session%205_%20Files%2C%20Strings%2C%20Regular%20Expressions/Intro%20to%20Strings/videos/BRDS%206%2011%20str%20intro.webp" class="asset-other">📎 BRDS 6 11 str intro.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Pre-Class Reading Assignment
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="031_%F0%9F%93%82%20Session%205_%20Files%2C%20Strings%2C%20Regular%20Expressions/Pre-Class%20Reading%20Assignment/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Regex Examples
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="031_%F0%9F%93%82%20Session%205_%20Files%2C%20Strings%2C%20Regular%20Expressions/Regex%20Examples/videos/BRDS%206%2018%20regex%20examples.mp4" class="asset-video">🎬 BRDS 6 18 regex examples.mp4</a></li><li><a href="031_%F0%9F%93%82%20Session%205_%20Files%2C%20Strings%2C%20Regular%20Expressions/Regex%20Examples/videos/BRDS%206%2018%20regex%20examples.info.json" class="asset-other">📎 BRDS 6 18 regex examples.info.json</a></li><li><a href="031_%F0%9F%93%82%20Session%205_%20Files%2C%20Strings%2C%20Regular%20Expressions/Regex%20Examples/videos/BRDS%206%2018%20regex%20examples.webp" class="asset-other">📎 BRDS 6 18 regex examples.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Regex Syntax
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="031_%F0%9F%93%82%20Session%205_%20Files%2C%20Strings%2C%20Regular%20Expressions/Regex%20Syntax/videos/BRDS%206%2017%20regex%20syntax.mp4" class="asset-video">🎬 BRDS 6 17 regex syntax.mp4</a></li><li><a href="031_%F0%9F%93%82%20Session%205_%20Files%2C%20Strings%2C%20Regular%20Expressions/Regex%20Syntax/videos/BRDS%206%2017%20regex%20syntax.info.json" class="asset-other">📎 BRDS 6 17 regex syntax.info.json</a></li><li><a href="031_%F0%9F%93%82%20Session%205_%20Files%2C%20Strings%2C%20Regular%20Expressions/Regex%20Syntax/videos/BRDS%206%2017%20regex%20syntax.webp" class="asset-other">📎 BRDS 6 17 regex syntax.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Slides
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="031_%F0%9F%93%82%20Session%205_%20Files%2C%20Strings%2C%20Regular%20Expressions/Slides/8Cbp0UDOmq7qNMj6bliDhL3g" class="asset-other">📎 8Cbp0UDOmq7qNMj6bliDhL3g</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">String Methods
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="031_%F0%9F%93%82%20Session%205_%20Files%2C%20Strings%2C%20Regular%20Expressions/String%20Methods/videos/BRDS%206%2012%20str%20methods.mp4" class="asset-video">🎬 BRDS 6 12 str methods.mp4</a></li><li><a href="031_%F0%9F%93%82%20Session%205_%20Files%2C%20Strings%2C%20Regular%20Expressions/String%20Methods/videos/BRDS%206%2012%20str%20methods.info.json" class="asset-other">📎 BRDS 6 12 str methods.info.json</a></li><li><a href="031_%F0%9F%93%82%20Session%205_%20Files%2C%20Strings%2C%20Regular%20Expressions/String%20Methods/videos/BRDS%206%2012%20str%20methods.webp" class="asset-other">📎 BRDS 6 12 str methods.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🏋🏻‍♀️ Exercise: Regular Expressions
+                <span class='type-badge'>jupyter</span>
+              </div>
+              <ul class="asset-list"><li><a href="031_%F0%9F%93%82%20Session%205_%20Files%2C%20Strings%2C%20Regular%20Expressions/%F0%9F%8F%8B%F0%9F%8F%BB%E2%80%8D%E2%99%80%EF%B8%8F%20Exercise_%20Regular%20Expressions/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🏋🏻‍♀️ Exercise: Strings
+                <span class='type-badge'>jupyter</span>
+              </div>
+              <ul class="asset-list"><li><a href="031_%F0%9F%93%82%20Session%205_%20Files%2C%20Strings%2C%20Regular%20Expressions/%F0%9F%8F%8B%F0%9F%8F%BB%E2%80%8D%E2%99%80%EF%B8%8F%20Exercise_%20Strings/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🏋🏻‍♀️  Exercise: Strings, files, &amp; regex
+                <span class='type-badge'>jupyter</span>
+              </div>
+              <ul class="asset-list"><li><a href="031_%F0%9F%93%82%20Session%205_%20Files%2C%20Strings%2C%20Regular%20Expressions/%F0%9F%8F%8B%F0%9F%8F%BB%E2%80%8D%E2%99%80%EF%B8%8F%20Exercise_%20Strings%2C%20files%2C%20%26%20regex/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+        </section><div class="phase-header">Phase 3: Math &amp; Numerical Computing</div>
+        <section id="lesson-14" class="lesson">
+          <h2>🔢 Numerical Python </h2>
+          
+            <div class="slide">
+              <div class="slide-title">🔢 Codecast - Fundamentals of Numpy-1
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="017_%F0%9F%94%A2%20Numerical%20Python/%F0%9F%94%A2%20Codecast%20-%20Fundamentals%20of%20Numpy-1/videos/1%20-%20Fundamentals%20of%20Numpy-1.mp4" class="asset-video">🎬 1 - Fundamentals of Numpy-1.mp4</a></li><li><a href="017_%F0%9F%94%A2%20Numerical%20Python/%F0%9F%94%A2%20Codecast%20-%20Fundamentals%20of%20Numpy-1/videos/1%20-%20Fundamentals%20of%20Numpy-1.info.json" class="asset-other">📎 1 - Fundamentals of Numpy-1.info.json</a></li><li><a href="017_%F0%9F%94%A2%20Numerical%20Python/%F0%9F%94%A2%20Codecast%20-%20Fundamentals%20of%20Numpy-1/videos/1%20-%20Fundamentals%20of%20Numpy-1.webp" class="asset-other">📎 1 - Fundamentals of Numpy-1.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🔢 Codecast - Fundamentals of Numpy-2
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="017_%F0%9F%94%A2%20Numerical%20Python/%F0%9F%94%A2%20Codecast%20-%20Fundamentals%20of%20Numpy-2/videos/2%20-%20Fundamentals%20of%20Numpy-2.mp4" class="asset-video">🎬 2 - Fundamentals of Numpy-2.mp4</a></li><li><a href="017_%F0%9F%94%A2%20Numerical%20Python/%F0%9F%94%A2%20Codecast%20-%20Fundamentals%20of%20Numpy-2/videos/2%20-%20Fundamentals%20of%20Numpy-2.info.json" class="asset-other">📎 2 - Fundamentals of Numpy-2.info.json</a></li><li><a href="017_%F0%9F%94%A2%20Numerical%20Python/%F0%9F%94%A2%20Codecast%20-%20Fundamentals%20of%20Numpy-2/videos/2%20-%20Fundamentals%20of%20Numpy-2.webp" class="asset-other">📎 2 - Fundamentals of Numpy-2.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🔢 Codecast - Fundamentals of Numpy-3
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="017_%F0%9F%94%A2%20Numerical%20Python/%F0%9F%94%A2%20Codecast%20-%20Fundamentals%20of%20Numpy-3/videos/3%20-%20Fundamentals%20of%20Numpy-3.mp4" class="asset-video">🎬 3 - Fundamentals of Numpy-3.mp4</a></li><li><a href="017_%F0%9F%94%A2%20Numerical%20Python/%F0%9F%94%A2%20Codecast%20-%20Fundamentals%20of%20Numpy-3/videos/3%20-%20Fundamentals%20of%20Numpy-3.info.json" class="asset-other">📎 3 - Fundamentals of Numpy-3.info.json</a></li><li><a href="017_%F0%9F%94%A2%20Numerical%20Python/%F0%9F%94%A2%20Codecast%20-%20Fundamentals%20of%20Numpy-3/videos/3%20-%20Fundamentals%20of%20Numpy-3.webp" class="asset-other">📎 3 - Fundamentals of Numpy-3.webp</a></li></ul>
+            </div>
+        </section>
+        <section id="lesson-15" class="lesson">
+          <h2>🔢 Session 6: Numerical Python </h2>
+          
+            <div class="slide">
+              <div class="slide-title">Array Creation
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Array%20Creation/videos/BRDS%207%204%20array%20creation.mp4" class="asset-video">🎬 BRDS 7 4 array creation.mp4</a></li><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Array%20Creation/videos/BRDS%207%204%20array%20creation.info.json" class="asset-other">📎 BRDS 7 4 array creation.info.json</a></li><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Array%20Creation/videos/BRDS%207%204%20array%20creation.webp" class="asset-other">📎 BRDS 7 4 array creation.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Array Shape
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Array%20Shape/videos/BRDS%207%205%20array%20shape.mp4" class="asset-video">🎬 BRDS 7 5 array shape.mp4</a></li><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Array%20Shape/videos/BRDS%207%205%20array%20shape.info.json" class="asset-other">📎 BRDS 7 5 array shape.info.json</a></li><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Array%20Shape/videos/BRDS%207%205%20array%20shape.webp" class="asset-other">📎 BRDS 7 5 array shape.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Axis
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Axis/videos/BRDS%207%206%20axis.mp4" class="asset-video">🎬 BRDS 7 6 axis.mp4</a></li><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Axis/videos/BRDS%207%206%20axis.info.json" class="asset-other">📎 BRDS 7 6 axis.info.json</a></li><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Axis/videos/BRDS%207%206%20axis.webp" class="asset-other">📎 BRDS 7 6 axis.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Boolean Masking
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Boolean%20Masking/videos/BRDS%207%2013%20boolean%20masks.mp4" class="asset-video">🎬 BRDS 7 13 boolean masks.mp4</a></li><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Boolean%20Masking/videos/BRDS%207%2013%20boolean%20masks.info.json" class="asset-other">📎 BRDS 7 13 boolean masks.info.json</a></li><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Boolean%20Masking/videos/BRDS%207%2013%20boolean%20masks.webp" class="asset-other">📎 BRDS 7 13 boolean masks.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Exercise Intro and Questions
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Exercise%20Intro%20and%20Questions/videos/BRDS%207%207%20exercise%20intro%20and%20Q%26A.mp4" class="asset-video">🎬 BRDS 7 7 exercise intro and Q&amp;A.mp4</a></li><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Exercise%20Intro%20and%20Questions/videos/BRDS%207%207%20exercise%20intro%20and%20Q%26A.info.json" class="asset-other">📎 BRDS 7 7 exercise intro and Q&amp;A.info.json</a></li><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Exercise%20Intro%20and%20Questions/videos/BRDS%207%207%20exercise%20intro%20and%20Q%26A.webp" class="asset-other">📎 BRDS 7 7 exercise intro and Q&amp;A.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Exercise: Fundamentals of NumPy for DS
+                <span class='type-badge'>jupyter</span>
+              </div>
+              <ul class="asset-list"><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Exercise_%20Fundamentals%20of%20NumPy%20for%20DS/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Exercise: The Great Astronomer's Dilemma
+                <span class='type-badge'>jupyter</span>
+              </div>
+              <ul class="asset-list"><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Exercise_%20The%20Great%20Astronomer%27s%20Dilemma/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Indexing &amp; Slicing
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Indexing%20%26%20Slicing/videos/BRDS%207%2012%20indexing%20slicing.mp4" class="asset-video">🎬 BRDS 7 12 indexing slicing.mp4</a></li><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Indexing%20%26%20Slicing/videos/BRDS%207%2012%20indexing%20slicing.info.json" class="asset-other">📎 BRDS 7 12 indexing slicing.info.json</a></li><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Indexing%20%26%20Slicing/videos/BRDS%207%2012%20indexing%20slicing.webp" class="asset-other">📎 BRDS 7 12 indexing slicing.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Intro to Numpy
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Intro%20to%20Numpy/videos/BRDS%207%203%20numpy%20intro.mp4" class="asset-video">🎬 BRDS 7 3 numpy intro.mp4</a></li><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Intro%20to%20Numpy/videos/BRDS%207%203%20numpy%20intro.info.json" class="asset-other">📎 BRDS 7 3 numpy intro.info.json</a></li><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Intro%20to%20Numpy/videos/BRDS%207%203%20numpy%20intro.webp" class="asset-other">📎 BRDS 7 3 numpy intro.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Joining Arrays
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Joining%20Arrays/videos/BRDS%207%2011%20joining%20arrays.mp4" class="asset-video">🎬 BRDS 7 11 joining arrays.mp4</a></li><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Joining%20Arrays/videos/BRDS%207%2011%20joining%20arrays.info.json" class="asset-other">📎 BRDS 7 11 joining arrays.info.json</a></li><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Joining%20Arrays/videos/BRDS%207%2011%20joining%20arrays.webp" class="asset-other">📎 BRDS 7 11 joining arrays.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Pre-Class Reading Assignment
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Pre-Class%20Reading%20Assignment/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Python for Data Science
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Python%20for%20Data%20Science/videos/BRDS%207%202%20python%20for%20DS.mp4" class="asset-video">🎬 BRDS 7 2 python for DS.mp4</a></li><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Python%20for%20Data%20Science/videos/BRDS%207%202%20python%20for%20DS.info.json" class="asset-other">📎 BRDS 7 2 python for DS.info.json</a></li><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Python%20for%20Data%20Science/videos/BRDS%207%202%20python%20for%20DS.webp" class="asset-other">📎 BRDS 7 2 python for DS.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Reshaping
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Reshaping/videos/BRDS%207%2014%20reshaping.mp4" class="asset-video">🎬 BRDS 7 14 reshaping.mp4</a></li><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Reshaping/videos/BRDS%207%2014%20reshaping.info.json" class="asset-other">📎 BRDS 7 14 reshaping.info.json</a></li><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Reshaping/videos/BRDS%207%2014%20reshaping.webp" class="asset-other">📎 BRDS 7 14 reshaping.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Review of Imports
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Review%20of%20Imports/videos/BRDS%207%201%20imports%20review.mp4" class="asset-video">🎬 BRDS 7 1 imports review.mp4</a></li><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Review%20of%20Imports/videos/BRDS%207%201%20imports%20review.info.json" class="asset-other">📎 BRDS 7 1 imports review.info.json</a></li><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Review%20of%20Imports/videos/BRDS%207%201%20imports%20review.webp" class="asset-other">📎 BRDS 7 1 imports review.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Slides: Numpy
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/Slides_%20Numpy/Han2eYUvuI7AP5RVMWRhmY9C" class="asset-other">📎 Han2eYUvuI7AP5RVMWRhmY9C</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">np.arange &amp; np.linspace
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/np.arange%20%26%20np.linspace/videos/BRDS%207%2010%20arange%20linspace.mp4" class="asset-video">🎬 BRDS 7 10 arange linspace.mp4</a></li><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/np.arange%20%26%20np.linspace/videos/BRDS%207%2010%20arange%20linspace.info.json" class="asset-other">📎 BRDS 7 10 arange linspace.info.json</a></li><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/np.arange%20%26%20np.linspace/videos/BRDS%207%2010%20arange%20linspace.webp" class="asset-other">📎 BRDS 7 10 arange linspace.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">np.eye &amp; np.diag
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/np.eye%20%26%20np.diag/videos/BRDS%207%209%20eye.mp4" class="asset-video">🎬 BRDS 7 9 eye.mp4</a></li><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/np.eye%20%26%20np.diag/videos/BRDS%207%209%20eye.info.json" class="asset-other">📎 BRDS 7 9 eye.info.json</a></li><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/np.eye%20%26%20np.diag/videos/BRDS%207%209%20eye.webp" class="asset-other">📎 BRDS 7 9 eye.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">np.zeros &amp; np.ones
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/np.zeros%20%26%20np.ones/videos/BRDS%207%208%20zeros%20and%20ones.mp4" class="asset-video">🎬 BRDS 7 8 zeros and ones.mp4</a></li><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/np.zeros%20%26%20np.ones/videos/BRDS%207%208%20zeros%20and%20ones.info.json" class="asset-other">📎 BRDS 7 8 zeros and ones.info.json</a></li><li><a href="032_%F0%9F%94%A2%20Session%206_%20Numerical%20Python/np.zeros%20%26%20np.ones/videos/BRDS%207%208%20zeros%20and%20ones.webp" class="asset-other">📎 BRDS 7 8 zeros and ones.webp</a></li></ul>
+            </div>
+        </section>
+        <section id="lesson-16" class="lesson">
+          <h2>↗️ Session 7: Linear Algebra </h2>
+          
+            <div class="slide">
+              <div class="slide-title">Exercise: Matrix Operations and Transpose
+                <span class='type-badge'>jupyter</span>
+              </div>
+              <ul class="asset-list"><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Exercise_%20Matrix%20Operations%20and%20Transpose/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Exercise: Vector Operations and Cosine Similarity
+                <span class='type-badge'>jupyter</span>
+              </div>
+              <ul class="asset-list"><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Exercise_%20Vector%20Operations%20and%20Cosine%20Similarity/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Hadamard Product
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Hadamard%20Product/videos/BRDS%208%208%20hadamard%20product.mp4" class="asset-video">🎬 BRDS 8 8 hadamard product.mp4</a></li><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Hadamard%20Product/videos/BRDS%208%208%20hadamard%20product.info.json" class="asset-other">📎 BRDS 8 8 hadamard product.info.json</a></li><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Hadamard%20Product/videos/BRDS%208%208%20hadamard%20product.webp" class="asset-other">📎 BRDS 8 8 hadamard product.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Intro to Linear Algebra
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Intro%20to%20Linear%20Algebra/videos/BRDS%208%201%20linalg%20intro.mp4" class="asset-video">🎬 BRDS 8 1 linalg intro.mp4</a></li><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Intro%20to%20Linear%20Algebra/videos/BRDS%208%201%20linalg%20intro.info.json" class="asset-other">📎 BRDS 8 1 linalg intro.info.json</a></li><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Intro%20to%20Linear%20Algebra/videos/BRDS%208%201%20linalg%20intro.webp" class="asset-other">📎 BRDS 8 1 linalg intro.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Inverse &amp; Transpose
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Inverse%20%26%20Transpose/videos/BRDS%208%209%20inverse%20transpose.mp4" class="asset-video">🎬 BRDS 8 9 inverse transpose.mp4</a></li><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Inverse%20%26%20Transpose/videos/BRDS%208%209%20inverse%20transpose.info.json" class="asset-other">📎 BRDS 8 9 inverse transpose.info.json</a></li><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Inverse%20%26%20Transpose/videos/BRDS%208%209%20inverse%20transpose.webp" class="asset-other">📎 BRDS 8 9 inverse transpose.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Matrices
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Matrices/videos/BRDS%208%205%20matrices%20intro.mp4" class="asset-video">🎬 BRDS 8 5 matrices intro.mp4</a></li><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Matrices/videos/BRDS%208%205%20matrices%20intro.info.json" class="asset-other">📎 BRDS 8 5 matrices intro.info.json</a></li><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Matrices/videos/BRDS%208%205%20matrices%20intro.webp" class="asset-other">📎 BRDS 8 5 matrices intro.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Matrix Operations
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Matrix%20Operations/videos/BRDS%208%206%20matrix%20operations.mp4" class="asset-video">🎬 BRDS 8 6 matrix operations.mp4</a></li><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Matrix%20Operations/videos/BRDS%208%206%20matrix%20operations.info.json" class="asset-other">📎 BRDS 8 6 matrix operations.info.json</a></li><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Matrix%20Operations/videos/BRDS%208%206%20matrix%20operations.webp" class="asset-other">📎 BRDS 8 6 matrix operations.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Numpy: Matrix Multiplication
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Numpy_%20Matrix%20Multiplication/videos/BRDS%208%207%20numpy%20matmul.mp4" class="asset-video">🎬 BRDS 8 7 numpy matmul.mp4</a></li><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Numpy_%20Matrix%20Multiplication/videos/BRDS%208%207%20numpy%20matmul.info.json" class="asset-other">📎 BRDS 8 7 numpy matmul.info.json</a></li><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Numpy_%20Matrix%20Multiplication/videos/BRDS%208%207%20numpy%20matmul.webp" class="asset-other">📎 BRDS 8 7 numpy matmul.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Pre-Class Reading (Optional)
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Pre-Class%20Reading%20%28Optional%29/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Recap with Q &amp; A
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Recap%20with%20Q%20%26%20A/videos/BRDS%208%2010%20recap%20and%20questions.mp4" class="asset-video">🎬 BRDS 8 10 recap and questions.mp4</a></li><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Recap%20with%20Q%20%26%20A/videos/BRDS%208%2010%20recap%20and%20questions.info.json" class="asset-other">📎 BRDS 8 10 recap and questions.info.json</a></li><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Recap%20with%20Q%20%26%20A/videos/BRDS%208%2010%20recap%20and%20questions.webp" class="asset-other">📎 BRDS 8 10 recap and questions.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Slides: Linear Algebra
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Slides_%20Linear%20Algebra/dNUhqQV4vbT5GAwD98fuEyzy" class="asset-other">📎 dNUhqQV4vbT5GAwD98fuEyzy</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Span
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Span/videos/BRDS%208%204%20span.mp4" class="asset-video">🎬 BRDS 8 4 span.mp4</a></li><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Span/videos/BRDS%208%204%20span.info.json" class="asset-other">📎 BRDS 8 4 span.info.json</a></li><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Span/videos/BRDS%208%204%20span.webp" class="asset-other">📎 BRDS 8 4 span.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Vector Operations
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Vector%20Operations/videos/BRDS%208%203%20vector%20operations.mp4" class="asset-video">🎬 BRDS 8 3 vector operations.mp4</a></li><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Vector%20Operations/videos/BRDS%208%203%20vector%20operations.info.json" class="asset-other">📎 BRDS 8 3 vector operations.info.json</a></li><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Vector%20Operations/videos/BRDS%208%203%20vector%20operations.webp" class="asset-other">📎 BRDS 8 3 vector operations.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Vectors
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Vectors/videos/BRDS%208%202%20vectors%20intro.mp4" class="asset-video">🎬 BRDS 8 2 vectors intro.mp4</a></li><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Vectors/videos/BRDS%208%202%20vectors%20intro.info.json" class="asset-other">📎 BRDS 8 2 vectors intro.info.json</a></li><li><a href="033_%E2%86%97%EF%B8%8F%20Session%207_%20Linear%20Algebra/Vectors/videos/BRDS%208%202%20vectors%20intro.webp" class="asset-other">📎 BRDS 8 2 vectors intro.webp</a></li></ul>
+            </div>
+        </section>
+        <section id="lesson-17" class="lesson">
+          <h2>🎲 Session 8: Probability &amp; Statistics </h2>
+          
+            <div class="slide">
+              <div class="slide-title">Central Limit Theorem
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Central%20Limit%20Theorem/videos/BRDS%208%2018%20clt.mp4" class="asset-video">🎬 BRDS 8 18 clt.mp4</a></li><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Central%20Limit%20Theorem/videos/BRDS%208%2018%20clt.info.json" class="asset-other">📎 BRDS 8 18 clt.info.json</a></li><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Central%20Limit%20Theorem/videos/BRDS%208%2018%20clt.webp" class="asset-other">📎 BRDS 8 18 clt.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Continuous Distributions
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Continuous%20Distributions/videos/BRDS%208%2017%20continuous%20pdfs.mp4" class="asset-video">🎬 BRDS 8 17 continuous pdfs.mp4</a></li><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Continuous%20Distributions/videos/BRDS%208%2017%20continuous%20pdfs.info.json" class="asset-other">📎 BRDS 8 17 continuous pdfs.info.json</a></li><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Continuous%20Distributions/videos/BRDS%208%2017%20continuous%20pdfs.webp" class="asset-other">📎 BRDS 8 17 continuous pdfs.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Discrete Distributions
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Discrete%20Distributions/videos/BRDS%208%2016%20discrete%20pdfs.mp4" class="asset-video">🎬 BRDS 8 16 discrete pdfs.mp4</a></li><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Discrete%20Distributions/videos/BRDS%208%2016%20discrete%20pdfs.info.json" class="asset-other">📎 BRDS 8 16 discrete pdfs.info.json</a></li><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Discrete%20Distributions/videos/BRDS%208%2016%20discrete%20pdfs.webp" class="asset-other">📎 BRDS 8 16 discrete pdfs.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Exercise Intro
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Exercise%20Intro/videos/BRDS%208%2014%20exercise%20intro.mp4" class="asset-video">🎬 BRDS 8 14 exercise intro.mp4</a></li><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Exercise%20Intro/videos/BRDS%208%2014%20exercise%20intro.info.json" class="asset-other">📎 BRDS 8 14 exercise intro.info.json</a></li><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Exercise%20Intro/videos/BRDS%208%2014%20exercise%20intro.webp" class="asset-other">📎 BRDS 8 14 exercise intro.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Exercise Review
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Exercise%20Review/videos/BRDS%208%2015%20exercise%20review.mp4" class="asset-video">🎬 BRDS 8 15 exercise review.mp4</a></li><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Exercise%20Review/videos/BRDS%208%2015%20exercise%20review.info.json" class="asset-other">📎 BRDS 8 15 exercise review.info.json</a></li><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Exercise%20Review/videos/BRDS%208%2015%20exercise%20review.webp" class="asset-other">📎 BRDS 8 15 exercise review.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Game Show
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Game%20Show/videos/BRDS%208%2019%20gameshow.mp4" class="asset-video">🎬 BRDS 8 19 gameshow.mp4</a></li><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Game%20Show/videos/BRDS%208%2019%20gameshow.info.json" class="asset-other">📎 BRDS 8 19 gameshow.info.json</a></li><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Game%20Show/videos/BRDS%208%2019%20gameshow.webp" class="asset-other">📎 BRDS 8 19 gameshow.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Pre-Class Reading Assignment
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Pre-Class%20Reading%20Assignment/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Random Variables
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Random%20Variables/videos/BRDS%208%2011%20random%20variables.mp4" class="asset-video">🎬 BRDS 8 11 random variables.mp4</a></li><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Random%20Variables/videos/BRDS%208%2011%20random%20variables.info.json" class="asset-other">📎 BRDS 8 11 random variables.info.json</a></li><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Random%20Variables/videos/BRDS%208%2011%20random%20variables.webp" class="asset-other">📎 BRDS 8 11 random variables.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Samples
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Samples/videos/BRDS%208%2012%20samples.mp4" class="asset-video">🎬 BRDS 8 12 samples.mp4</a></li><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Samples/videos/BRDS%208%2012%20samples.info.json" class="asset-other">📎 BRDS 8 12 samples.info.json</a></li><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Samples/videos/BRDS%208%2012%20samples.webp" class="asset-other">📎 BRDS 8 12 samples.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Slides: Probability 
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Slides_%20Probability/WQe9OQzkbaI2Hw3BLxjzysbY" class="asset-other">📎 WQe9OQzkbaI2Hw3BLxjzysbY</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Summarizing Random Variables
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Summarizing%20Random%20Variables/videos/BRDS%208%2013%20describing%20RVs.mp4" class="asset-video">🎬 BRDS 8 13 describing RVs.mp4</a></li><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Summarizing%20Random%20Variables/.DS_Store" class="asset-other">📎 .DS_Store</a></li><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Summarizing%20Random%20Variables/videos/BRDS%208%2013%20describing%20RVs.info.json" class="asset-other">📎 BRDS 8 13 describing RVs.info.json</a></li><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Summarizing%20Random%20Variables/videos/BRDS%208%2013%20describing%20RVs.webp" class="asset-other">📎 BRDS 8 13 describing RVs.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Tutorial: Analyzing Football
+                <span class='type-badge'>jupyter</span>
+              </div>
+              <ul class="asset-list"><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/Tutorial_%20Analyzing%20Football/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🏋🏽‍♀️ Exercise: BRDS Olympics
+                <span class='type-badge'>jupyter</span>
+              </div>
+              <ul class="asset-list"><li><a href="009_%F0%9F%8E%B2%20Session%208_%20Probability%20%26%20Statistics/%F0%9F%8F%8B%F0%9F%8F%BD%E2%80%8D%E2%99%80%EF%B8%8F%20Exercise_%20BRDS%20Olympics/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+        </section>
+        <section id="lesson-18" class="lesson">
+          <h2>👨🏻‍🏫 Session 10: Linear Regression </h2>
+          
+            <div class="slide">
+              <div class="slide-title">Closing &amp; Thank Yous
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/Closing%20%26%20Thank%20Yous/videos/BRDS%2010%208%20closing%20and%20thank%20yous.mp4" class="asset-video">🎬 BRDS 10 8 closing and thank yous.mp4</a></li><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/Closing%20%26%20Thank%20Yous/videos/BRDS%2010%208%20closing%20and%20thank%20yous.info.json" class="asset-other">📎 BRDS 10 8 closing and thank yous.info.json</a></li><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/Closing%20%26%20Thank%20Yous/videos/BRDS%2010%208%20closing%20and%20thank%20yous.webp" class="asset-other">📎 BRDS 10 8 closing and thank yous.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Exercise Intro
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/Exercise%20Intro/videos/BRDS%2010%203%20exercise%20intro.mp4" class="asset-video">🎬 BRDS 10 3 exercise intro.mp4</a></li><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/Exercise%20Intro/videos/BRDS%2010%203%20exercise%20intro.info.json" class="asset-other">📎 BRDS 10 3 exercise intro.info.json</a></li><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/Exercise%20Intro/videos/BRDS%2010%203%20exercise%20intro.webp" class="asset-other">📎 BRDS 10 3 exercise intro.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Exercise Recap
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/Exercise%20Recap/videos/BRDS%2010%204%20exercise%20recap.mp4" class="asset-video">🎬 BRDS 10 4 exercise recap.mp4</a></li><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/Exercise%20Recap/videos/BRDS%2010%204%20exercise%20recap.info.json" class="asset-other">📎 BRDS 10 4 exercise recap.info.json</a></li><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/Exercise%20Recap/videos/BRDS%2010%204%20exercise%20recap.webp" class="asset-other">📎 BRDS 10 4 exercise recap.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Game Show
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/Game%20Show/videos/BRDS%2010%207%20gameshow.mp4" class="asset-video">🎬 BRDS 10 7 gameshow.mp4</a></li><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/Game%20Show/videos/BRDS%2010%207%20gameshow.info.json" class="asset-other">📎 BRDS 10 7 gameshow.info.json</a></li><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/Game%20Show/videos/BRDS%2010%207%20gameshow.webp" class="asset-other">📎 BRDS 10 7 gameshow.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Linear Regression
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/Linear%20Regression/videos/BRDS%2010%202%20linear%20regression.mp4" class="asset-video">🎬 BRDS 10 2 linear regression.mp4</a></li><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/Linear%20Regression/videos/BRDS%2010%202%20linear%20regression.info.json" class="asset-other">📎 BRDS 10 2 linear regression.info.json</a></li><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/Linear%20Regression/videos/BRDS%2010%202%20linear%20regression.webp" class="asset-other">📎 BRDS 10 2 linear regression.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Multiple Linear Regression
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/Multiple%20Linear%20Regression/videos/BRDS%2010%206%20multilinear%20regression.mp4" class="asset-video">🎬 BRDS 10 6 multilinear regression.mp4</a></li><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/Multiple%20Linear%20Regression/videos/BRDS%2010%206%20multilinear%20regression.info.json" class="asset-other">📎 BRDS 10 6 multilinear regression.info.json</a></li><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/Multiple%20Linear%20Regression/videos/BRDS%2010%206%20multilinear%20regression.webp" class="asset-other">📎 BRDS 10 6 multilinear regression.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Post-Class Additional Reading (old)
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/Post-Class%20Additional%20Reading%20%28old%29/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Pre-Class Reading Assignment
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/Pre-Class%20Reading%20Assignment/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Recap &amp; Lecture Outline
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/Recap%20%26%20Lecture%20Outline/videos/BRDS%2010%201%20recap%20and%20outline.mp4" class="asset-video">🎬 BRDS 10 1 recap and outline.mp4</a></li><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/Recap%20%26%20Lecture%20Outline/videos/BRDS%2010%201%20recap%20and%20outline.info.json" class="asset-other">📎 BRDS 10 1 recap and outline.info.json</a></li><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/Recap%20%26%20Lecture%20Outline/videos/BRDS%2010%201%20recap%20and%20outline.webp" class="asset-other">📎 BRDS 10 1 recap and outline.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Slides: Linear Regression
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/Slides_%20Linear%20Regression/bd6BWOE0pIcgZwsMi9Zefxgh" class="asset-other">📎 bd6BWOE0pIcgZwsMi9Zefxgh</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Solving for Betas
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/Solving%20for%20Betas/videos/BRDS%2010%205%20solving%20for%20betas.mp4" class="asset-video">🎬 BRDS 10 5 solving for betas.mp4</a></li><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/Solving%20for%20Betas/videos/BRDS%2010%205%20solving%20for%20betas.info.json" class="asset-other">📎 BRDS 10 5 solving for betas.info.json</a></li><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/Solving%20for%20Betas/videos/BRDS%2010%205%20solving%20for%20betas.webp" class="asset-other">📎 BRDS 10 5 solving for betas.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🆓Ex-stream-ly Cool PyDS App
+                <span class='type-badge'>code</span>
+              </div>
+              <ul class="asset-list"><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/%F0%9F%86%93Ex-stream-ly%20Cool%20PyDS%20App/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🏋🏽‍♀️ Exercise: Custom Linear Regression implementation
+                <span class='type-badge'>jupyter</span>
+              </div>
+              <ul class="asset-list"><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/%F0%9F%8F%8B%F0%9F%8F%BD%E2%80%8D%E2%99%80%EF%B8%8F%20Exercise_%20Custom%20Linear%20Regression%20implementation/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🏋🏽‍♀️ Exercise: Linear Regression using scikit-learn
+                <span class='type-badge'>jupyter</span>
+              </div>
+              <ul class="asset-list"><li><a href="010_%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%8F%AB%20Session%2010_%20Linear%20Regression/%F0%9F%8F%8B%F0%9F%8F%BD%E2%80%8D%E2%99%80%EF%B8%8F%20Exercise_%20Linear%20Regression%20using%20scikit-learn/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+        </section><div class="phase-header">Phase 4: Data Tools</div>
+        <section id="lesson-19" class="lesson">
+          <h2>🐼 Pandas </h2>
+          
+            <div class="slide">
+              <div class="slide-title">🐼 Codecast - Pandas-1
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="013_%F0%9F%90%BC%20Pandas/%F0%9F%90%BC%20Codecast%20-%20Pandas-1/videos/1%20-%20Pandas-1.mp4" class="asset-video">🎬 1 - Pandas-1.mp4</a></li><li><a href="013_%F0%9F%90%BC%20Pandas/%F0%9F%90%BC%20Codecast%20-%20Pandas-1/videos/1%20-%20Pandas-1.info.json" class="asset-other">📎 1 - Pandas-1.info.json</a></li><li><a href="013_%F0%9F%90%BC%20Pandas/%F0%9F%90%BC%20Codecast%20-%20Pandas-1/videos/1%20-%20Pandas-1.webp" class="asset-other">📎 1 - Pandas-1.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🐼 Codecast - Pandas-2
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="013_%F0%9F%90%BC%20Pandas/%F0%9F%90%BC%20Codecast%20-%20Pandas-2/videos/2%20-%20Pandas-2.mp4" class="asset-video">🎬 2 - Pandas-2.mp4</a></li><li><a href="013_%F0%9F%90%BC%20Pandas/%F0%9F%90%BC%20Codecast%20-%20Pandas-2/videos/2%20-%20Pandas-2.info.json" class="asset-other">📎 2 - Pandas-2.info.json</a></li><li><a href="013_%F0%9F%90%BC%20Pandas/%F0%9F%90%BC%20Codecast%20-%20Pandas-2/videos/2%20-%20Pandas-2.webp" class="asset-other">📎 2 - Pandas-2.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🐼 Codecast - Pandas-3
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="013_%F0%9F%90%BC%20Pandas/%F0%9F%90%BC%20Codecast%20-%20Pandas-3/videos/3%20-%20Pandas-3.mp4" class="asset-video">🎬 3 - Pandas-3.mp4</a></li><li><a href="013_%F0%9F%90%BC%20Pandas/%F0%9F%90%BC%20Codecast%20-%20Pandas-3/videos/3%20-%20Pandas-3.info.json" class="asset-other">📎 3 - Pandas-3.info.json</a></li><li><a href="013_%F0%9F%90%BC%20Pandas/%F0%9F%90%BC%20Codecast%20-%20Pandas-3/videos/3%20-%20Pandas-3.webp" class="asset-other">📎 3 - Pandas-3.webp</a></li></ul>
+            </div>
+        </section>
+        <section id="lesson-20" class="lesson">
+          <h2>🐼 Session 9: Pandas </h2>
+          
+            <div class="slide">
+              <div class="slide-title">Boolean Series
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/Boolean%20Series/videos/BRDS%209%203%20bool%20series.mp4" class="asset-video">🎬 BRDS 9 3 bool series.mp4</a></li><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/Boolean%20Series/videos/BRDS%209%203%20bool%20series.info.json" class="asset-other">📎 BRDS 9 3 bool series.info.json</a></li><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/Boolean%20Series/videos/BRDS%209%203%20bool%20series.webp" class="asset-other">📎 BRDS 9 3 bool series.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Concluding Example
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/Concluding%20Example/videos/BRDS%209%208%20final%20example.mp4" class="asset-video">🎬 BRDS 9 8 final example.mp4</a></li><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/Concluding%20Example/videos/BRDS%209%208%20final%20example.info.json" class="asset-other">📎 BRDS 9 8 final example.info.json</a></li><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/Concluding%20Example/videos/BRDS%209%208%20final%20example.webp" class="asset-other">📎 BRDS 9 8 final example.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Movie Cast Example
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/Movie%20Cast%20Example/videos/BRDS%209%206%20movie%20cast%20example.mp4" class="asset-video">🎬 BRDS 9 6 movie cast example.mp4</a></li><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/Movie%20Cast%20Example/videos/BRDS%209%206%20movie%20cast%20example.info.json" class="asset-other">📎 BRDS 9 6 movie cast example.info.json</a></li><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/Movie%20Cast%20Example/videos/BRDS%209%206%20movie%20cast%20example.webp" class="asset-other">📎 BRDS 9 6 movie cast example.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Pandas String Methods
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/Pandas%20String%20Methods/videos/BRDS%209%204%20pandas%20str%20methods.mp4" class="asset-video">🎬 BRDS 9 4 pandas str methods.mp4</a></li><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/Pandas%20String%20Methods/videos/BRDS%209%204%20pandas%20str%20methods.info.json" class="asset-other">📎 BRDS 9 4 pandas str methods.info.json</a></li><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/Pandas%20String%20Methods/videos/BRDS%209%204%20pandas%20str%20methods.webp" class="asset-other">📎 BRDS 9 4 pandas str methods.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Pandas: Motivation &amp; Introducing DataFrames
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/Pandas_%20Motivation%20%26%20Introducing%20DataFrames/videos/BRDS%209%201%20pandas%20intro.mp4" class="asset-video">🎬 BRDS 9 1 pandas intro.mp4</a></li><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/Pandas_%20Motivation%20%26%20Introducing%20DataFrames/videos/BRDS%209%201%20pandas%20intro.info.json" class="asset-other">📎 BRDS 9 1 pandas intro.info.json</a></li><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/Pandas_%20Motivation%20%26%20Introducing%20DataFrames/videos/BRDS%209%201%20pandas%20intro.webp" class="asset-other">📎 BRDS 9 1 pandas intro.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Pre-Class Reading Assignment
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/Pre-Class%20Reading%20Assignment/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Q&amp;A and Merge
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/Q%26A%20and%20Merge/videos/BRDS%209%207%20questions%20and%20merge.mp4" class="asset-video">🎬 BRDS 9 7 questions and merge.mp4</a></li><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/Q%26A%20and%20Merge/videos/BRDS%209%207%20questions%20and%20merge.info.json" class="asset-other">📎 BRDS 9 7 questions and merge.info.json</a></li><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/Q%26A%20and%20Merge/videos/BRDS%209%207%20questions%20and%20merge.webp" class="asset-other">📎 BRDS 9 7 questions and merge.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Selecting Data
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/Selecting%20Data/videos/BRDS%209%205%20selecting%20data.mp4" class="asset-video">🎬 BRDS 9 5 selecting data.mp4</a></li><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/Selecting%20Data/videos/BRDS%209%205%20selecting%20data.info.json" class="asset-other">📎 BRDS 9 5 selecting data.info.json</a></li><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/Selecting%20Data/videos/BRDS%209%205%20selecting%20data.webp" class="asset-other">📎 BRDS 9 5 selecting data.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Series Object
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/Series%20Object/videos/BRDS%209%202%20series.mp4" class="asset-video">🎬 BRDS 9 2 series.mp4</a></li><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/Series%20Object/videos/BRDS%209%202%20series.info.json" class="asset-other">📎 BRDS 9 2 series.info.json</a></li><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/Series%20Object/videos/BRDS%209%202%20series.webp" class="asset-other">📎 BRDS 9 2 series.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Session 8 notebooks
+                <span class='type-badge'>jupyter</span>
+              </div>
+              <ul class="asset-list"><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/Session%208%20notebooks/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Slides: Pandas
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/Slides_%20Pandas/xcDbwtERLkLwaDDn643MeBLl" class="asset-other">📎 xcDbwtERLkLwaDDn643MeBLl</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Slides: Pandas {Expanded Version}
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/Slides_%20Pandas%20%7BExpanded%20Version%7D/y9JBiK9o084V5t1zvIPIF7RE" class="asset-other">📎 y9JBiK9o084V5t1zvIPIF7RE</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🎵Exercise: Spotify song trivia
+                <span class='type-badge'>jupyter</span>
+              </div>
+              <ul class="asset-list"><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/%F0%9F%8E%B5Exercise_%20Spotify%20song%20trivia/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🏋🏻‍♀️Exercise: Pandas introduction
+                <span class='type-badge'>jupyter</span>
+              </div>
+              <ul class="asset-list"><li><a href="034_%F0%9F%90%BC%20Session%209_%20Pandas/%F0%9F%8F%8B%F0%9F%8F%BB%E2%80%8D%E2%99%80%EF%B8%8FExercise_%20Pandas%20introduction/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+        </section><div class="phase-header">Phase 5: Language Model Foundations</div>
+        <section id="lesson-21" class="lesson">
+          <h2>[Pre-Program] 📝 P1:  Introduction to Language models: Preprocessing, Modeling, and NLP </h2>
+          
+            <div class="slide">
+              <div class="slide-title">Lab 1 Walkthrough
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="021_%5BPre-Program%5D%20%F0%9F%93%9D%20P1_%20Introduction%20to%20Language%20models_%20Preprocessing%2C%20Modeling%2C%20and%20NLP/Lab%201%20Walkthrough/videos/ELELEM%20Lab%2001.mp4" class="asset-video">🎬 ELELEM Lab 01.mp4</a></li><li><a href="021_%5BPre-Program%5D%20%F0%9F%93%9D%20P1_%20Introduction%20to%20Language%20models_%20Preprocessing%2C%20Modeling%2C%20and%20NLP/Lab%201%20Walkthrough/videos/ELELEM%20Lab%2001.info.json" class="asset-other">📎 ELELEM Lab 01.info.json</a></li><li><a href="021_%5BPre-Program%5D%20%F0%9F%93%9D%20P1_%20Introduction%20to%20Language%20models_%20Preprocessing%2C%20Modeling%2C%20and%20NLP/Lab%201%20Walkthrough/videos/ELELEM%20Lab%2001.webp" class="asset-other">📎 ELELEM Lab 01.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Lecture Video 
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="021_%5BPre-Program%5D%20%F0%9F%93%9D%20P1_%20Introduction%20to%20Language%20models_%20Preprocessing%2C%20Modeling%2C%20and%20NLP/Lecture%20Video/videos/LLM%20Pre%20program%20video%20%231.mp4" class="asset-video">🎬 LLM Pre program video #1.mp4</a></li><li><a href="021_%5BPre-Program%5D%20%F0%9F%93%9D%20P1_%20Introduction%20to%20Language%20models_%20Preprocessing%2C%20Modeling%2C%20and%20NLP/Lecture%20Video/videos/LLM%20Pre%20program%20video%20%231.info.json" class="asset-other">📎 LLM Pre program video #1.info.json</a></li><li><a href="021_%5BPre-Program%5D%20%F0%9F%93%9D%20P1_%20Introduction%20to%20Language%20models_%20Preprocessing%2C%20Modeling%2C%20and%20NLP/Lecture%20Video/videos/LLM%20Pre%20program%20video%20%231.webp" class="asset-other">📎 LLM Pre program video #1.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Slides: Traditional Language Modeling
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="021_%5BPre-Program%5D%20%F0%9F%93%9D%20P1_%20Introduction%20to%20Language%20models_%20Preprocessing%2C%20Modeling%2C%20and%20NLP/Slides_%20Traditional%20Language%20Modeling/jIPeVMRSfE8mGq77VX8k7cgm" class="asset-other">📎 jIPeVMRSfE8mGq77VX8k7cgm</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🆓 Post-Class Reading
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="021_%5BPre-Program%5D%20%F0%9F%93%9D%20P1_%20Introduction%20to%20Language%20models_%20Preprocessing%2C%20Modeling%2C%20and%20NLP/%F0%9F%86%93%20Post-Class%20Reading/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📔 Lab P1 (Homework 0): Setting up OpenAI's API keys
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="021_%5BPre-Program%5D%20%F0%9F%93%9D%20P1_%20Introduction%20to%20Language%20models_%20Preprocessing%2C%20Modeling%2C%20and%20NLP/%F0%9F%93%94%20Lab%20P1%20%28Homework%200%29_%20Setting%20up%20OpenAI%27s%20API%20keys/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📚 Pre-Class Reading
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="021_%5BPre-Program%5D%20%F0%9F%93%9D%20P1_%20Introduction%20to%20Language%20models_%20Preprocessing%2C%20Modeling%2C%20and%20NLP/%F0%9F%93%9A%20Pre-Class%20Reading/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+        </section>
+        <section id="lesson-22" class="lesson">
+          <h2>[Pre-Program] 🦾 P2: Transformers </h2>
+          
+            <div class="slide">
+              <div class="slide-title">Lab Walkthrough
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="022_%5BPre-Program%5D%20%F0%9F%A6%BE%20P2_%20Transformers/Lab%20Walkthrough/videos/ELELEM%20Lab%2002.mp4" class="asset-video">🎬 ELELEM Lab 02.mp4</a></li><li><a href="022_%5BPre-Program%5D%20%F0%9F%A6%BE%20P2_%20Transformers/Lab%20Walkthrough/videos/ELELEM%20Lab%2002.info.json" class="asset-other">📎 ELELEM Lab 02.info.json</a></li><li><a href="022_%5BPre-Program%5D%20%F0%9F%A6%BE%20P2_%20Transformers/Lab%20Walkthrough/videos/ELELEM%20Lab%2002.webp" class="asset-other">📎 ELELEM Lab 02.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Lecture Video
+                <span class='type-badge'>video</span>
+              </div>
+              <ul class="asset-list"><li><a href="022_%5BPre-Program%5D%20%F0%9F%A6%BE%20P2_%20Transformers/Lecture%20Video/videos/LLM%20Pre%20program%20video%20%232.mp4" class="asset-video">🎬 LLM Pre program video #2.mp4</a></li><li><a href="022_%5BPre-Program%5D%20%F0%9F%A6%BE%20P2_%20Transformers/Lecture%20Video/videos/LLM%20Pre%20program%20video%20%232.info.json" class="asset-other">📎 LLM Pre program video #2.info.json</a></li><li><a href="022_%5BPre-Program%5D%20%F0%9F%A6%BE%20P2_%20Transformers/Lecture%20Video/videos/LLM%20Pre%20program%20video%20%232.webp" class="asset-other">📎 LLM Pre program video #2.webp</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Slides: Transformers
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="022_%5BPre-Program%5D%20%F0%9F%A6%BE%20P2_%20Transformers/Slides_%20Transformers/4QDRyhwN0R3DvnegeMJISRII" class="asset-other">📎 4QDRyhwN0R3DvnegeMJISRII</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🏋️‍♀️ Post-Class Reading 
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="022_%5BPre-Program%5D%20%F0%9F%A6%BE%20P2_%20Transformers/%F0%9F%8F%8B%EF%B8%8F%E2%80%8D%E2%99%80%EF%B8%8F%20Post-Class%20Reading/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📔 Lab Notebook
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="022_%5BPre-Program%5D%20%F0%9F%A6%BE%20P2_%20Transformers/%F0%9F%93%94%20Lab%20Notebook/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📚 Pre-Class Reading
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="022_%5BPre-Program%5D%20%F0%9F%A6%BE%20P2_%20Transformers/%F0%9F%93%9A%20Pre-Class%20Reading/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+        </section><div class="phase-header">Phase 6: Core LLM Sessions</div>
+        <section id="lesson-23" class="lesson">
+          <h2>🤖 Session 1: BERT, GPT  </h2>
+          
+            <div class="slide">
+              <div class="slide-title">Slides: BERT+GPT
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="023_%F0%9F%A4%96%20Session%201_%20BERT%2C%20GPT/Slides_%20BERT%2BGPT/kuzFJhqrGM4cyHLCe2qn9Wmq" class="asset-other">📎 kuzFJhqrGM4cyHLCe2qn9Wmq</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🎥 Recording (human captions coming soon)
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="023_%F0%9F%A4%96%20Session%201_%20BERT%2C%20GPT/%F0%9F%8E%A5%20Recording%20%28human%20captions%20coming%20soon%29/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📔 Lab Notebook 
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="023_%F0%9F%A4%96%20Session%201_%20BERT%2C%20GPT/%F0%9F%93%94%20Lab%20Notebook/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📚 Pre-Class Reading
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="023_%F0%9F%A4%96%20Session%201_%20BERT%2C%20GPT/%F0%9F%93%9A%20Pre-Class%20Reading/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📹 Lab 1 Recording
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="023_%F0%9F%A4%96%20Session%201_%20BERT%2C%20GPT/%F0%9F%93%B9%20Lab%201%20Recording/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+        </section>
+        <section id="lesson-24" class="lesson">
+          <h2>👀 Session 2: ChatGPT </h2>
+          
+            <div class="slide">
+              <div class="slide-title">ChatGPT
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="024_%F0%9F%91%80%20Session%202_%20ChatGPT/ChatGPT/bqqQZ6Du04utKnHGg1OpSmMf" class="asset-other">📎 bqqQZ6Du04utKnHGg1OpSmMf</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🎥 Session 2 Recording (human captions coming soon)
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="024_%F0%9F%91%80%20Session%202_%20ChatGPT/%F0%9F%8E%A5%20Session%202%20Recording%20%28human%20captions%20coming%20soon%29/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📔 Lab Notebook(s)
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="024_%F0%9F%91%80%20Session%202_%20ChatGPT/%F0%9F%93%94%20Lab%20Notebook%28s%29/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📚 Post-Session Additional Reading
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="024_%F0%9F%91%80%20Session%202_%20ChatGPT/%F0%9F%93%9A%20Post-Session%20Additional%20Reading/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📚 Pre-Class Reading
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="024_%F0%9F%91%80%20Session%202_%20ChatGPT/%F0%9F%93%9A%20Pre-Class%20Reading/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+        </section><div class="phase-header">Phase 7: Retrieval-Augmented Generation (RAG)</div>
+        <section id="lesson-25" class="lesson">
+          <h2>🏔️Session 3: Introduction to RAGs </h2>
+          
+            <div class="slide">
+              <div class="slide-title">Slides: Introduction to RAGs
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="025_%F0%9F%8F%94%EF%B8%8FSession%203_%20Introduction%20to%20RAGs/Slides_%20Introduction%20to%20RAGs/b4zg0rt1sk3O5lyGYcLl7I9b" class="asset-other">📎 b4zg0rt1sk3O5lyGYcLl7I9b</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🎥 Session 3 Recording (human captions coming soon)
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="025_%F0%9F%8F%94%EF%B8%8FSession%203_%20Introduction%20to%20RAGs/%F0%9F%8E%A5%20Session%203%20Recording%20%28human%20captions%20coming%20soon%29/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📔 Lab Notebook
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="025_%F0%9F%8F%94%EF%B8%8FSession%203_%20Introduction%20to%20RAGs/%F0%9F%93%94%20Lab%20Notebook/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📚 Pre-Class Reading
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="025_%F0%9F%8F%94%EF%B8%8FSession%203_%20Introduction%20to%20RAGs/%F0%9F%93%9A%20Pre-Class%20Reading/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+        </section>
+        <section id="lesson-26" class="lesson">
+          <h2>🧵 Session 4: RAG II - Advanced RAG </h2>
+          
+            <div class="slide">
+              <div class="slide-title">Slides:RAG II - Advanced RAG
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="003_%F0%9F%A7%B5%20Session%204_%20RAG%20II%20-%20Advanced%20RAG/Slides_RAG%20II%20-%20Advanced%20RAG/yg2ISRuNtLrTERRpNqhIUpMY" class="asset-other">📎 yg2ISRuNtLrTERRpNqhIUpMY</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🆓 Post-Class Reading
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="003_%F0%9F%A7%B5%20Session%204_%20RAG%20II%20-%20Advanced%20RAG/%F0%9F%86%93%20Post-Class%20Reading/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🎥 Session 4 Recording (human captions coming soon)
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="003_%F0%9F%A7%B5%20Session%204_%20RAG%20II%20-%20Advanced%20RAG/%F0%9F%8E%A5%20Session%204%20Recording%20%28human%20captions%20coming%20soon%29/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📔 Lab Notebook
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="003_%F0%9F%A7%B5%20Session%204_%20RAG%20II%20-%20Advanced%20RAG/%F0%9F%93%94%20Lab%20Notebook/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📚 Pre-Class Reading
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="003_%F0%9F%A7%B5%20Session%204_%20RAG%20II%20-%20Advanced%20RAG/%F0%9F%93%9A%20Pre-Class%20Reading/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+        </section><div class="phase-header">Phase 8: Agents, Fine-Tuning &amp; SOTA</div>
+        <section id="lesson-27" class="lesson">
+          <h2>💪Draft:  Session 5:  Agents </h2>
+          
+            <div class="slide">
+              <div class="slide-title">Slides: Agents
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="004_%F0%9F%92%AADraft_%20Session%205_%20Agents/Slides_%20Agents/02VApevm2Av0Ggb6o4fs6bhj" class="asset-other">📎 02VApevm2Av0Ggb6o4fs6bhj</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🆓 Post-Class Reading
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="004_%F0%9F%92%AADraft_%20Session%205_%20Agents/%F0%9F%86%93%20Post-Class%20Reading/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🎥 Session 5 Recording (human captions coming soon)
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="004_%F0%9F%92%AADraft_%20Session%205_%20Agents/%F0%9F%8E%A5%20Session%205%20Recording%20%28human%20captions%20coming%20soon%29/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📔 Lab Notebook
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="004_%F0%9F%92%AADraft_%20Session%205_%20Agents/%F0%9F%93%94%20Lab%20Notebook/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📚 Pre-Class Reading
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="004_%F0%9F%92%AADraft_%20Session%205_%20Agents/%F0%9F%93%9A%20Pre-Class%20Reading/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+        </section>
+        <section id="lesson-28" class="lesson">
+          <h2>🔎 Session 6: Fine-Tuning LLMs </h2>
+          
+            <div class="slide">
+              <div class="slide-title">Additional Reading Material
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="005_%F0%9F%94%8E%20Session%206_%20Fine-Tuning%20LLMs/Additional%20Reading%20Material/nU8Kc2whRfC4j6sgG2h8UNf4" class="asset-other">📎 nU8Kc2whRfC4j6sgG2h8UNf4</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Slides: Fine-Tuning
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="005_%F0%9F%94%8E%20Session%206_%20Fine-Tuning%20LLMs/Slides_%20Fine-Tuning/bKOgNw14Mw0dZmdilE87YVTg" class="asset-other">📎 bKOgNw14Mw0dZmdilE87YVTg</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🆓 Post-Class Reading
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="005_%F0%9F%94%8E%20Session%206_%20Fine-Tuning%20LLMs/%F0%9F%86%93%20Post-Class%20Reading/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🎥 Session 6 Recording (human captions coming soon)
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="005_%F0%9F%94%8E%20Session%206_%20Fine-Tuning%20LLMs/%F0%9F%8E%A5%20Session%206%20Recording%20%28human%20captions%20coming%20soon%29/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📔 Lab Notebook
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="005_%F0%9F%94%8E%20Session%206_%20Fine-Tuning%20LLMs/%F0%9F%93%94%20Lab%20Notebook/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📚 Pre-Class Reading
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="005_%F0%9F%94%8E%20Session%206_%20Fine-Tuning%20LLMs/%F0%9F%93%9A%20Pre-Class%20Reading/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+        </section>
+        <section id="lesson-29" class="lesson">
+          <h2>🖊️ Session 7:  SOTA </h2>
+          
+            <div class="slide">
+              <div class="slide-title">Slides: Key Architectural Advancements in Modern LLMs
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="006_%F0%9F%96%8A%EF%B8%8F%20Session%207_%20SOTA/Slides_%20Key%20Architectural%20Advancements%20in%20Modern%20LLMs/ar0hgcrAoeSXinCgmlF1M18y" class="asset-other">📎 ar0hgcrAoeSXinCgmlF1M18y</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🎥 Hackathon Recording
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="006_%F0%9F%96%8A%EF%B8%8F%20Session%207_%20SOTA/%F0%9F%8E%A5%20Hackathon%20Recording/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🎥 Session 7 Recording (human captions coming soon)
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="006_%F0%9F%96%8A%EF%B8%8F%20Session%207_%20SOTA/%F0%9F%8E%A5%20Session%207%20Recording%20%28human%20captions%20coming%20soon%29/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📔 Lab Notebook
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="006_%F0%9F%96%8A%EF%B8%8F%20Session%207_%20SOTA/%F0%9F%93%94%20Lab%20Notebook/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📚 Pre-Class Reading
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="006_%F0%9F%96%8A%EF%B8%8F%20Session%207_%20SOTA/%F0%9F%93%9A%20Pre-Class%20Reading/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+        </section><div class="phase-header">Phase 9: Projects &amp; Creative Applications</div>
+        <section id="lesson-30" class="lesson">
+          <h2>The Hackathon Project Blueprint </h2>
+          
+            <div class="slide">
+              <div class="slide-title">📍 The Hackathon Project Blueprint
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="036_The%20Hackathon%20Project%20Blueprint/%F0%9F%93%8D%20The%20Hackathon%20Project%20Blueprint/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📦 Your Project Deliverables
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="036_The%20Hackathon%20Project%20Blueprint/%F0%9F%93%A6%20Your%20Project%20Deliverables/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+        </section>
+        <section id="lesson-31" class="lesson">
+          <h2>🎵🎨 The Multimedia Art Studio: Direct Your Digital Muse. </h2>
+          
+            <div class="slide">
+              <div class="slide-title">🎭 Concept and Motivation
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="001_%F0%9F%8E%B5%F0%9F%8E%A8%20The%20Multimedia%20Art%20Studio_%20Direct%20Your%20Digital%20Muse./%F0%9F%8E%AD%20Concept%20and%20Motivation/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📦 Your Project Deliverables
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="001_%F0%9F%8E%B5%F0%9F%8E%A8%20The%20Multimedia%20Art%20Studio_%20Direct%20Your%20Digital%20Muse./%F0%9F%93%A6%20Your%20Project%20Deliverables/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🛠️ Recommended Tools and Libraries
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="001_%F0%9F%8E%B5%F0%9F%8E%A8%20The%20Multimedia%20Art%20Studio_%20Direct%20Your%20Digital%20Muse./%F0%9F%9B%A0%EF%B8%8F%20Recommended%20Tools%20and%20Libraries/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🤓 What We Expect
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="001_%F0%9F%8E%B5%F0%9F%8E%A8%20The%20Multimedia%20Art%20Studio_%20Direct%20Your%20Digital%20Muse./%F0%9F%A4%93%20What%20We%20Expect/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🪜 Step‑by‑Step Implementation Guide
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="001_%F0%9F%8E%B5%F0%9F%8E%A8%20The%20Multimedia%20Art%20Studio_%20Direct%20Your%20Digital%20Muse./%F0%9F%AA%9C%20Step%E2%80%91by%E2%80%91Step%20Implementation%20Guide/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+        </section>
+        <section id="lesson-32" class="lesson">
+          <h2>📄 The Argus Engine: Your All-Seeing Research Analyst </h2>
+          
+            <div class="slide">
+              <div class="slide-title">🎭 Concept and Motivation
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="002_%F0%9F%93%84%20The%20Argus%20Engine_%20Your%20All-Seeing%20Research%20Analyst/%F0%9F%8E%AD%20Concept%20and%20Motivation/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📦 Your Project Deliverables
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="002_%F0%9F%93%84%20The%20Argus%20Engine_%20Your%20All-Seeing%20Research%20Analyst/%F0%9F%93%A6%20Your%20Project%20Deliverables/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🗄️ Case Files
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="002_%F0%9F%93%84%20The%20Argus%20Engine_%20Your%20All-Seeing%20Research%20Analyst/%F0%9F%97%84%EF%B8%8F%20Case%20Files/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🛠️ Recommended Tools and Libraries
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="002_%F0%9F%93%84%20The%20Argus%20Engine_%20Your%20All-Seeing%20Research%20Analyst/%F0%9F%9B%A0%EF%B8%8F%20Recommended%20Tools%20and%20Libraries/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🤓 What We Expect
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="002_%F0%9F%93%84%20The%20Argus%20Engine_%20Your%20All-Seeing%20Research%20Analyst/%F0%9F%A4%93%20What%20We%20Expect/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🪜 Step‑by‑Step Implementation Guide
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="002_%F0%9F%93%84%20The%20Argus%20Engine_%20Your%20All-Seeing%20Research%20Analyst/%F0%9F%AA%9C%20Step%E2%80%91by%E2%80%91Step%20Implementation%20Guide/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+        </section>
+        <section id="lesson-33" class="lesson">
+          <h2>🤖 The Turing Trio: Your Autonomous Software Development Team. </h2>
+          
+            <div class="slide">
+              <div class="slide-title">🎭 Concept and Motivation
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="037_%F0%9F%A4%96%20The%20Turing%20Trio_%20Your%20Autonomous%20Software%20Development%20Team./%F0%9F%8E%AD%20Concept%20and%20Motivation/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">📦 Your Project Deliverables
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="037_%F0%9F%A4%96%20The%20Turing%20Trio_%20Your%20Autonomous%20Software%20Development%20Team./%F0%9F%93%A6%20Your%20Project%20Deliverables/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🛠️ Recommended Tools and Libraries
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="037_%F0%9F%A4%96%20The%20Turing%20Trio_%20Your%20Autonomous%20Software%20Development%20Team./%F0%9F%9B%A0%EF%B8%8F%20Recommended%20Tools%20and%20Libraries/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🤓 What We Expect
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="037_%F0%9F%A4%96%20The%20Turing%20Trio_%20Your%20Autonomous%20Software%20Development%20Team./%F0%9F%A4%93%20What%20We%20Expect/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🪜 Step‑by‑Step Implementation Guide
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="037_%F0%9F%A4%96%20The%20Turing%20Trio_%20Your%20Autonomous%20Software%20Development%20Team./%F0%9F%AA%9C%20Step%E2%80%91by%E2%80%91Step%20Implementation%20Guide/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+        </section><div class="phase-header">Reference &amp; Extras</div>
+        <section id="lesson-34" class="lesson">
+          <h2>📣 Invited Speakers </h2>
+          
+            <div class="slide">
+              <div class="slide-title">Slides: Adam Wiemerslage
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="014_%F0%9F%93%A3%20Invited%20Speakers/Slides_%20Adam%20Wiemerslage/3qJBVgGnzwAs7wtdYP2JfSBL" class="asset-other">📎 3qJBVgGnzwAs7wtdYP2JfSBL</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Slides: Laura Kulowski
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="014_%F0%9F%93%A3%20Invited%20Speakers/Slides_%20Laura%20Kulowski/fg2li9dqV74922hVsKyCMyNw" class="asset-other">📎 fg2li9dqV74922hVsKyCMyNw</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🎥 Speaker Session 1 (10/7)
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="014_%F0%9F%93%A3%20Invited%20Speakers/%F0%9F%8E%A5%20Speaker%20Session%201%20%2810_7%29/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">🎥 Speaker Session 2 (10/10)
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="014_%F0%9F%93%A3%20Invited%20Speakers/%F0%9F%8E%A5%20Speaker%20Session%202%20%2810_10%29/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+        </section>
+        <section id="lesson-35" class="lesson">
+          <h2>🎥 Zoom Link 🎥 </h2>
+          
+            <div class="slide">
+              <div class="slide-title">Main Course Zoom Link
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="007_%F0%9F%8E%A5%20Zoom%20Link%20%F0%9F%8E%A5/Main%20Course%20Zoom%20Link/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Office Hours Zoom Link
+                <span class='type-badge'>document</span>
+              </div>
+              <ul class="asset-list"><li><a href="007_%F0%9F%8E%A5%20Zoom%20Link%20%F0%9F%8E%A5/Office%20Hours%20Zoom%20Link/content.html" class="asset-content">🌐 View content</a></li></ul>
+            </div>
+        </section>
+        <section id="lesson-36" class="lesson">
+          <h2>😱 Deleted Scenes </h2>
+          
+            <div class="slide">
+              <div class="slide-title">Corrective RAG
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="020_%F0%9F%98%B1%20Deleted%20Scenes/Corrective%20RAG/xoSGTlJWLcV0iIRuvc3T1wy8" class="asset-other">📎 xoSGTlJWLcV0iIRuvc3T1wy8</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Deepseek v3 and R1
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="020_%F0%9F%98%B1%20Deleted%20Scenes/Deepseek%20v3%20and%20R1/75bEiIuxQJ1Q18piA1X0PKii" class="asset-other">📎 75bEiIuxQJ1Q18piA1X0PKii</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Prompting and Evaluation 
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="020_%F0%9F%98%B1%20Deleted%20Scenes/Prompting%20and%20Evaluation/zovnyzmKrYyFvk28vZJxedT3" class="asset-other">📎 zovnyzmKrYyFvk28vZJxedT3</a></li></ul>
+            </div>
+            <div class="slide">
+              <div class="slide-title">Slides: III (GraphRAG)
+                <span class='type-badge'>pdf</span>
+              </div>
+              <ul class="asset-list"><li><a href="020_%F0%9F%98%B1%20Deleted%20Scenes/Slides_%20III%20%28GraphRAG%29/J8KfzxdZhNiYnB2oSU4EwiQA" class="asset-other">📎 J8KfzxdZhNiYnB2oSU4EwiQA</a></li></ul>
+            </div>
+        </section>
+</main>
+</body>
+</html>

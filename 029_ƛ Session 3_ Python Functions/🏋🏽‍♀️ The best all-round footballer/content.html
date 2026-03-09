@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Content</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    max-width: 860px; margin: 0 auto; padding: 24px 20px;
+    color: #222; line-height: 1.6; background: #fff;
+  }
+  document { display: block; }
+  paragraph { display: block; margin: 0.6em 0; }
+  heading { display: block; font-weight: 700; margin: 1.2em 0 0.4em; }
+  heading[level="1"] { font-size: 1.6em; }
+  heading[level="2"] { font-size: 1.3em; }
+  heading[level="3"] { font-size: 1.1em; }
+  list { display: block; padding-left: 1.6em; margin: 0.5em 0; }
+  list[style="bullet"] { list-style-type: disc; }
+  list[style="number"] { list-style-type: decimal; }
+  list-item { display: list-item; margin: 0.25em 0; }
+  code { background: #f3f3f3; padding: 1px 5px; border-radius: 3px;
+          font-family: 'SF Mono', Menlo, monospace; font-size: .9em; }
+  pre, snippet { display: block; background: #1e1e1e; color: #d4d4d4;
+                  padding: 14px; border-radius: 6px; overflow-x: auto;
+                  font-family: 'SF Mono', Menlo, monospace; font-size: .85em;
+                  white-space: pre; margin: 0.8em 0; }
+  figure { display: block; margin: 1em 0; text-align: center; }
+  image { display: inline-block; max-width: 100%; }
+  image:before { content: ""; }
+  callout { display: block; background: #f0f4ff; border-left: 4px solid #6c47ff;
+             padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 0.8em 0; }
+  math { display: block; font-style: italic; margin: 0.5em 0; color: #444; }
+  table { border-collapse: collapse; width: 100%; margin: 0.8em 0; }
+  table-row { display: table-row; }
+  table-cell { display: table-cell; border: 1px solid #ddd; padding: 8px 10px; }
+  bold { font-weight: 700; }
+  italic { font-style: italic; }
+  underline { text-decoration: underline; }
+  link { color: #6c47ff; text-decoration: underline; cursor: pointer; }
+  hr { border: none; border-top: 1px solid #eee; margin: 1.2em 0; }
+</style>
+</head>
+<body>
+<document version="2.0"><paragraph>This exercise aims to use the filter, map, and sort functions on a FIFA players dataset to get their stats and generate an average of all the stats( to find out who is the best all-rounder)</paragraph><heading level="2">Instructions:</heading><list style="number"><list-item><paragraph>Take a look at the dataset and identify what values you need to extract.</paragraph></list-item><list-item><paragraph>Filter out everything except the integer values from the 1st data point (i.e., <code>data[0]</code>). Use the <code>int_val</code> datatype, which we got from the <code>read_data()</code> to check if it is an integer. Store the results in a list, <code>filter_int</code>.</paragraph></list-item><list-item><paragraph>Next, filter out all integers with more than 2 digits from <code>filter_int</code>. Do this by defining a function, <code>count_digit()</code>, that takes a number as input, returning <code>True</code> if the number is a 1-digit or a 2-digit number, and <code>False</code> otherwise.</paragraph></list-item><list-item><paragraph>Calculate the average of all these 1 and 2-digit integers, giving you an all-around statistics average for player 1 (i.e., <code>data[0]</code>).</paragraph></list-item></list><list style="number"><list-item><paragraph>Now we will find average stats for all players. For this:</paragraph><list style="bullet"><list-item><paragraph>Define a function <code>value_cal()</code> that takes elements of the dataset as input and returns the mean of 1- and 2-digit their integer values.</paragraph></list-item><list-item><paragraph>Implement this using the <code>filter()</code> function and the <code>count_digit()</code> function we built earlier.</paragraph></list-item></list></list-item><list-item><paragraph>Use <code>value_cal()</code> function to calculate average values for all entries in the data list using the <code>map()</code> function.</paragraph></list-item><list-item><paragraph>Sort your data list in increasing order of all-around potential (i.e., average of 1 and 2-digit integers), using the <code>sorted()</code> function, and report the best and worst player according to the all-around average values.</paragraph></list-item><list-item><paragraph>Using a larger dataset with 10,000 entries, perform the same operations and report the worst and best players according to the all-around average values.</paragraph></list-item></list><heading level="2">Hints:</heading><pre><link href="https://docs.python.org/3/library/functions.html#filter"><bold>filter()</bold></link></pre><paragraph>built-in function to filter out elements from a data structure.</paragraph><pre><bold><link href="https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions">lambda-expression</link></bold>
+</pre><paragraph>Small anonymous functions can be created with the <link href="https://docs.python.org/3/reference/expressions.html#lambda"><code>lambda</code></link> keyword.</paragraph><pre><bold><link href="https://docs.python.org/3/library/functions.html#map">map()</link></bold></pre><paragraph>built in function to apply a function on elements of a data structure.</paragraph><pre><bold><link href="https://docs.python.org/3/library/functions.html#sorted">sorted()</link></bold></pre><paragraph>Return a new sorted list from the items in iterable.</paragraph></document>
+</body>
+</html>

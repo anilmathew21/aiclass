@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Content</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    max-width: 860px; margin: 0 auto; padding: 24px 20px;
+    color: #222; line-height: 1.6; background: #fff;
+  }
+  document { display: block; }
+  paragraph { display: block; margin: 0.6em 0; }
+  heading { display: block; font-weight: 700; margin: 1.2em 0 0.4em; }
+  heading[level="1"] { font-size: 1.6em; }
+  heading[level="2"] { font-size: 1.3em; }
+  heading[level="3"] { font-size: 1.1em; }
+  list { display: block; padding-left: 1.6em; margin: 0.5em 0; }
+  list[style="bullet"] { list-style-type: disc; }
+  list[style="number"] { list-style-type: decimal; }
+  list-item { display: list-item; margin: 0.25em 0; }
+  code { background: #f3f3f3; padding: 1px 5px; border-radius: 3px;
+          font-family: 'SF Mono', Menlo, monospace; font-size: .9em; }
+  pre, snippet { display: block; background: #1e1e1e; color: #d4d4d4;
+                  padding: 14px; border-radius: 6px; overflow-x: auto;
+                  font-family: 'SF Mono', Menlo, monospace; font-size: .85em;
+                  white-space: pre; margin: 0.8em 0; }
+  figure { display: block; margin: 1em 0; text-align: center; }
+  image { display: inline-block; max-width: 100%; }
+  image:before { content: ""; }
+  callout { display: block; background: #f0f4ff; border-left: 4px solid #6c47ff;
+             padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 0.8em 0; }
+  math { display: block; font-style: italic; margin: 0.5em 0; color: #444; }
+  table { border-collapse: collapse; width: 100%; margin: 0.8em 0; }
+  table-row { display: table-row; }
+  table-cell { display: table-cell; border: 1px solid #ddd; padding: 8px 10px; }
+  bold { font-weight: 700; }
+  italic { font-style: italic; }
+  underline { text-decoration: underline; }
+  link { color: #6c47ff; text-decoration: underline; cursor: pointer; }
+  hr { border: none; border-top: 1px solid #eee; margin: 1.2em 0; }
+</style>
+</head>
+<body>
+<document version="2.0"><paragraph>For this hackathon, your goal is to build a functional prototype of your AI Art Studio. We're looking for a seamless, magical experience that transforms a user's idea into a multi-sensory "scene." A successful project should:</paragraph><list style="unordered"><list-item><paragraph><bold>1. Accept a Rich Creative Prompt:</bold></paragraph><list style="unordered"><list-item><paragraph>Your UI must accept a descriptive prompt for a scene, not just a mood. Think bigger! For example: <italic>"a rainy, neon-lit street in Tokyo,"</italic> or <italic>"a peaceful, sun-drenched meadow at dawn."</italic></paragraph></list-item></list></list-item><list-item><paragraph><bold>2. Generate a Cohesive Multimedia Triptych:</bold></paragraph><list style="unordered"><list-item><paragraph><bold>The Soundtrack:</bold> Generate an original instrumental track using a music API or model that captures the core emotion of the scene.</paragraph></list-item><list-item><paragraph><bold>The Narrative:</bold> Generate a matching poem, story snippet, or internal monologue using an LLM that brings the scene's story to life.</paragraph></list-item><list-item><paragraph><bold>The Visual:</bold> Generate a key piece of "concept art" or a "keyframe" for the scene using an image generation model, providing a stunning visual anchor.</paragraph></list-item></list></list-item><list-item><paragraph><bold>3. Present an Interactive Artboard:</bold></paragraph><list style="unordered"><list-item><paragraph>Your UI, built with Gradio or Streamlit, must present all three generated assets (audio, text, and image) together in a clean and cohesive layout. The user should be able to experience the full scene in one place.</paragraph></list-item></list></list-item><list-item><paragraph><bold>4. Enable Creative Exploration:</bold></paragraph><list style="unordered"><list-item><paragraph>Your prototype must allow the user to iteratively refine their creation. At a minimum, include a "Remix" or "Regenerate" button that creates a new version of at least one of the assets, allowing for artistic exploration.</paragraph></list-item></list></list-item><list-item><paragraph><bold>5. Document Your Creative Process:</bold></paragraph><list style="unordered"><list-item><paragraph>Your final submission must be a well-commented Colab notebook that clearly explains your prompts, design choices, and the workflow of your AI art studio.</paragraph></list-item></list></list-item></list><paragraph>While ambitious ideas like voice synthesis or video generation are exciting, the primary goal within the three-hour constraint is to create a polished core experience that masterfully demonstrates the collaboration between these different AI artists.</paragraph></document>
+</body>
+</html>

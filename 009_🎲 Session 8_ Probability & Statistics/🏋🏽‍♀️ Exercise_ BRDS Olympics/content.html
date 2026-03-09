@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Content</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    max-width: 860px; margin: 0 auto; padding: 24px 20px;
+    color: #222; line-height: 1.6; background: #fff;
+  }
+  document { display: block; }
+  paragraph { display: block; margin: 0.6em 0; }
+  heading { display: block; font-weight: 700; margin: 1.2em 0 0.4em; }
+  heading[level="1"] { font-size: 1.6em; }
+  heading[level="2"] { font-size: 1.3em; }
+  heading[level="3"] { font-size: 1.1em; }
+  list { display: block; padding-left: 1.6em; margin: 0.5em 0; }
+  list[style="bullet"] { list-style-type: disc; }
+  list[style="number"] { list-style-type: decimal; }
+  list-item { display: list-item; margin: 0.25em 0; }
+  code { background: #f3f3f3; padding: 1px 5px; border-radius: 3px;
+          font-family: 'SF Mono', Menlo, monospace; font-size: .9em; }
+  pre, snippet { display: block; background: #1e1e1e; color: #d4d4d4;
+                  padding: 14px; border-radius: 6px; overflow-x: auto;
+                  font-family: 'SF Mono', Menlo, monospace; font-size: .85em;
+                  white-space: pre; margin: 0.8em 0; }
+  figure { display: block; margin: 1em 0; text-align: center; }
+  image { display: inline-block; max-width: 100%; }
+  image:before { content: ""; }
+  callout { display: block; background: #f0f4ff; border-left: 4px solid #6c47ff;
+             padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 0.8em 0; }
+  math { display: block; font-style: italic; margin: 0.5em 0; color: #444; }
+  table { border-collapse: collapse; width: 100%; margin: 0.8em 0; }
+  table-row { display: table-row; }
+  table-cell { display: table-cell; border: 1px solid #ddd; padding: 8px 10px; }
+  bold { font-weight: 700; }
+  italic { font-style: italic; }
+  underline { text-decoration: underline; }
+  link { color: #6c47ff; text-decoration: underline; cursor: pointer; }
+  hr { border: none; border-top: 1px solid #eee; margin: 1.2em 0; }
+</style>
+</head>
+<body>
+<document version="2.0"><figure><img src="https://static.us.edusercontent.com/files/G5M0ub9wGZPlIHZtcXDxWaZf" width="854" height="342" style="max-width:100%" /></figure><heading level="2">Instructions: </heading><list style="bullet"><list-item><paragraph>In this exercise, you will simulate the 100m sprint race discussed during the lecture.</paragraph></list-item><list-item><paragraph>We have already defined for you a <code>Sprinter()</code> class which has two characteristics for each sprinter:</paragraph></list-item></list><list style="bullet"><list-item><list style="bullet"><list-item><paragraph>Base time </paragraph></list-item><list-item><paragraph>Performance variance </paragraph></list-item></list></list-item></list><list style="bullet"><list-item><paragraph> Run the code cell that makes four instances of the <code>Sprinter()</code> class. You will work with those for the entire exercise.</paragraph></list-item><list-item><paragraph>Call time attribute of the helper class to get the time taken by a competitor in the actual race.</paragraph></list-item><list-item><paragraph>First run the race simulation for five times; you will do this by making a dictionary of participant name as keys, and time taken in a simulated race as the values. You will sort this dictionary by values and determine the winner of the simulated race.</paragraph></list-item><list-item><paragraph>You will repeat the simulation of the race for 10,000 times and count who won the race for how many times. Based on this observation, you will then investigate <italic>why</italic> a particular participant won as many times.</paragraph></list-item><list-item><paragraph> You will again repeat the simulation  for 10,000 times but this time get the distribution of times for each participant over these runs. </paragraph></list-item><list-item><paragraph>You will calculate the mean race time, standard deviation of the race time and the confidence interval for each participant.</paragraph></list-item><list-item><paragraph>You will then run the helper code to observe a plot similar to the one given below:</paragraph></list-item></list><figure><img src="https://static.us.edusercontent.com/files/STIm3f8eAsyjifyvlYNGe61G" width="667" height="384" style="max-width:100%" /></figure><heading level="2">Hints: </heading><pre><link href="https://realpython.com/python-counter/"><bold>Counter()</bold></link>
+</pre><paragraph>Helps accumulating counts of objects in a certain data structure.</paragraph><pre><link href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html"><bold>np.mean()</bold></link>
+</pre><paragraph>Used to calculate the mean of an array.</paragraph><pre><link href="https://www.w3schools.com/python/ref_func_sorted.asp"><bold>sorted()</bold></link>
+</pre><paragraph>Used to sort data.</paragraph><pre><link href="https://numpy.org/doc/stable/reference/generated/numpy.std.html"><bold>np.std()</bold></link>
+</pre><paragraph>Used to calculate the std deviation of an array.</paragraph><pre><link href="https://numpy.org/doc/stable/reference/generated/numpy.percentile.html"><bold>np.percentile</bold></link>
+</pre><paragraph>Used to calculate percentile of data inbetween a given range. Frequently used for calculating confidence intervals.</paragraph></document>
+</body>
+</html>

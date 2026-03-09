@@ -1,0 +1,22 @@
+{
+  "id": 861867,
+  "original_id": null,
+  "lesson_id": 143235,
+  "user_id": 225,
+  "course_id": 81406,
+  "type": "video",
+  "title": "Lab 1 Walkthrough",
+  "index": 44,
+  "is_hidden": false,
+  "lesson_markable_id": null,
+  "rubric_id": null,
+  "rubric_points": null,
+  "auto_points": null,
+  "lti_deep_link_id": null,
+  "status": "completed",
+  "correct": null,
+  "response": null,
+  "created_at": "2025-09-22T10:30:53.266778+10:00",
+  "updated_at": null,
+  "video_url": "https://youtu.be/eF5gA9dRKgo"
+}

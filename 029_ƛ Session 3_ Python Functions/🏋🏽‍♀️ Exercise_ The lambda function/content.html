@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Content</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    max-width: 860px; margin: 0 auto; padding: 24px 20px;
+    color: #222; line-height: 1.6; background: #fff;
+  }
+  document { display: block; }
+  paragraph { display: block; margin: 0.6em 0; }
+  heading { display: block; font-weight: 700; margin: 1.2em 0 0.4em; }
+  heading[level="1"] { font-size: 1.6em; }
+  heading[level="2"] { font-size: 1.3em; }
+  heading[level="3"] { font-size: 1.1em; }
+  list { display: block; padding-left: 1.6em; margin: 0.5em 0; }
+  list[style="bullet"] { list-style-type: disc; }
+  list[style="number"] { list-style-type: decimal; }
+  list-item { display: list-item; margin: 0.25em 0; }
+  code { background: #f3f3f3; padding: 1px 5px; border-radius: 3px;
+          font-family: 'SF Mono', Menlo, monospace; font-size: .9em; }
+  pre, snippet { display: block; background: #1e1e1e; color: #d4d4d4;
+                  padding: 14px; border-radius: 6px; overflow-x: auto;
+                  font-family: 'SF Mono', Menlo, monospace; font-size: .85em;
+                  white-space: pre; margin: 0.8em 0; }
+  figure { display: block; margin: 1em 0; text-align: center; }
+  image { display: inline-block; max-width: 100%; }
+  image:before { content: ""; }
+  callout { display: block; background: #f0f4ff; border-left: 4px solid #6c47ff;
+             padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 0.8em 0; }
+  math { display: block; font-style: italic; margin: 0.5em 0; color: #444; }
+  table { border-collapse: collapse; width: 100%; margin: 0.8em 0; }
+  table-row { display: table-row; }
+  table-cell { display: table-cell; border: 1px solid #ddd; padding: 8px 10px; }
+  bold { font-weight: 700; }
+  italic { font-style: italic; }
+  underline { text-decoration: underline; }
+  link { color: #6c47ff; text-decoration: underline; cursor: pointer; }
+  hr { border: none; border-top: 1px solid #eee; margin: 1.2em 0; }
+</style>
+</head>
+<body>
+<document version="2.0"><paragraph>The aim of this exercise is to get familiar with using 'lambda' functions and normal functions for built-in functions such as filter, map and sort.</paragraph><heading level="2">Instructions:</heading><list style="number"><list-item><paragraph>Get the data and display the first 10 entries using pprint.</paragraph></list-item><list-item><paragraph>Use <code>sorted()</code> function to sort the dataset in increasing and decreasing order of heights. Display 10 entries from each sort.</paragraph></list-item><list-item><paragraph>Use the <code>map()</code> function to convert the height from cm to ft. and inches:</paragraph><list style="bullet"><list-item><paragraph>Use <code>map()</code> function and divide the height by <code>30.48</code> to get an integer which is the height in feet.</paragraph></list-item><list-item><paragraph>Use another <code>map()</code> function which first gets the remainder when height is divided by <code>30.48</code> and divides it by <code>2.54</code> to get the remaining height in inches.</paragraph></list-item><list-item><paragraph>Display name and height of the player in ft. and inches</paragraph></list-item></list></list-item><list-item><paragraph>Use the filter function to remove players under and above certain heights:</paragraph><list style="bullet"><list-item><paragraph>Remove all players which have a <code>height</code> ≤170.</paragraph></list-item><list-item><paragraph>Remove all players which have a <code>height</code> ≥185.</paragraph></list-item></list></list-item></list><heading level="2">Hints:</heading><pre><bold><link href="https://docs.python.org/3/library/functions.html#sorted">sorted()</link></bold></pre><paragraph>built in function to sort an ordered data structure.</paragraph><pre><bold><link href="https://docs.python.org/3/library/functions.html#map">map()</link></bold></pre><paragraph>built in function to apply function on elements of a data structure.</paragraph><pre><link href="https://docs.python.org/3/library/functions.html#filter"><bold>filter()</bold></link></pre><paragraph>built in function to filter out elements from a data structure.</paragraph></document>
+</body>
+</html>

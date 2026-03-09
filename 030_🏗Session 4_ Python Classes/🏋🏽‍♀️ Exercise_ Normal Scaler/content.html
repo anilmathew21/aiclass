@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Content</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    max-width: 860px; margin: 0 auto; padding: 24px 20px;
+    color: #222; line-height: 1.6; background: #fff;
+  }
+  document { display: block; }
+  paragraph { display: block; margin: 0.6em 0; }
+  heading { display: block; font-weight: 700; margin: 1.2em 0 0.4em; }
+  heading[level="1"] { font-size: 1.6em; }
+  heading[level="2"] { font-size: 1.3em; }
+  heading[level="3"] { font-size: 1.1em; }
+  list { display: block; padding-left: 1.6em; margin: 0.5em 0; }
+  list[style="bullet"] { list-style-type: disc; }
+  list[style="number"] { list-style-type: decimal; }
+  list-item { display: list-item; margin: 0.25em 0; }
+  code { background: #f3f3f3; padding: 1px 5px; border-radius: 3px;
+          font-family: 'SF Mono', Menlo, monospace; font-size: .9em; }
+  pre, snippet { display: block; background: #1e1e1e; color: #d4d4d4;
+                  padding: 14px; border-radius: 6px; overflow-x: auto;
+                  font-family: 'SF Mono', Menlo, monospace; font-size: .85em;
+                  white-space: pre; margin: 0.8em 0; }
+  figure { display: block; margin: 1em 0; text-align: center; }
+  image { display: inline-block; max-width: 100%; }
+  image:before { content: ""; }
+  callout { display: block; background: #f0f4ff; border-left: 4px solid #6c47ff;
+             padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 0.8em 0; }
+  math { display: block; font-style: italic; margin: 0.5em 0; color: #444; }
+  table { border-collapse: collapse; width: 100%; margin: 0.8em 0; }
+  table-row { display: table-row; }
+  table-cell { display: table-cell; border: 1px solid #ddd; padding: 8px 10px; }
+  bold { font-weight: 700; }
+  italic { font-style: italic; }
+  underline { text-decoration: underline; }
+  link { color: #6c47ff; text-decoration: underline; cursor: pointer; }
+  hr { border: none; border-top: 1px solid #eee; margin: 1.2em 0; }
+</style>
+</head>
+<body>
+<document version="2.0"><paragraph>The goal of the exercise is to write your own python scaler class.</paragraph><paragraph>In lecture we saw data standardization. </paragraph><figure><img src="https://static.us.edusercontent.com/files/x3i3ShbPv4peb5FpC1Zi0WTa" width="216" height="146" style="max-width:100%" /></figure><paragraph>Normalization is different: It sets the minimum of the data to 0 and the maximum to 1. </paragraph><heading level="2">Instructions:</heading><list style="number"><list-item><paragraph>Build a new class <code>Normal_scaler</code> based on the instructions given in the docstring (text within the triple quotes).</paragraph></list-item><list-item><paragraph>Build an instance of your class</paragraph></list-item><list-item><paragraph>Answer a multiple choice question</paragraph></list-item><list-item><paragraph>Compare two different scalers with the `vars` function</paragraph></list-item><list-item><paragraph>Answer two more multiple choice questions.</paragraph></list-item></list><heading level="2">Hints:</heading><paragraph>Normalization formula: </paragraph><math>x_{normalized}=\frac{x\ -\ x_{\min}}{x_{\max}-x_{\min}}</math><pre><link href="https://www.geeksforgeeks.org/__init__-in-python/"><bold>__init__</bold></link>
+</pre><paragraph>Dunder method to initialize an instance of a class.</paragraph><pre><link href="https://www.geeksforgeeks.org/__call__-in-python/"><bold>__call__</bold></link>
+</pre><paragraph>Dunder method to call an instance like a function.</paragraph></document>
+</body>
+</html>
